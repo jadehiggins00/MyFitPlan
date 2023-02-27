@@ -1,0 +1,21 @@
+.buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 100px);
+  width: auto;
+  background-color: bisque;
+}
+
+.button{
+  width: 70%;
+  margin: auto;
+  margin-top: 2em;
+  border: 15px solid green;
+  padding: 50px;
+  text-align: center;
+}
+
+.activity{
+  height: 40em;
+}
