@@ -23,3 +23,21 @@
     height: 8em;
     object-fit: contain;
 }
+
+.Date{
+    display: flex;
+    flex-direction: row;
+    font-size: 180%;
+    text-align: center;
+    
+}
+
+.ArrowButton{
+    border-radius: 25px;
+    width: 5em;
+    height: 5em;
+    padding-top: 0.5em;
+    margin: auto;
+    background: green;
+    background-position: center;
+}
