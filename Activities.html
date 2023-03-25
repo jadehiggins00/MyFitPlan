@@ -3,23 +3,63 @@
 
 <head>
   <title>Activities</title>
+ 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="General.css" media="screen">
   <link rel="stylesheet" href="Activities.css" media="screen">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body class="" data-lang="en">
   <header>
     <div  class="Header">
-      <a href="/Home.html" ><img src="/images/Home.png" class="HomeButton" alt=""></a>
+      <button class="btn-home" >
+        <a href="Home.html">
+        <img src="images/Home.png" class="HomeButton" alt="">
+        </a>
+      </button>
+      </button>
       <p class="HeaderText">MyFitPlan</p>
-      <a href="/Profile.html" ><img src="/images/Profile.png" class="ProfileIcon" alt=""></a>
+      <button class="btn-home" >
+        <a href="Profile.html">
+        <img src="images/Profile.png" class="ProfileIcon" alt="">
+        </a>
+      </button>
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 offset-md-0.2">
+          <hr  id="line">
+        </div>
+      </div>
     </div>
   </header>
   <section class="Date" id="">
-    <a href="" class="ArrowButton"><img src="/images/LeftArrow.png"></a>
+ 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center text-center">
+          <div class="d-flex align-items-center mr-auto">
+            <button class="btn btn-primary btn-custom  ml-5" >
+              <img src="images/LeftArrow.png" alt="Button 1" class="mr-2">
+            </button>
+          </div>
+          <div class="flex-fill h2-custom">
+            <h2>Monday</h2>
+          </div>
+          <div class="d-flex align-items-center ml-auto">
+            <button class="btn btn-primary btn-custom  mr-5 " >
+              <img src="images/RightArrow.png" alt="Button 2" class="mr-2">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- <button class="ArrowButton"><img src="images/LeftArrow.png"></button>
     <h2>Monday</h2>
-    <a href="" class="ArrowButton"><img src="/images/RightArrow.png"></a>
+    <a href="" class="ArrowButton"><img src="images/RightArrow.png"></a> -->
   </section>
   <section class="Activities" id="">
     <div class="">
@@ -30,7 +70,9 @@
     </div>
   </section>
   <section class="AddButton">
-    <a href="/AddActivity.html" class="BottomButton">AddActivity</a>
+    <button href="AddActivity.html" class="BottomButton">
+      <img src="images/LeftArrow.png" alt="Button 1" class="mr-2">
+    </button>
     <a href="/RemoveActivity.html" class="BottomButton">RemoveActivity</a>
   </section>
 

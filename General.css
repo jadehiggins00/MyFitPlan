@@ -41,3 +41,25 @@
     background: green;
     background-position: center;
 }
+
+.btn-custom {
+    background-color: green;
+    border:0;
+    border-radius: 25px;
+    padding:10px;
+}
+
+.h2-custom{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-size: 100px;
+    /* font-weight: 400; */
+    color: #5B616B;
+}
+
+#line {
+  
+  border: 1px solid #000000;
+/* border-top: 2px solid #2E8540; */
+  }
+  
