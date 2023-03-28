@@ -8,6 +8,8 @@
     margin-top: 1em;
     display: flex;
     flex-direction: row;
+    font-family: 'Jost';
+    font-style: normal;
 }
 
 .leftButton{
@@ -15,10 +17,7 @@
 
 
 }
-.btn-custom {
-    color: green;
-    border-radius: 25px;
-}
+
 
 .btn-home{
    
@@ -26,7 +25,48 @@
     border:0;
 }
 
+.btn-custom {
+    background-color: #2E8540;
+    border:0;
+    border-radius: 25px;
+    padding:10px;
+}
 
+.btn-add{
+    background-color: #2E8540;
+    /* border-color: black;
+    border-width: 10px; */
+    padding:10px;
+    border: 10px solid #000000;
+    margin-left: 12em;
+}
+
+.btn-remove{
+    background-color:#981B1E;
+    border: 10px solid #000000;
+    border-color: black;
+    /* border-width: 10px; */
+    padding:10px;
+    margin-right: 12em;
+   
+}
+
+.h2-custom{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-size: 100px;
+    /* font-weight: 400; */
+    color: #5B616B;
+}
+
+.h1-add{
+    font-family: 'Jost';
+    font-style: normal;
+    font-size: 100px;
+    /* font-weight: 400; */
+    color:#212121;
+    margin-left: 215px;
+}
 
 .BottomButton{
     border-radius: 25px;

@@ -3,7 +3,7 @@
     flex-direction: row;
     margin: 0;
     height: 8em;
-    background-color: aliceblue;
+
   }
 
 .HomeButton {
@@ -42,20 +42,7 @@
     background-position: center;
 }
 
-.btn-custom {
-    background-color: green;
-    border:0;
-    border-radius: 25px;
-    padding:10px;
-}
 
-.h2-custom{
-    font-family: 'Nunito';
-    font-style: normal;
-    font-size: 100px;
-    /* font-weight: 400; */
-    color: #5B616B;
-}
 
 #line {
   
