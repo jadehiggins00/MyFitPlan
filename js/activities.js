@@ -28,19 +28,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // function to add tasks to the current day of the week
     function addTask() {
 
-        const taskInput = document.querySelector('#taskInput')
-        const taskList = document.querySelector('.task-list')
+        // const taskInput = document.querySelector('#taskInput')
+        // const taskList = document.querySelector('.task-list')
 
-        const taskItem = document.createElement('li');
-        taskItem.textContent = taskInput.value;
-        taskList.appendChild(taskItem);
+        // const taskItem = document.createElement('li');
+        // taskItem.textContent = taskInput.value;
+        // taskList.appendChild(taskItem);
 
-        taskInput.value = '';
+        // taskInput.value = '';
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+   
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        //displaying the modal
+        modal.style.display = "block";
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+
 
     }
 
     //event listener for the Add button - which calls the addTask()
-    const addTaskButton = document.querySelector('#addTaskButton');
+    const addTaskButton = document.querySelector('#addBtn');
     addTaskButton.addEventListener('click', addTask);
 
 });
