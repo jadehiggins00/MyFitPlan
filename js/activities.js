@@ -8,22 +8,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // adding event listeners to the navigation buttons to cycle through the days of the week
     const leftButton = document.querySelector('.btn.btn-primary.btn-custom.ml-5');
     const rightButton = document.querySelector('button.btn-custom.mr-5');
-    
+    const addButton = document.querySelector('.btn.btn-primary.btn-add.rounded-circle')
+    const carousel = document.querySelector('.carousel.slide');
+
     leftButton.addEventListener('click', () => {
         currentDay = (currentDay === 0) ? 6 : currentDay - 1;
+        carousel.carousel('slide', { interval: 0, direction: 'left' });
         updateDay();
+        
     });
     
     rightButton.addEventListener('click', () => {
         currentDay = (currentDay === 6) ? 0 : currentDay + 1;
+        carousel.carousel('slide', { interval: 0, direction: 'right' });
         updateDay();
     });
+
+    // event listener to the add button to open the modal
+    addButton.addEventListener("click", () => {
+       window.location.href= 'AddActivity.html';
+    });
+
+    // displaying the current day of the week
+    const dayHeader = document.querySelector('#day');
+    dayHeader.textContent = daysOfWeek[currentDay];
+    
+    // adding event listener to the carousel to update the current day of the week when the active image changes
+    carousel.addEventListener('slid.bs.carousel', () => {
+        currentDay = carousel.querySelector('.active').dataset.day;
+        dayHeader.textContent = daysOfWeek[currentDay];
+    });
+   
     
     // function to update day of the week - fetching the data from the dayOfWeek array
     function updateDay() {
         const dayElement = document.querySelector('.h2-custom h2');
         dayElement.textContent = daysOfWeek[currentDay];
     }
+
+    
 
     // function to add tasks to the current day of the week
     function addTask() {
@@ -37,28 +60,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // taskInput.value = '';
         // Get the modal
-        var modal = document.getElementById("myModal");
+        // var modal = document.getElementById("myModal");
 
    
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        // // Get the <span> element that closes the modal
+        // var span = document.getElementsByClassName("close")[0];
 
-        //displaying the modal
-        modal.style.display = "block";
+        // //displaying the modal
+        // modal.style.display = "block";
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
+        // // When the user clicks on <span> (x), close the modal
+        // span.onclick = function() {
+        //     modal.style.display = "none";
+        // }
 
 
 
     }
 
     //event listener for the Add button - which calls the addTask()
-    const addTaskButton = document.querySelector('#addBtn');
-    addTaskButton.addEventListener('click', addTask);
+    // const addTaskButton = document.querySelector('#addBtn');
+    // addTaskButton.addEventListener('click', addTask);
+
 
 });
 

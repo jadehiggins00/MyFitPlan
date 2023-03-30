@@ -4,7 +4,10 @@
 <head>
   <title>Activities</title>
  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type="text/javascript" src="C:\Users\JadeHiggins\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.js"></script>
+
   <link rel="stylesheet" href="General.css" media="screen">
   <link rel="stylesheet" href="Activities.css" media="screen">
   <script src="js/activities.js"></script>
@@ -61,36 +64,20 @@
   </section>
 
   <section class="tasks">
-    <!-- <div class="row">
-      <div class="col-12 d-flex justify-content-center align-items-center text-center">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Add a task" id="taskInput">
-          <div class="input-group-apspend">
-            <button class="btn btn-primary" type="button" id="addTaskButton">Add</button>
-          </div>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-day="0">
+          <img src="images/plus-v2.png" class="d-block w-100" alt="...">
         </div>
-      </div>
-    </div> -->
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+        <div class="carousel-item" data-day="1">
+          <img src="images/Profile.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-day="2">
+          <img src="images/Home.png" class="d-block w-100" alt="...">
         </div>
       </div>
     </div>
+    
     
     <div class="row">
       <div class="col-12 d-flex justify-content-center align-items-center text-center">
@@ -110,18 +97,18 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center text-center">
           <div class="d-flex align-items-center mr-auto">
-            <button href="AddActivity.html" class="btn btn-primary btn-add rounded-circle ">
-              <img src="images/plus-v2.png" alt="Button 1" class="p-3 ">
+            <button type="button" class="btn btn-primary btn-add rounded-circle ">
+              <img src="images/plus-v2.png" alt="add button" class="p-3 ">
             </button>
           </div>
          
           <div class="d-flex align-items-center ml-auto ">
-            <button href="AddActivity.html" class="btn btn-primary btn-remove rounded-circle ">
-              <img src="images/delete.png" alt="Button 1" class="p-3 ">
+            <button type="button" class="btn btn-primary btn-remove rounded-circle " >
+              <img src="images/delete.png" alt="remove button" class="p-3 ">
             </button>
           </div>
         </div>
-        <h1 class="d-flex h1-add align-items-center mr-auto ">Add</h1>
+        <h1 class="d-flex h1-add align-items-center mr-auto " >Add</h1>
         <h1 class="d-flex h1-remove align-items-center ml-auto ">Remove</h1>
       </div>
     </div>

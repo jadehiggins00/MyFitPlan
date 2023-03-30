@@ -1,5 +1,5 @@
 .Activities{
-    background-color: aquamarine;
+   
     width: 100%;
     height: 30em;
 }
@@ -74,7 +74,7 @@
     font-size: 100px;
     /* font-weight: 400; */
     color:#212121;
-    margin-right: 215px;
+    margin-right: 115px;
 }
 
 .BottomButton{
