@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     leftButton.addEventListener('click', () => {
         currentDay = (currentDay === 0) ? 6 : currentDay - 1;
-        console.log(currentDay);
         updateDay();
         
     });

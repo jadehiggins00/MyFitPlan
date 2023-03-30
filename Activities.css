@@ -94,3 +94,16 @@
     background-position: center;
     text-align: center;
 }
+
+.custom-con{
+    height:300px;
+}
+
+
+.my-container{
+    background-color: black;
+    height:2em;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
