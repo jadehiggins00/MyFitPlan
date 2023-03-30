@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-    let currentDay = 0; // 0 represents Monday in the daysOfWeek array
+    let currentDay = -1; // 0 represents Monday in the daysOfWeek array
     
     
     // adding event listeners to the navigation buttons to cycle through the days of the week

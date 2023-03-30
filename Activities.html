@@ -45,7 +45,7 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center text-center">
           <div class="d-flex align-items-center mr-auto">
-            <button class="btn btn-primary btn-custom ml-5" data-bs-target="#demo" data-bs-slide="prev" >
+            <button class="btn btn-primary btn-custom ml-5" data-bs-target="#demo" data-bs-slide="prev" onclick="updateDay(-1)" >
               <img src="images/LeftArrow.png" alt="Button 1" class="mr-2">
             </button>
           </div>
@@ -65,20 +65,25 @@
   </section>
 
   <section class="tasks">
-    <!-- Carousel -->
-  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel  data-interval turns off auto-play -->
+  <div id="demo" class="carousel slide" data-interval="false">
 
   <!-- Indicators/dots -->
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
     <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+
   </div>
 
   <!-- The slideshow/carousel -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="container p-5 my-5 bg-primary text-white" data-day="0">
+      <div class="container p-5 my-5 bg-primary text-white" >
         <h1>My First Bootstrap Page</h1>
         <p>This container has a border and some extra padding and margins.</p>
       </div>
@@ -91,6 +96,24 @@
     </div>
     <div class="carousel-item">
       <div class="container p-5 my-5 bg-success text-white">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-warning text-white">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-danger text-white">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-info text-black">
         <h1>My First Bootstrap Page</h1>
         <p>This container has a border and some extra padding and margins.</p>
       </div>
