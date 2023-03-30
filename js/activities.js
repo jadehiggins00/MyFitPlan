@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     leftButton.addEventListener('click', () => {
         currentDay = (currentDay === 0) ? 6 : currentDay - 1;
-        carousel.carousel('slide', { interval: 0, direction: 'left' });
+       
         updateDay();
         
     });
     
     rightButton.addEventListener('click', () => {
         currentDay = (currentDay === 6) ? 0 : currentDay + 1;
-        carousel.carousel('slide', { interval: 0, direction: 'right' });
+
         updateDay();
     });
 
@@ -29,21 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
        window.location.href= 'AddActivity.html';
     });
 
-    // displaying the current day of the week
-    const dayHeader = document.querySelector('#day');
-    dayHeader.textContent = daysOfWeek[currentDay];
-    
-    // adding event listener to the carousel to update the current day of the week when the active image changes
-    carousel.addEventListener('slid.bs.carousel', () => {
-        currentDay = carousel.querySelector('.active').dataset.day;
-        dayHeader.textContent = daysOfWeek[currentDay];
-    });
+ 
    
     
     // function to update day of the week - fetching the data from the dayOfWeek array
     function updateDay() {
         const dayElement = document.querySelector('.h2-custom h2');
         dayElement.textContent = daysOfWeek[currentDay];
+
+
     }
 
     
