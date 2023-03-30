@@ -5,8 +5,8 @@
   <title>Activities</title>
  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script type="text/javascript" src="C:\Users\JadeHiggins\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.js"></script>
 
   <link rel="stylesheet" href="General.css" media="screen">
@@ -45,15 +45,15 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center text-center">
           <div class="d-flex align-items-center mr-auto">
-            <button class="btn btn-primary btn-custom ml-5" data-bs-target="#demo" data-bs-slide="prev" onclick="updateDay(-1)" >
+            <button class="btn btn-primary btn-custom ml-5" data-bs-target="#demo" data-bs-slide="prev"  >
               <img src="images/LeftArrow.png" alt="Button 1" class="mr-2">
             </button>
           </div>
           <div class="flex-fill h2-custom">
-            <h2 id="day"></h2>
+            <h2 class="h2" id="day"></h2>
           </div>
           <div class="d-flex align-items-center ml-auto">
-            <button class="btn btn-primary btn-custom mr-5 " data-bs-target="#demo" data-bs-slide="next" >
+            <button class="btn btn-primary btn-custom mr-5 " data-bs-target="#demo" data-bs-slide="next"  >
               <img src="images/RightArrow.png" alt="Button 2" class="mr-2">
             </button>
           </div>
@@ -66,10 +66,10 @@
 
   <section class="tasks">
     <!-- Carousel  data-interval turns off auto-play -->
-  <div id="demo" class="carousel slide" data-interval="false">
+  <div id="demo" class="carousel" data-interval="false">
 
   <!-- Indicators/dots -->
-  <div class="carousel-indicators">
+  <!-- <div class="carousel-indicators">
     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
     <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
@@ -78,42 +78,52 @@
     <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
     <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
 
-  </div>
+  </div> -->
 
   <!-- The slideshow/carousel -->
-  <div class="carousel-inner">
+  <div class="carousel-inner" data-interval="false">
     <div class="carousel-item active">
-      <div class="container p-5 my-5 bg-primary text-white" >
+      <div class="container p-5 my-5 bg-primary text-white" id="monday" >
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+
+        <div class="container p-5 my-5 bg-warning text-white">
+
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-dark text-white" id="tuesday">
         <h1>My First Bootstrap Page</h1>
         <p>This container has a border and some extra padding and margins.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <div class="container p-5 my-5 bg-dark text-white">
+      <div class="container p-5 my-5 bg-success text-white" id="wednesday">
         <h1>My First Bootstrap Page</h1>
         <p>This container has a border and some extra padding and margins.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <div class="container p-5 my-5 bg-success text-white">
+      <div class="container p-5 my-5 bg-warning text-white" id="thursday">
         <h1>My First Bootstrap Page</h1>
         <p>This container has a border and some extra padding and margins.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <div class="container p-5 my-5 bg-warning text-white">
+      <div class="container p-5 my-5 bg-danger text-white" id="friday">
         <h1>My First Bootstrap Page</h1>
         <p>This container has a border and some extra padding and margins.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <div class="container p-5 my-5 bg-danger text-white">
+      <div class="container p-5 my-5 bg-info text-black" id="saturday">
         <h1>My First Bootstrap Page</h1>
         <p>This container has a border and some extra padding and margins.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <div class="container p-5 my-5 bg-info text-black">
+      <div class="container p-5 my-5 bg-secondary text-white" id="sunday">
         <h1>My First Bootstrap Page</h1>
         <p>This container has a border and some extra padding and margins.</p>
       </div>

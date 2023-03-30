@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-    let currentDay = -1; // 0 represents Monday in the daysOfWeek array
-    
+    let currentDay = 0; // 0 represents Monday in the daysOfWeek array
+    updateDay();
     
     // adding event listeners to the navigation buttons to cycle through the days of the week
     const leftButton = document.querySelector('.btn.btn-primary.btn-custom.ml-5');
@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     leftButton.addEventListener('click', () => {
         currentDay = (currentDay === 0) ? 6 : currentDay - 1;
-       
+        console.log(currentDay);
         updateDay();
         
     });
     
     rightButton.addEventListener('click', () => {
         currentDay = (currentDay === 6) ? 0 : currentDay + 1;
-
+        console.log(currentDay);
         updateDay();
     });
 
@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
        window.location.href= 'AddActivity.html';
     });
 
+    // const setDayOfWeek = () => {
+    //     const activeCarouselItem = document.querySelector('.carousel-item.active');
+    //     const dayOfWeek = activeCarouselItem.getAttribute('id');
+    //     document.getElementById('dayOfWeek').innerText = dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
+    //   };
  
    
     
@@ -36,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateDay() {
         const dayElement = document.querySelector('.h2-custom h2');
         dayElement.textContent = daysOfWeek[currentDay];
-
-
+        
+        console.log(daysOfWeek);
     }
 
     
