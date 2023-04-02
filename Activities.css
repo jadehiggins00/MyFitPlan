@@ -1,7 +1,7 @@
 .Activities{
    
     width: 100%;
-    height: 30em;
+    /* height: 37em; */
 }
 
 .AddButton{
@@ -38,7 +38,7 @@
     border-width: 10px; */
     padding:10px;
     border: 10px solid #000000;
-    margin-left: 12em;
+    margin-left: 9em;
 }
 
 .btn-remove{
@@ -47,14 +47,51 @@
     border-color: black;
     /* border-width: 10px; */
     padding:10px;
-    margin-right: 12em;
+    margin-right: 9em;
    
+}
+
+.btn-back{
+    font-family: 'Jost';
+    font-size: 90px;
+    background: #AEB0B5;
+    border: 3px solid #000000;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+}
+
+.h1-back{
+    font-family: 'Jost';
+    font-style: normal;
+    font-size: 50px;
+    /* font-weight: 400; */
+    color:#212121;
+    
+}
+
+
+.h1-add{
+    font-family: 'Jost';
+    font-style: normal;
+    font-size: 90px;
+    /* font-weight: 400; */
+    color:#212121;
+    margin-left: 175px;
+}
+
+.h1-remove{
+    font-family: 'Jost';
+    font-style: normal;
+    font-size: 90px;
+    /* font-weight: 400; */
+    color:#212121;
+    margin-right: 100px;
 }
 
 .h2-custom{
     font-family: 'Nunito';
     font-style: normal;
-    font-size: 4em;
+    font-size: 5em;
     /* font-weight: 400; */
     color: #5B616B;
 }
@@ -66,23 +103,7 @@
     color: #5B616B;
 }
 
-.h1-add{
-    font-family: 'Jost';
-    font-style: normal;
-    font-size: 100px;
-    /* font-weight: 400; */
-    color:#212121;
-    margin-left: 215px;
-}
 
-.h1-remove{
-    font-family: 'Jost';
-    font-style: normal;
-    font-size: 100px;
-    /* font-weight: 400; */
-    color:#212121;
-    margin-right: 115px;
-}
 
 .BottomButton{
     border-radius: 25px;
@@ -95,15 +116,17 @@
     text-align: center;
 }
 
-.custom-con{
-    height:300px;
+.container-body{
+    
 }
 
 
 .my-container{
-    background-color: black;
+    background-color: #D6D7D9;
+    color: #212121 ;
+    
     height:2em;
-    border: 3px solid #000000;
+    border: 3px solid #212121;
     box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
 }

@@ -18,11 +18,11 @@
     margin: auto;
 }
 
-.ProfileIcon {
+/* .ProfileIcon {
     margin: auto;
     height: 8em;
     object-fit: contain;
-}
+} */
 
 .Date{
     display: flex;
