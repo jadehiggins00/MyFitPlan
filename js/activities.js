@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     leftButton.addEventListener('click', () => {
         currentDay = (currentDay === 0) ? 6 : currentDay - 1;
+        console.log(currentDay);
         updateDay();
         
     });
@@ -28,12 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
        window.location.href= 'AddActivity.html';
     });
 
-    // const setDayOfWeek = () => {
-    //     const activeCarouselItem = document.querySelector('.carousel-item.active');
-    //     const dayOfWeek = activeCarouselItem.getAttribute('id');
-    //     document.getElementById('dayOfWeek').innerText = dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
-    //   };
- 
+    // jquery function to pause the carousel slider
+    $(document).ready(function(){
+        $('#demo').carousel('pause');
+      });
+
+    $(document).ready(function() {
+        $('#leftbutton').click(function() {
+          $('.carousel').carousel('prev');
+        });
+        
+        $('#rightbutton').click(function() {
+          $('.carousel').carousel('next');
+        });
+      });
    
     
     // function to update day of the week - fetching the data from the dayOfWeek array
@@ -41,7 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const dayElement = document.querySelector('.h2-custom h2');
         dayElement.textContent = daysOfWeek[currentDay];
         
-        console.log(daysOfWeek);
+        //console.log(daysOfWeek);
+
+           // Get the current date and set it to the selected day of the week
+            // const currentDate = new Date();
+            // currentDate.setDate(currentDate.getDate() + (currentDay + 7 - currentDate.getDay()) % 7);
+            
+            // // Set the datepicker to the selected day of the week
+            // const datepicker = document.getElementById("datepicker");
+            // datepicker.value = currentDate.toISOString().slice(0, 10);
     }
 
     
@@ -49,29 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // function to add tasks to the current day of the week
     function addTask() {
 
-        // const taskInput = document.querySelector('#taskInput')
-        // const taskList = document.querySelector('.task-list')
-
-        // const taskItem = document.createElement('li');
-        // taskItem.textContent = taskInput.value;
-        // taskList.appendChild(taskItem);
-
-        // taskInput.value = '';
-        // Get the modal
-        // var modal = document.getElementById("myModal");
-
    
-
-        // // Get the <span> element that closes the modal
-        // var span = document.getElementsByClassName("close")[0];
-
-        // //displaying the modal
-        // modal.style.display = "block";
-
-        // // When the user clicks on <span> (x), close the modal
-        // span.onclick = function() {
-        //     modal.style.display = "none";
-        // }
 
 
 

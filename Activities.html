@@ -7,8 +7,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- <script type="text/javascript" src="B:\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.js"></script> -->
-  <script type="text/javascript" src="C:\Users\JadeHiggins\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.js"></script>
+  <script type="text/javascript" src="B:\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.js"></script>
+  <!-- <script type="text/javascript" src="C:\Users\JadeHiggins\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.js"></script> -->
+  <script type="text/javascript" src="jquery-3.6.4.js"></script>
 
   <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
@@ -48,7 +49,7 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center text-center">
           <div class="d-flex align-items-center mr-auto">
-            <button class="btn btn-primary btn-custom ml-5" data-bs-target="#demo" data-bs-slide="prev"  >
+            <button class="btn btn-primary btn-custom ml-5" data-bs-target="#demo" id="leftbutton"  >
               <img src="images/LeftArrow.png" alt="Button 1" class="mr-2">
             </button>
           </div>
@@ -56,7 +57,7 @@
             <h2 class="h2 " id="day"></h2>
           </div>
           <div class="d-flex align-items-center ml-auto">
-            <button class="btn btn-primary btn-custom mr-5 " data-bs-target="#demo" data-bs-slide="next"  >
+            <button class="btn btn-primary btn-custom mr-5 " data-bs-target="#demo" id="rightbutton"  >
               <img src="images/RightArrow.png" alt="Button 2" class="mr-2">
             </button>
           </div>
@@ -69,29 +70,23 @@
 
   <section class="tasks">
     <!-- Carousel  data-interval turns off auto-play -->
-  <div id="demo" class="carousel" data-interval="false">
+  <div id="demo" class="carousel" >
 
   <!-- The slideshow/carousel -->
-  <div class="carousel-inner" data-interval="false">
-    <div class="carousel-item active">
-      <div class="container container-body p-5 my-5 h-100" id="monday" >
-  
-
+  <div class="carousel-inner"  >
+    <div class="carousel-item active"  >
+      <div class="container container-body p-5 my-5 h-100" id="monday"  >
         <div class="container my-container p-4 my-5 h-25 ">
-        
-            <div class="row">
-              <div class="col-md-6 p-4">
+            <div class="row" >
+              <div class="col-md-6 p-4" >
                 <img src="images/walk.png" class="img-fluid" alt="your image">
               </div>
               <div class="col-md-6 text-center">
                 <h1 class="p-5">Walk 30 minutes</h1>
-               
               </div>
             </div>
           </div>
-
           <div class="container my-container p-4 my-5 h-25 ">
-        
             <div class="row">
               <div class="col-md-6 p-4">
                 <img src="images/swimming.png" class="img-fluid" alt="your image">

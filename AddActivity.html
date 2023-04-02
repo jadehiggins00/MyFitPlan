@@ -5,8 +5,13 @@
   <title>Activities</title>
  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+  <script type="text/javascript" src="B:\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.js"></script>
+  <!-- <script type="text/javascript" src="C:\Users\JadeHiggins\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.js"></script> -->
+
+  <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
   <link rel="stylesheet" href="General.css" media="screen">
   <link rel="stylesheet" href="Activities.css" media="screen">
   <script src="js/activities.js"></script>
@@ -15,21 +20,21 @@
 <body class="" data-lang="en">
   <header>
     <div  class="Header">
-      <button class="btn-home" >
+      <button class="btn btn-home bg-none" >
         <a href="Home.html">
-        <img src="images/Home.png" class="HomeButton" alt="">
+        <img src="images/Home.png" class="img-fluid   " alt="">
         </a>
       </button>
       </button>
-      <p class="HeaderText">MyFitPlan</p>
-      <button class="btn-home" >
+      <p class="HeaderText p-5">MyFitPlan</p>
+      <button class="btn btn-profile bg-none" >
         <a href="Profile.html">
-        <img src="images/Profile.png" class="ProfileIcon" alt="">
+        <img src="images/user.png" class="img-fluid  p-4 " alt="">
         </a>
       </button>
 
     </div>
-    <div class="container">
+    <div class="container p-4">
       <div class="row">
         <div class="col-md-12 offset-md-0.2">
           <hr  id="line">
@@ -39,19 +44,19 @@
   </header>
   <section class="Date" id="">
  
-    <div class="container-fluid">
+    <div class="container-fluid p-4">
       <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center text-center">
           <div class="d-flex align-items-center mr-auto">
-            <button class="btn btn-primary btn-custom ml-5"  >
+            <button class="btn btn-primary btn-custom ml-5" data-bs-target="#demo" data-bs-slide="prev"  >
               <img src="images/LeftArrow.png" alt="Button 1" class="mr-2">
             </button>
           </div>
-          <div class="flex-fill h2-custom">
-            <h2 id="day"></h2>
+          <div class="flex-fill ">
+            <h2>Add an Activity</h2>
           </div>
           <div class="d-flex align-items-center ml-auto">
-            <button class="btn btn-primary btn-custom mr-5 " >
+            <button class="btn btn-primary btn-custom mr-5 " data-bs-target="#demo" data-bs-slide="next"  >
               <img src="images/RightArrow.png" alt="Button 2" class="mr-2">
             </button>
           </div>
@@ -63,28 +68,79 @@
   </section>
 
   <section class="tasks">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
+    <!-- Carousel  data-interval turns off auto-play -->
+  <div id="demo" class="carousel">
+
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner" >
+    <div class="carousel-item active">
+      <div class="container container-body p-5 my-5 h-100" id="monday" >
+  
+
+        <div class="container my-container p-4 my-5 h-25 ">
+        
+            <div class="row">
+              <div class="col-md-6 p-4">
+                <img src="images/walk.png" class="img-fluid" alt="your image">
+              </div>
+              <div class="col-md-6 text-center">
+                <h1 class="p-5">Walk 30 minutes</h1>
+               
+              </div>
+            </div>
+          </div>
+
+          <div class="container my-container p-4 my-5 h-25 ">
+        
+            <div class="row">
+              <div class="col-md-6 p-4">
+                <img src="images/swimming.png" class="img-fluid" alt="your image">
+              </div>
+              <div class="col-md-6 text-center">
+                <h1 class="p-5">Went for a Swim</h1>
+               
+              </div>
+            </div>
+          </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-   
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-dark text-white" id="tuesday">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-success text-white" id="wednesday">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-warning text-white" id="thursday">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-danger text-white" id="friday">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-info text-black" id="saturday">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="container p-5 my-5 bg-secondary text-white" id="sunday">
+        <h1>My First Bootstrap Page</h1>
+        <p>This container has a border and some extra padding and margins.</p>
+      </div>
+    </div>
+  </div>
     
     
     <div class="row">
@@ -118,8 +174,22 @@
         </div>
         <h1 class="d-flex h1-add align-items-center mr-auto " >Add</h1>
         <h1 class="d-flex h1-remove align-items-center ml-auto ">Remove</h1>
+        <div class="col-12 text-center p-5">
+          <button type="button" class="btn btn-back btn-back">
+            <div class="row">
+              <img src="images/back-arrow.png" alt="back button" class="p-3 col-md-6 ">
+              <h1 class=" h1-back col-md-6 p-5 ">Back</h1>
+            </div>
+           
+          </button>
+        </div>
       </div>
+      
+
     </div>
+
+  
+    
   </section>
 
 </body>
