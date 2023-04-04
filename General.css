@@ -49,11 +49,34 @@
     padding:10px;
 }
 
+/* .vertical-line {
+    border-left: 2px solid black;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+  } */
+  
+
+.vertical-line {
+    border-left: 1px solid #8D8C8C;
+    height: 42%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .horizontal-line {
+    border-top: 2px solid black;
+    width: 64%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
 
 #line {
   
-  border: 1px solid #000000;
+  border: 1px solid #8D8C8C;
 /* border-top: 2px solid #2E8540; */
   }
   

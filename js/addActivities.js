@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     $(document).ready(function(){
         // jquery function to pause the carousel slider
+     
         $('.carousel').carousel({
             interval:0
         })
