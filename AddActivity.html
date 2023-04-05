@@ -16,7 +16,8 @@
   <link rel="stylesheet" href="General.css" media="screen">
   <link rel="stylesheet" href="Activities.css" media="screen">
   <link rel="stylesheet" href="AddActivity.css" media="screen">
-  <script src="js/addActivities.js"></script>
+  <!-- <script src="js/addActivities.js"></script> -->
+  <script src="js/queries.js"></script>
 </head>
 
 <body class="" data-lang="en">
@@ -56,14 +57,16 @@
       <div class="container container-body p-6 my-5 h-100"   >
         <div class="container my-container p-4 my-5 h-25 ">
             <div class="row" >
+              <!-- Run button -->
               <div class="col-md-6 text-center p-4" >
-                <button class="btn btn-primary btn-exercise bg-transparent" id="swim">
+                <button class="btn btn-primary btn-exercise bg-transparent" id="run">
                 <img src="images/run.png" class="img-fluid" alt="your image">
                 </button>
               </div>
               <div class="vertical-line"></div>
+              <!-- Swim Button -->
               <div class="col-md-6 text-center p-1">
-                <button class="btn btn-primary btn-exercise bg-transparent" id="swim">
+                <button class="btn btn-primary btn-exercise bg-transparent" id="insert-swim-btn">
                   <img src="images/swim.png" class="img-fluid" alt="your image" id="swimImage">
                 </button>
                
@@ -147,42 +150,47 @@
     </div>
   </section>
   <section class="Activities" id="">
-
   </section>
+
+
   <section class="AddButton">
     <div class="container-fluid">
       <div class="row">
+
+        <!-- text box entry -->
+        <div class="col-12 text-center p-5">
+          <div class="form-group">
+            <label for="text-exercise">Name Your Activity</label>
+            <input type="text" class="form-control form-control-lg" id="text-exercise">
+          </div>
+        </div>
+
+        <!-- row that contains the two buttons -->
         <div class="col-12 d-flex justify-content-center align-items-center text-center">
           <div class="d-flex align-items-center mr-auto">
-            <button type="button" class="btn btn-primary btn-add rounded-circle ">
-              <img src="images/plus-v2.png" alt="add button" class="p-3 ">
+            <!-- back button -->
+            <button type="button" class="btn btn-back btn-back">
+              <div class="row">
+                <img src="images/back-arrow.png" alt="back button" class="p-3 col-md-6 ">
+                <h1 class=" h1-back col-md-6 p-5 ">Back</h1>
+              </div>
+             
             </button>
           </div>
-         
+         <!-- confirm button -->
           <div class="d-flex align-items-center ml-auto ">
-            <button type="button" class="btn btn-primary btn-remove rounded-circle " >
-              <img src="images/delete.png" alt="remove button" class="p-3 ">
+            <button type="button" class="btn btn-primary btn-confirm" >
+              <div class="row">
+                <img src="images/tick (1).png" alt="confirm button" class="p-3 col-md-6 ">
+                <h2 class="h1-confirm col-md-6 p-5 ">Confirm</h2>
+              </div>
             </button>
           </div>
         </div>
-        <h1 class="d-flex h1-add align-items-center mr-auto " >Add</h1>
-        <h1 class="d-flex h1-remove align-items-center ml-auto ">Remove</h1>
-        <div class="col-12 text-center p-5">
-          <button type="button" class="btn btn-back btn-back">
-            <div class="row">
-              <img src="images/back-arrow.png" alt="back button" class="p-3 col-md-6 ">
-              <h1 class=" h1-back col-md-6 p-5 ">Back</h1>
-            </div>
-           
-          </button>
-        </div>
-      </div>
+     
       
-
+      </div>
     </div>
-
-  
-    
   </section>
 
 </body>
