@@ -3,11 +3,15 @@ const mongoose = require('../db/mongoose');
 const express = require('express');
 const Activity = require('./models/activities');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
+
 
 const app = express();
 
 //parse the incoming json requests
 app.use(bodyParser.json());
+app.use(cors());
 
 // create activity 
 app.post('/activities', (req, res) =>{
