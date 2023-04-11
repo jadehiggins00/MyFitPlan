@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const leftButton = document.querySelector('.btn.btn-primary.btn-custom.ml-5');
     const rightButton = document.querySelector('button.btn-custom.mr-5');
     const addButton = document.querySelector('.btn.btn-primary.btn-add.rounded-circle')
-    const carousel = document.querySelector('.carousel.slide');
+
 
     leftButton.addEventListener('click', () => {
         currentDay = (currentDay === 0) ? 6 : currentDay - 1;
@@ -29,17 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
        window.location.href= 'AddActivity.html';
     });
 
-    
+     // jquery function to pause the carousel slider
     $(document).ready(function(){
-        // jquery function to pause the carousel slider
-     
         $('.carousel').carousel({
             interval:0
         })
       });
 
   
-
+    // functions to go next and prev carousel item 
     $(document).ready(function() {
         $('#leftbutton').click(function() {
           $('.carousel').carousel('prev');
