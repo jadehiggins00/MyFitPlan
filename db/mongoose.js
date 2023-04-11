@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-
-
-
+// connecting to atlas
 mongoose.connect("mongodb+srv://dbJade:jade@fitplandb.uf2iwoo.mongodb.net/?retryWrites=true&w=majority");
 
 
