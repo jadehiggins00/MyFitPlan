@@ -15,8 +15,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-  
-
 
 // request to add data into the database
 app.post('/activities', (req, res) =>{
@@ -27,7 +25,7 @@ app.post('/activities', (req, res) =>{
     const weekDays = days.map(day => {
         const activities = day.activities.map(activity => new Activity({name: activity.name}));
         console.log(activities);
-        const newDay = new Day({ name: day.name, activities });
+        const newDay = new Day({ id: day.dayId,  name: day.name, activities });
         return newDay;
 
     });
@@ -43,11 +41,14 @@ app.post('/activities', (req, res) =>{
 
 // get all activities
 app.get('/activities', (req, res) =>{
+
+    // an array of promises to grab all the data.
     const promises = [];
     promises.push(Activity.find({}));
     promises.push(Day.find({}));
     promises.push(Week.find({}));
 
+    // we use promise all to wait for all promises to resolve before sending the response
     Promise.all(promises)
     .then(([activities, days, weeks]) =>{
         res.send({activities, days, weeks});

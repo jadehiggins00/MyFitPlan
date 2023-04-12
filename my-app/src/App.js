@@ -16,7 +16,8 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:3003/activities')
       .then(response => {
-        setActivities(response.data);
+        const weeksData = response.data.weeks;
+        setActivities(weeksData);
       })
       .catch(error => {
         console.log(error);
@@ -73,11 +74,28 @@ function App() {
     <section>
     <div>
       <h1>this is a list </h1>
-    <ul>
-      {activities.map(activity => (
-        <li key={activity._id}>{activity.name } </li>
-      ))}
-    </ul>
+   
+<ul>
+  {activities.map(week => (
+    <li key={week.weekId}>
+      {week.weekName}
+      <ul>
+        {week.days.map(day => (
+          <li key={day.dayId}>
+            {day.name}
+            <ul>
+              {day.activities.map(activity => (
+                <li key={activity._id}>
+                  {activity.name}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </li>
+  ))}
+</ul>
   </div>
     </section>
   
