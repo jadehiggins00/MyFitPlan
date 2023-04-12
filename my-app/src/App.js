@@ -11,10 +11,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
-  const [activities, setActivities] = useState([]);
+  const [ activities, setActivities] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/activities')
+    axios.get('http://localhost:3003/activities')
       .then(response => {
         setActivities(response.data);
       })
@@ -75,7 +75,7 @@ function App() {
       <h1>this is a list </h1>
     <ul>
       {activities.map(activity => (
-        <li key={activity._id}>{activity.DayOfWeek} - {activity.Exercise}</li>
+        <li key={activity._id}>{activity.name } </li>
       ))}
     </ul>
   </div>
