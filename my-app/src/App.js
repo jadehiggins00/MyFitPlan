@@ -15,9 +15,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
+  // grabbing the activities object
   const [ activities, setActivities] = useState([]);
   //using a state var to set the currentDay to monday (0)
   const [currentDayIndex, setCurrentDayIndex] = useState(0);
+
+
+    // Create a function to get the date based on the current day index
+    const getCurrentDate = (dayIndex) => {
+      const today = new Date();
+      // this line of code controls the date aligning with the day
+      today.setDate(today.getDate()  + (dayIndex - today.getDay() + 1));
+      //format of day 
+      return `${today.getDate().toString().padStart(2, "0")}/${(today.getMonth() + 1).toString().padStart(2, "0")}/${(today.getFullYear()).toString().padStart(2, "0")}`;
+    };
+
+    const [currentDate, setCurrentDate] = useState(getCurrentDate(0));
 
   // axios function to get the list of activities from the db
   useEffect(() => {
@@ -38,12 +51,16 @@ function App() {
   const handleLeftButtonClick = () => {
     if(currentDayIndex > 0){
       setCurrentDayIndex(currentDayIndex - 1);
+      setCurrentDate(getCurrentDate(currentDayIndex - 1));
+      
     }
   }
 
   const handleRightButtonClick = () => {
     if(currentDayIndex < 6){
       setCurrentDayIndex(currentDayIndex + 1);
+      setCurrentDate(getCurrentDate(currentDayIndex + 1));
+   
     }
   }
 
@@ -82,7 +99,14 @@ function App() {
               </button>
             </div>
             <div className="flex-fill h2-custom">
-              <h2 className="h2" id="day"></h2>
+
+            {/* displays the day of the week connected to the db */}
+            {activities.map(week => (
+                <div key={week._id}>
+                  <h2>{week.days[currentDayIndex].name}</h2>
+                  <h2>{currentDate}</h2>
+                </div>
+            ))}
             </div>
             <div className="d-flex align-items-center ml-auto">
               <button className="btn btn-primary btn-custom mr-5" data-bs-target="#demo" id="rightbutton" onClick={handleRightButtonClick}>
@@ -95,11 +119,11 @@ function App() {
     </section>
     <section>
     <div>
-      <h1>this is a list </h1>
+      {/* Displays the list of activities within each day */}
+      <h1>Tasks </h1>
       <ul>
             {activities.map(week => (
               <li key={week._id}>
-                {week.weekName}
                 <ul>
                   {week.days[currentDayIndex].activities.map(activity => (
                     <li key={activity._id}>
@@ -111,27 +135,7 @@ function App() {
             ))}
           </ul>
    
-{/* <ul>
-  {activities.map(week => (
-    <li key={week.weekId}>
-      {week.weekName}
-      <ul>
-        {week.days.map(day => (
-          <li key={day.dayId}>
-            {day.name}
-            <ul>
-              {day.activities.map(activity => (
-                <li key={activity._id}>
-                  {activity.name}
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    </li>
-  ))}
-</ul> */}
+
   </div>
     </section>
 
