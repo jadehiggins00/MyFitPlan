@@ -17,25 +17,101 @@ app.use(cors());
 
 
 // request to add data into the database
-app.post('/activities', (req, res) =>{
+// app.post('/activities', (req, res) =>{
 
-    const { days }  = req.body;
-    console.log(days);
+//     const { days }  = req.body;
+//     console.log(days);
     
-    const weekDays = days.map(day => {
-        const activities = day.activities.map(activity => new Activity({name: activity.name}));
-        console.log(activities);
-        const newDay = new Day({ id: day.dayId,  name: day.name, activities });
-        return newDay;
+//     // Create and save activities
+//     const activities = days.reduce((acc, day) => {
+//     const newActivities = day.activities.map(activity => new Activity({ name: activity.name }));
+//     return acc.concat(newActivities);
+//     }, []);
 
-    });
-    const week = new Week({ days: weekDays});
+//     Activity.insertMany(activities)
+//     .then(activities => console.log('Saved activities:', activities))
+//     .catch(error => console.error('Error saving activities:', error));
 
-    week.save()
-    .then(week => console.log('Saved week:', week))
-    .catch(error => console.error('Error saving week:', error));
+//     const weekDays = days.map(day => {
+//         const activities = day.activities.map(activity => new Activity({name: activity.name}));
+//         console.log(activities);
+//         const newDay = new Day({ id: day.dayId,  name: day.name, activities });
+//         return newDay;
+
+//     });
+
+//     Day.insertMany(weekDays)
+//     .then(weekDays => console.log('Saved days:', weekDays))
+//     .catch(error => console.error('Error saving days:', error));
+
+
+//     const week = new Week({ days: weekDays});
+
+//     week.save()
+//     .then(week => console.log('Saved week:', week))
+//     .catch(error => console.error('Error saving week:', error));
+
+// });
+
+// request to add data into the database
+// app.post('/activities', (req, res) =>{
+
+//     const { days }  = req.body;
+//     console.log(days);
+    
+//     // Create and save activities
+//     const activities = days.reduce((acc, day) => {
+//     const newActivities = day.activities.map(activity => new Activity({ name: activity.name }));
+//     return acc.concat(newActivities);
+//     }, []);
+
+//     Activity.insertMany(activities)
+//     .then(activities => console.log('Saved activities:', activities))
+//     .catch(error => console.error('Error saving activities:', error));
+
+//     const weekDays = days.map(day => {
+//         const activities = day.activities.map(activity => new Activity({name: activity.name}));
+//         console.log(activities);
+//         const newDay = new Day({ id: day.dayId,  name: day.name, activities });
+//         return newDay;
+
+//     });
+
+//     Day.insertMany(weekDays)
+//     .then(weekDays => console.log('Saved days:', weekDays))
+//     .catch(error => console.error('Error saving days:', error));
+
+
+//     const week = new Week({ days: weekDays});
+
+//     week.save()
+//     .then(week => console.log('Saved week:', week))
+//     .catch(error => console.error('Error saving week:', error));
+
+// });
+
+// // post request to only insert an activty into a specific day:
+app.post('/activities', (req, res) =>{
+    const { dayName, activityName } = req.body;
+
+    // define the new activity
+    const newActivity = new Activity({ name: activityName });
+  
+    // update the specified day of the week
+    Week.updateOne({ "days.name": dayName }, { $push: { "days.$.activities": newActivity }})
+      .then(result => {
+        console.log(result);
+        res.status(200).json({ message: "Activity added successfully" });
+      })
+      .catch(error => {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+      });
+    
 
 });
+
+
 
 
 

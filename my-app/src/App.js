@@ -9,10 +9,17 @@ import LeftArrow from './images/LeftArrow.png';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
+
+
 function App() {
 
   const [ activities, setActivities] = useState([]);
+  //using a state var to set the currentDay to monday (0)
+  const [currentDayIndex, setCurrentDayIndex] = useState(0);
 
+  // axios function to get the list of activities from the db
   useEffect(() => {
     axios.get('http://localhost:3003/activities')
       .then(response => {
@@ -24,6 +31,21 @@ function App() {
       });
   }, []);
 
+  /*
+  These two functions will handle the implementation of cycling through
+  each day of the week - showing a list of activities within each day
+  */
+  const handleLeftButtonClick = () => {
+    if(currentDayIndex > 0){
+      setCurrentDayIndex(currentDayIndex - 1);
+    }
+  }
+
+  const handleRightButtonClick = () => {
+    if(currentDayIndex < 6){
+      setCurrentDayIndex(currentDayIndex + 1);
+    }
+  }
 
   return (
        <div>
@@ -55,7 +77,7 @@ function App() {
         <div className="row">
           <div className="col-12 d-flex justify-content-center align-items-center text-center">
             <div className="d-flex align-items-center mr-auto">
-              <button className="btn btn-primary btn-custom ml-5" data-bs-target="#demo" id="leftbutton">
+              <button className="btn btn-primary btn-custom ml-5" data-bs-target="#demo" id="leftbutton" onClick={handleLeftButtonClick}>
                 <img src="images/LeftArrow.png" alt="Button 1" className="mr-2" />
               </button>
             </div>
@@ -63,7 +85,7 @@ function App() {
               <h2 className="h2" id="day"></h2>
             </div>
             <div className="d-flex align-items-center ml-auto">
-              <button className="btn btn-primary btn-custom mr-5" data-bs-target="#demo" id="rightbutton">
+              <button className="btn btn-primary btn-custom mr-5" data-bs-target="#demo" id="rightbutton" onClick={handleRightButtonClick}>
                 <img src="images/RightArrow.png" alt="Button 2" className="mr-2" />
               </button>
             </div>
@@ -74,8 +96,22 @@ function App() {
     <section>
     <div>
       <h1>this is a list </h1>
+      <ul>
+            {activities.map(week => (
+              <li key={week._id}>
+                {week.weekName}
+                <ul>
+                  {week.days[currentDayIndex].activities.map(activity => (
+                    <li key={activity._id}>
+                      {activity.name}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
    
-<ul>
+{/* <ul>
   {activities.map(week => (
     <li key={week.weekId}>
       {week.weekName}
@@ -95,10 +131,10 @@ function App() {
       </ul>
     </li>
   ))}
-</ul>
+</ul> */}
   </div>
     </section>
-  
+
 
  
   </div>
@@ -109,6 +145,8 @@ function App() {
  
 
 
-}
+}//end app
+
+
 
 export default App;

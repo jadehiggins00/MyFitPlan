@@ -7,14 +7,12 @@ const activitySchema =  new mongoose.Schema({
 
 // days table
 const daySchema = new mongoose.Schema({
-    dayId: { type: mongoose.Schema.Types.ObjectId},
     name: String,
     activities: [activitySchema],
 });
 
 // weeks table
 const weekSchema = new mongoose.Schema({
-    weekId: { type: mongoose.Schema.Types.ObjectId},
     days: [daySchema]
 });
 
