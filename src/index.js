@@ -1,7 +1,6 @@
 const mongoose = require('../db/mongoose');
 
 const express = require('express');
-//const Activity = require('./models/activities');
 const {Activity, Day, Week} = require('./models/activities');
 const bodyParser = require('body-parser');
 const cors = require('cors');
