@@ -12,8 +12,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "node backend/controller.js",
+    "dev": "nodemon backend/controller.js"
   },
   "author": "",
   "license": "ISC",

@@ -10,9 +10,6 @@ import LeftArrow from './images/LeftArrow.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
-
 function App() {
 
   // grabbing the activities object
@@ -143,12 +140,8 @@ function App() {
  
   </div>
 
-    
-
 );
  
-
-
 }//end app
 
 

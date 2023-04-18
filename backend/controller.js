@@ -111,9 +111,6 @@ app.post('/activities', (req, res) =>{
 });
 
 
-
-
-
 // get all activities
 app.get('/activities', (req, res) =>{
 
