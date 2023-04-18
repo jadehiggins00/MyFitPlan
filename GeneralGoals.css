@@ -1,0 +1,67 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    height: 8em;
+    border-bottom: 1px solid black;
+  }
+
+.HomeButton {
+    margin: auto;
+    height: 6em;
+    object-fit: contain;
+}
+
+.HeaderText {
+    color: #2E8540;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4em;
+    margin: auto;
+}
+
+.ProfileIcon {
+    margin: auto;
+    height: 8em;
+    object-fit: contain;
+}
+
+.Date{
+    display: flex;
+    flex-direction: row;
+    font-size: 180%;
+    text-align: center;
+    
+}
+
+.ArrowButton{
+    border-radius: 25px;
+    width: 5em;
+    height: 5em;
+    padding-top: 0.5em;
+    margin: auto;
+    background: green;
+    background-position: center;
+}
+
+.CenterText{
+    text-align: center;
+    color: #5b616b;
+    font-family: Arial, Helvetica, sans-serif;;
+}
+
+.BackHome a{
+    display: block;
+    margin: auto;
+    width: 450px;
+    height: 25px;
+    background: #AEB0B5;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 5px;
+    border-style: solid ;
+    color: black;
+    font-weight: bold;
+    
+      
+}
