@@ -1,7 +1,9 @@
-
+<?php
+	session_start();
+?>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Activities</title>
+  <title>Add a goal</title>
   <link rel="stylesheet" href="General.css" media="screen">
   <link rel="stylesheet" href="GoalsAdd.css" media="screen">
   <link
@@ -33,7 +35,7 @@
 			die("Connection Failed: " . $conn->connect_error);
 		}
 		
-		$_SESSION["UserName"] = "testname";
+		//$_SESSION["UserName"] = "testname";
 		
 		//Inserts new row into the reserve_table (ISBN, UserName and Date) 
 		if ( isset($_POST['selectedDate']) && isset($_POST['goaltext']) ) {
@@ -52,7 +54,7 @@
 		$conn->close();
 		?>
     <form method="post" autocomplete="off">
-      <p class="instructions">1. Pick a day to set a goal</p>
+      <p class="instructions1">1. Pick a day to set a goal</p>
       <div class="holder">
         <div class="calendar">
           <div class="month">
@@ -73,12 +75,12 @@
             <div>Sat</div>
           </div>
           <div class="days"></div>
-          <input type="hidden" name="selectedDate" id="selectedDate">
+          <input type="hidden" name="selectedDate" id="selectedDate" required>
         </div>
       </div>
 
       <p class="instructions">2. What is your goal</p>
-      <input type="text" id="gtext" name="goaltext" placeholder="">
+      <input type="text" id="gtext" name="goaltext" placeholder="" required>
       
       <div class="BottomGoalsAddButtons">
         <a href="Goals.php" class="back">&larr; Back</a>

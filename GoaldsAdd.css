@@ -1,156 +1,164 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  html {
-    font-size: 62.5%;
-  }
-  
-  .holder {
-    width: 100%;
-    height: 500px;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .calendar {
-    width: 40rem;
-    height: 52rem;
-  }
-  
-  .month {
-    width: 100%;
-    height: 12rem;
-    /* background-color: #4773aa; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    text-align: center;
-  }
-  
-  .month i {
-    font-size: 2.5rem;
-    cursor: pointer;
-  }
-  
-  .month h1 {
-    font-size: 3rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .month p {
-    font-size: 1.6rem;
-  }
-  
-  .weekdays {
-    width: 100%;
-    height: 5rem;
-    padding: 0 0.4rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  .weekdays div {
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    width: calc(44.2rem / 7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .days {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.2rem;
-  }
-  
-  .days div {
-    font-size: 1.4rem;
-    margin: 0.3rem;
-    width: calc(40.2rem / 7);
-    height: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s;
-  }
-  
-  .days div:hover:not(.today) {
-    background-color: #E7E7E7;
-    border: 0.2rem solid #777;
-    cursor: pointer;
-  }
-  
-  .prev-date,
-  .next-date {
-    opacity: 0.5;
-  }
-  
-  .today {
-    background-color: #94BFA2;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  .selected {
-    background-color: #94BFA2;
-  }
+html {
+  font-size: 62.5%;
+}
 
-  .instructions{
-    padding-top: 50px;
-    text-align: center;
-    font-size: 3em;
-  }
-  #gtext{
-    display: block;
-    margin: auto;
-    width: 300px;
-    height: 50px;
-    border: 1px solid black;
-    border-radius: 20px;
-    border-width: 4px;
-    text-align: center;
-    font-size: 2em;
-    background-color: #E7E7E7;
-    
-  }
-  .BottomGoalsAddButtons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin: auto;
-  }
+.holder {
+  width: 100%;
+height:35vh;
+  /*height: 500px;*/
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  width: 45rem;
+  height: 52rem;
+}
+
+.month {
+  width: 100%;
+  height: 12rem;
+  /* background-color: #4773aa; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  text-align: center;
+}
+
+.month i {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.month h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.month p {
+  font-size: 1.6rem;
+}
+
+.weekdays {
+  width: 100%;
+  height: 5rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.weekdays div {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  width: calc(44.2rem / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.2rem;
+}
+
+.days div {
+  font-size: 1.4rem;
+  margin: 0.3rem;
+  width: calc(40.2rem / 7);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.days div:hover:not(.today) {
+  background-color: #E7E7E7;
+  border: 0.2rem solid #777;
+  cursor: pointer;
+}
+
+.prev-date,
+.next-date {
+  opacity: 0.5;
+}
+
+.today {
+  background-color: #94BFA2;
+}
+
+.selected {
+  background-color: #94BFA2;
+}
+
+.instructions{
+  padding-top: 66px;
+padding-bottom:0;
+  text-align: center;
+  font-size: 3em;
+}
+.instructions1{
+  padding-top: 30px;
+padding-bottom:0;
+  text-align: center;
+  font-size: 3em;
+}
+#gtext{
+  display: block;
+  margin: auto;
+  width: 300px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 20px;
+  border-width: 4px;
+  text-align: center;
+  font-size: 2em;
+  background-color: #E7E7E7;
   
-  .confirm, .back {
-    width: 100px;
-    height: 50px;
-    font-weight: bold;
-    border-radius: 5px;
-    margin: 5px;
-  }
-  
-  .back {
-    background: #AEB0B5;
-    margin-right: 20px;
-    padding: 10px;
-    text-align: left;
-    text-decoration: none;
-    border-style: solid ;
-    color: black;
-  }
-  
-  .confirm{
-    background-color: #0071BC;
-    color: white;
-  }
+}
+.BottomGoalsAddButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+}
+
+.confirm, .back {
+  width: 100px;
+  height: 50px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.back {
+  background: #AEB0B5;
+  margin-right: 20px;
+  padding: 10px;
+  text-align: left;
+  text-decoration: none;
+  border-style: solid ;
+  color: black;
+}
+
+.confirm{
+  background-color: #0071BC;
+  color: white;
+}

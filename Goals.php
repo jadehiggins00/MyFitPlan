@@ -1,10 +1,14 @@
-<!-- testing move -->
+<?php
+	session_start();
+?>
 <!-- john2 -->
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Activities</title>
+  <title>Goals</title>
   <link rel="stylesheet" href="General.css" media="screen">
   <link rel="stylesheet" href="Goals.css" media="screen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 </head>
 
 <body class="" data-lang="en">
@@ -18,6 +22,7 @@
 
   <main>
   <!--  -->
+  
     <section class="container">
 	<?php
 		// Establish database connection
@@ -34,7 +39,8 @@
 		}
 		
 		$_SESSION["UserName"] = "testname";
-			
+		//	echo "<p>{$_SESSION['UserName']}</p>";
+
 		// Retrieve goals data for a specific user, sorted by date
 		$uid = $_SESSION["UserName"]; // replace with the user's ID
 		$sql = "SELECT * FROM goals WHERE userName = '$uid' ORDER BY STR_TO_DATE(goal_date, '%d %M %Y')";
@@ -67,10 +73,11 @@
 			//echo ' '.$row["goal_text"].'</button>';
 			echo '<button class="goals" data-GoalStatus="'.$row["goal_status"].'" data-GoalId="'.$row["taskID"].'"';
 			if($row["goal_status"] == "1") { // if goal is completed
-			  echo '>Completed &check;';
+			 echo '><i class="fas fa-check-circle"></i> Completed';
 			} else {
-			  echo '>To Be Complete';
+			  echo '><i class="far fa-circle"></i> To Be Complete';
 			}
+
 			echo ': '.$row["goal_text"].'</button>';
 		  }
 		  // Close the last GoalsList
@@ -134,7 +141,7 @@
 	<!--<button id="test"> test</button>-->
     <section class="AddDelete">
       <a href="GoalsAdd.php" ><img src="images/addtext.png" class="AddButton"></a>
-      <a href="Profile.html" ><img src="images/deletetext.png"class="DeleteButton"></a>
+      <a href="GoalsDelete.php" ><img src="images/deletetext.png"class="DeleteButton"></a>
       <!-- <button class="circle-btn">
         <span class="plus-icon">+</span>
       </button> -->
