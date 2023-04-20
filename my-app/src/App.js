@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
 import Activities from "./components/Activities"
 import Goals from "./components/Goals"
+import Sleep from "./components/Sleep"
 import AddActivities from "./components/AddActivities"
 
 import LeftArrow from './images/LeftArrow.png';
@@ -24,6 +25,7 @@ function App() {
       <Route path="activities" element={ <Activities/> } />
       <Route path="goals" element={ <Goals/> } />
       <Route path="activities/addactivities" element={ <AddActivities/> } />
+      <Route path="sleep" element={ <Sleep/> } />
     </Routes>
   </div>
   );

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+
+
 function Activities() {
 
 
@@ -20,7 +22,8 @@ function Activities() {
         return `${today.getDate().toString().padStart(2, "0")}/${(today.getMonth() + 1).toString().padStart(2, "0")}/${(today.getFullYear()).toString().padStart(2, "0")}`;
         };
 
-        const [currentDate, setCurrentDate] = useState(getCurrentDate(0));
+        const [currentDate, setCurrentDate] = useState(getCurrentDate(2));
+   
 
     // axios function to get the list of activities from the db
     useEffect(() => {
@@ -33,6 +36,23 @@ function Activities() {
             console.log(error);
         });
     }, []);
+
+    // function to send POST request to server with current date
+    const postCurrentDate = () => {
+
+        const currentDate = new Date();
+        const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+    axios.post('http://localhost:3003/activitiesmodel', {
+    //   date: getCurrentDate(currentDayIndex)
+    date: currentDate
+    })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
     /*
     These two functions will handle the implementation of cycling through
@@ -132,9 +152,15 @@ function Activities() {
 <div>
     <Link to="addActivities">Add Activity</Link>
 </div>
+
+<div>
+      {/* ... */}
+      <button onClick={postCurrentDate}>Post Current Date</button>
+    </div>
     
     </div>
 
     );
 }
+
 export default Activities
