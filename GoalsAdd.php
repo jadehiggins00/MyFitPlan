@@ -88,66 +88,7 @@
       </div>
     </form>
     
-    <!-- <div class="holder">
-      <div class="calendar">
-        <div class="month">
-          <i class="fas fa-angle-left prev"></i>
-          <div class="date">
-            <h1></h1>
-            <p></p>
-          </div>
-          <i class="fas fa-angle-right next"></i>
-        </div>
-        <div class="weekdays">
-          <div>Sun</div>
-          <div>Mon</div>
-          <div>Tue</div>
-          <div>Wed</div>
-          <div>Thu</div>
-          <div>Fri</div>
-          <div>Sat</div>
-        </div>
-        <div class="days"></div>
-      </div>
-    </div> -->
-
-    <!-- <div id="calendar">
-      <div class="header">
-        <button id="prev">&lt;</button>
-        <h2 id="month-year"></h2>
-        <button id="next">&gt;</button>
-      </div>
-      <div class="days-header">
-        <div class="day-header">Sun</div>
-        <div class="day-header">Mon</div>
-        <div class="day-header">Tue</div>
-        <div class="day-header">Wed</div>
-        <div class="day-header">Thu</div>
-        <div class="day-header">Fri</div>
-        <div class="day-header">Sat</div>
-      </div>
-      <div class="days"></div>
-    </div>
-     -->
-
-
-    <!-- <div id="calendar">
-      <div class="header">
-        <button id="prev">&lt;</button>
-        <h2 id="month-year"></h2>
-        <button id="next">&gt;</button>
-      </div>
-      <div class="days"></div>
-    </div> -->
-        
-
-  
-  
-    <!-- <section class="BackHome">
-      <a href="Goals.html" class="BackHome">&larr; Back</a>
-    </section>
-  </main> -->
-  
+ 
   <script src="GoalsCalander.js" ></script>
 </body>
 

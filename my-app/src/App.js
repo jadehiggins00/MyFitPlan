@@ -8,6 +8,7 @@ import Home from "./components/Home"
 import Activities from "./components/Activities"
 import Goals from "./components/Goals"
 import AddActivities from "./components/AddActivities"
+import GoalsAdd from "./components/GoalsAdd"
 
 import LeftArrow from './images/LeftArrow.png';
 
@@ -24,6 +25,7 @@ function App() {
       <Route path="activities" element={ <Activities/> } />
       <Route path="goals" element={ <Goals/> } />
       <Route path="activities/addactivities" element={ <AddActivities/> } />
+      <Route path="goals/addgoals" element={ <GoalsAdd/> } />
     </Routes>
   </div>
   );
