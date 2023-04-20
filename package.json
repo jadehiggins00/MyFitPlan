@@ -6,14 +6,15 @@
     "express": "^4.18.2",
     "mongoose": "^7.0.3",
     "nodemon": "^2.0.22",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-router-dom": "^6.10.0"
   },
   "name": "myfitplan",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "node backend/controller.js",
+    "dev": "nodemon backend/controller.js"
   },
   "author": "",
   "license": "ISC",
