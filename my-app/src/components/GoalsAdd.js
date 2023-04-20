@@ -3,6 +3,8 @@ import '../css/GeneralGoals.css';
 import '../css/GoalsAdd.css';
 import { Link } from "react-router-dom";
 
+import Home from '../images/Home.png';
+import Profile from '../images/Profile.png';
 
 
 function GoalsAdd() {
@@ -114,24 +116,44 @@ function GoalsAdd() {
 
     <body class="" data-lang="en">
         <header>
-            <div  class="Header">
-            <a href="Home.html" ><img src="images/Home.png" className="HomeButton" alt=""/></a>
-            <p className="HeaderText">Goals</p>
-            <a href="Profile.html" ><img src="images/Profile.png" className="ProfileIcon" alt=""/></a>
-            </div>
-        </header>
+        <div className="Header">
+
+          <button className="btn headerBtn">
+            <a href="#">
+              <img src={Home} className="img-fluid" alt="Home Button" />
+            </a>
+          </button>
+
+          <p className="HeaderText">Goals</p>
+
+          <button className="btn headerBtn">
+            <a href="#">
+              <img src={Profile} className="img-fluid" alt="Profile Button" />
+            </a>
+          </button>
+
+        </div>
+
+        <div className="pt-3">
+          <div className="row">
+
+            <hr id="line" />
+
+          </div>
+        </div>
+      </header>
         <main>
             <form method="post" autocomplete="off">
-            <p className="instructions1">1. Pick a day to set a goal</p>
+            <p className="instructions1">.</p>
             <div className="holder">
                 <div className="calendar">
                 <div className="month">
-                    <i className="fas fa-angle-left prev"></i>
+                    <i className="fas fa-angle-left prev" onClick={handlePrevClick}></i>
                     <div className="date">
                     <h1></h1> 
                     <p></p>
                     </div>
-                    <i className="fas fa-angle-right next"></i>
+                    <i className="fas fa-angle-right next"onClick={handleNextClick}></i>
                 </div>
                 <div className="weekdays">
                     <div>Sun</div>

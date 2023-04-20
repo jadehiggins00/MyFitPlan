@@ -6,6 +6,7 @@ function Home() {
         <Link to="activities">Activities</Link>
         <br></br>
       <Link to="goals">Goals</Link>
+      <Link to="sleep">Sleep</Link>
       </div>
     );
   }
