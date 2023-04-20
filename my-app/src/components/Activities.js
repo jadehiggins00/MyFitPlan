@@ -130,7 +130,7 @@ function Activities() {
         </section>
 
 <div>
-    <Link to="addactivities">Add Activity</Link>
+    <Link to="addActivities">Add Activity</Link>
 </div>
     
     </div>

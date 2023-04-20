@@ -6,7 +6,7 @@ function AddActivities() {
         <div>
             <h1>Add Activities</h1>
         </div>
-    )
+    );
 }
 
 export default AddActivities
