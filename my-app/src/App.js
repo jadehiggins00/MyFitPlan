@@ -8,10 +8,13 @@ import Home from "./components/Home"
 import Activities from "./components/Activities"
 import Goals from "./components/Goals"
 import AddActivities from "./components/AddActivities"
+import Reminders from "./components/Reminders"
 
 import LeftArrow from './images/LeftArrow.png';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 
 function App() {
@@ -24,6 +27,7 @@ function App() {
       <Route path="activities" element={ <Activities/> } />
       <Route path="goals" element={ <Goals/> } />
       <Route path="activities/addactivities" element={ <AddActivities/> } />
+      <Route path="reminders" element={ <Reminders/> } />
     </Routes>
   </div>
   );
