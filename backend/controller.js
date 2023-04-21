@@ -152,14 +152,14 @@ app.use(cors());
 // });
 
 app.post('/activitiesmodel', (req, res) => {
-  const { date } = req.body;
-  const username = 'jade';
-  const activity = 'golf';
-  const status = 1;
+  const { date, activity } = req.body;
+
+
+
 
   
   // create a new activity record
-  const newActivity = new Activities({ username,date, activity, status});
+  const newActivity = new Activities({date, activity});
 
   // save the new activity to the database
   newActivity.save()

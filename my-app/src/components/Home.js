@@ -7,7 +7,7 @@ function Home() {
         <br></br>
       <Link to="goals">Goals</Link>
       <br></br>
-      <Link to="sleep">Goals</Link>
+  
       </div>
     );
   }
