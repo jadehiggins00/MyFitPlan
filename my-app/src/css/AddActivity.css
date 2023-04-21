@@ -17,6 +17,10 @@
    
 }
 
+.selected {
+    background-color: green;
+  }
+
 .h1-confirm{
     font-family: 'Jost';
     font-style: normal;
