@@ -2,6 +2,7 @@ const mongoose = require('../db/mongoose');
 
 const express = require('express');
 const {Activity, Day, Week} = require('./models/activities');
+const {Goals} = require('./models/goalsModel');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -107,7 +108,25 @@ app.post('/activities', (req, res) =>{
         res.status(500).json({ error: "Internal server error" });
       });
     
+});
 
+app.post('/goalsmodel', (req, res) => {
+  const { userName, goal_text, goal_date, goal_stat  } = req.body;
+
+  // create a new activity record
+  const newGoal = new Goals({userName, goal_text, goal_date, goal_stat});
+
+  // save the new activity to the database
+  newGoal.save()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({ message: "Activity added successfully" });
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+  // ...
 });
 
 

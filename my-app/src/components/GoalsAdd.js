@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from 'axios';
 import '../css/GeneralGoals.css';
 import '../css/GoalsAdd.css';
 import { Link } from "react-router-dom";
@@ -8,7 +9,14 @@ import Profile from '../images/Profile.png';
 
 
 function GoalsAdd() {
-    const [date, setDate] = useState(new Date());
+  const user = "john"
+  localStorage.setItem('username', user);
+  const username = localStorage.getItem('username');
+
+
+
+  const [date, setDate] = useState(new Date());
+  const [goalText, setGoalText] = useState('');
 
   useEffect(() => {
     renderCalendar();
@@ -29,7 +37,7 @@ function GoalsAdd() {
       date.getFullYear(),
       date.getMonth(),
       0
-    ).getDate();
+    ).getDate();  
 
     const firstDayIndex = date.getDay();
 
@@ -112,12 +120,36 @@ function GoalsAdd() {
     setDate(new Date(date.getFullYear(), date.getMonth() + 1));
     renderCalendar();
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const selectedDate = document.querySelector("#selectedDate").value;
+    const goaltext = document.querySelector("#gtext").value;
+    const goalstat = 0;
+
+    //console.log("Hey" + username )
+    axios.post('http://localhost:3003/goalsmodel', {
+      //   date: getCurrentDate(currentDayIndex)
+      userName: username,
+      goal_text: goaltext,
+      goal_date: selectedDate,
+      goal_status: goalstat
+      })
+      .then(response => {
+          console.log(response);
+          window.location.reload(); // Refresh the page after successful POST
+      })
+      .catch(error => {
+          console.log(error);
+      });  
+    };
+
     return (
 
-    <body class="" data-lang="en">
-        <header>
+      <div>
+      <header>
         <div className="Header">
-
           <button className="btn headerBtn">
             <a href="#">
               <img src={Home} className="img-fluid" alt="Home Button" />
@@ -131,57 +163,52 @@ function GoalsAdd() {
               <img src={Profile} className="img-fluid" alt="Profile Button" />
             </a>
           </button>
-
         </div>
 
         <div className="pt-3">
           <div className="row">
-
             <hr id="line" />
-
           </div>
         </div>
       </header>
-        <main>
-            <form method="post" autocomplete="off">
-            <p className="instructions1">.</p>
-            <div className="holder">
-                <div className="calendar">
-                <div className="month">
-                    <i className="fas fa-angle-left prev" onClick={handlePrevClick}></i>
-                    <div className="date">
-                    <h1></h1> 
-                    <p></p>
-                    </div>
-                    <i className="fas fa-angle-right next"onClick={handleNextClick}></i>
-                </div>
-                <div className="weekdays">
-                    <div>Sun</div>
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                </div>
-                <div className="days"></div>
-                <input type="hidden" name="selectedDate" id="selectedDate" required/>
-                </div>
-            </div>
 
-            <p className="instructions">2. What is your goal</p>
-            <input type="text" id="gtext" name="goaltext" placeholder="" required/>
-            
-            <div className="BottomGoalsAddButtons">
-            <Link to="/goals" className="back">&larr; Back</Link>
-                <button type="submit" className="confirm">&check; Confirm</button>
+      <main>
+        <form method="post" onSubmit={handleSubmit} autocomplete="off">
+          <p className="instructions1">.</p>
+          <div className="holder">
+            <div className="calendar">
+              <div className="month">
+                <i className="fas fa-angle-left prev" onClick={handlePrevClick}></i>
+                <div className="date">
+                  <h1></h1> 
+                  <p></p>
+                </div>
+                <i className="fas fa-angle-right next" onClick={handleNextClick}></i>
+              </div>
+              <div className="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+              </div>
+              <div className="days"></div>
+              <input type="hidden" name="selectedDate" id="selectedDate" required/>
             </div>
-            </form>
-            
-        
-        {/* <script src="GoalsCalander.js" ></script> */}
-        </main>
-    </body>
+          </div>
+
+          <p className="instructions">2. What is your goal</p>
+          <input type="text" id="gtext" name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} />
+          
+          <div className="BottomGoalsAddButtons">
+            <Link to="/goals" className="back">&larr; Back</Link>
+            <button type="submit" className="confirm">&check; Confirm</button>
+          </div>
+        </form>
+      </main>
+    </div>
 
 
     )
