@@ -111,10 +111,10 @@ app.post('/activities', (req, res) =>{
 });
 
 app.post('/goalsmodel', (req, res) => {
-  const { userName, goal_text, goal_date, goal_stat  } = req.body;
+  const { userName, goal_text, goal_date, goal_status  } = req.body;
 
   // create a new activity record
-  const newGoal = new Goals({userName, goal_text, goal_date, goal_stat});
+  const newGoal = new Goals({userName, goal_text, goal_date, goal_status});
 
   // save the new activity to the database
   newGoal.save()
@@ -128,6 +128,21 @@ app.post('/goalsmodel', (req, res) => {
     });
   // ...
 });
+
+app.get('/goalsmodel', (req, res) => {
+  const { userName } = req.query;
+
+  Goals.find({ userName }).sort({ goal_date: 1 })
+    .then(goals => {
+      res.status(200).json(goals);
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+
 
 
 // get all activities

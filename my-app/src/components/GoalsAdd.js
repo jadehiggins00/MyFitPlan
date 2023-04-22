@@ -9,8 +9,7 @@ import Profile from '../images/Profile.png';
 
 
 function GoalsAdd() {
-  const user = "john"
-  localStorage.setItem('username', user);
+
   const username = localStorage.getItem('username');
 
 
@@ -138,7 +137,7 @@ function GoalsAdd() {
       })
       .then(response => {
           console.log(response);
-          window.location.reload(); // Refresh the page after successful POST
+          window.location.href = '/goals'; // Refresh the page after successful POST
       })
       .catch(error => {
           console.log(error);
