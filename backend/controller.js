@@ -110,27 +110,51 @@ app.use(cors());
     
 
 // });
+// app.get('/activitiesmodel', (req, res) =>{
 
+//   // get the date parameter from the query string
+//   const date = req.query.date;
+
+//   // filter the activities by date
+//   Activities.find({ date: date })
+//       .then((activities) => {
+//           res.send({ activities });
+//       })
+//       .catch((error) => {
+//           res.status(500).send(error);
+//       });
+// });
+
+// // get all activities corresponding to a date
+// app.get('/activitiesmodel', (req, res) =>{
+//   const currentDate = new Date().toISOString().slice(0, 10);
+//   Activities.find({ date: currentDate })
+//     .then((activities) => {
+//       res.send({ activities });
+//     })
+//     .catch((error) => {
+//       res.status(500).send(error);
+//     });
+// });
 
 // // get all activities
-// app.get('/activities', (req, res) =>{
+app.get('/activitiesmodels', (req, res) =>{
 
-//     // an array of promises to grab all the data.
-//     const promises = [];
-//     promises.push(Activity.find({}));
-//     promises.push(Day.find({}));
-//     promises.push(Week.find({}));
+    // an array of promises to grab all the data.
+    const promises = [];
+    promises.push(Activity.find({}));
 
-//     // we use promise all to wait for all promises to resolve before sending the response
-//     Promise.all(promises)
-//     .then(([activities, days, weeks]) =>{
-//         res.send({activities, days, weeks});
-//     }).catch((error) => {
-//         res.status(500).send(error);
-//     })
+
+    // we use promise all to wait for all promises to resolve before sending the response
+    Promise.all(promises)
+    .then(([activities]) =>{
+        res.send({activities});
+    }).catch((error) => {
+        res.status(500).send(error);
+    })
 
    
-// });
+});
 
 // app.post('/activitiesmodel', (req, res) => {
 //   const { userName, activity, activityStatus } = req.body;
@@ -154,10 +178,6 @@ app.use(cors());
 app.post('/activitiesmodel', (req, res) => {
   const { date, activity } = req.body;
 
-
-
-
-  
   // create a new activity record
   const newActivity = new Activities({date, activity});
 

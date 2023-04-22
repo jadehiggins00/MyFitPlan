@@ -22,35 +22,19 @@ import "../css/General.css";
 function AddActivities() {
 
     const [selectedActivity, setSelectedActivity] = useState('');
+    // Define a new state variable to keep track of the selected button
+    const [selectedButton, setSelectedButton] = useState(null);
 
-
-    // // handle the selection click of activity buttons 
-    // const handleActivityClick = (activity) => {
-    //     setSelectedActivity(activity);
-    // };
-
-    // const handleActivityClick = (activity, event) => {
-    //     setSelectedActivity(activity);
-    //     const buttons = document.querySelectorAll(".carousel-item button");
-    //     buttons.forEach((button) => {
-    //       button.classList.remove("selected");
-    //     });
-    //     event.target.classList.add("selected");
-    //   };
-
-      const handleActivityClick = (activity, event) => {
-        setSelectedActivity(activity);
-        const buttons = document.querySelectorAll(".carousel-item button");
-        buttons.forEach((button) => {
-          if (button !== event.target) {
-            button.disabled = true;
-            button.classList.remove("selected");
-          } else {
-            button.disabled = false;
-            button.classList.add("selected");
-          }
-        });
-      };
+    // Update the handleActivityClick function to remove the "selected" class from the previously selected button
+    const handleActivityClick = (activity, event) => {
+      setSelectedActivity(activity);
+      const newSelectedButton = event.target;
+      if (selectedButton) {
+        selectedButton.classList.remove("selected");
+      }
+      newSelectedButton.classList.add("selected");
+      setSelectedButton(newSelectedButton);
+    };
 
     // gave the carousel a reference id - to add prev and next buttons
     const carouselRef = useRef(null);
@@ -121,26 +105,22 @@ function AddActivities() {
 
     <Carousel slide={false} interval={null} ref={carouselRef} indicators={false} className="" >
       <Carousel.Item>
-        <button onClick={(event) => handleActivityClick('Running', event)}
-        disabled={selectedActivity && selectedActivity !== 'Running'}>
+        <button onClick={(event) => handleActivityClick('Running', event)}>
             <img src={Run} className="img-fluid" alt="running image" id="runImage"/>
-            <h2>Run</h2>
+            <h2 style={{ pointerEvents: 'none' }}>Run</h2>
         </button>
-        <button onClick={(event) => handleActivityClick('Swimming', event)}
-        disabled={selectedActivity && selectedActivity !== 'Swimming'}>
+        <button onClick={(event) => handleActivityClick('Swimming', event)}>
             <img src={Swim} className="img-fluid" alt="swimming image" id="swimImage"/>
-            <h2>Swim</h2>
+            <h2 style={{ pointerEvents: 'none' }}>Swim</h2>
         </button>
         <br></br>
-        <button onClick={(event) => handleActivityClick('Yoga',event)}
-        disabled={selectedActivity && selectedActivity !== 'Yoga'}>
+        <button onClick={(event) => handleActivityClick('Yoga',event)}>
             <img src={Yoga} className="img-fluid" alt="yoga image" id="yogaImage"/>
-            <h2>Yoga</h2>
+            <h2 style={{ pointerEvents: 'none' }}>Yoga</h2>
         </button>
-        <button onClick={(event) => handleActivityClick('Walking',event)}
-        disabled={selectedActivity && selectedActivity !== 'Walking'}>
+        <button onClick={(event) => handleActivityClick('Walking',event)}>
             <img src={Walk} className="img-fluid" alt="walking image" id="walkImage"/>
-            <h2>Walk</h2>
+            <h2 style={{ pointerEvents: 'none' }}>Walk</h2>
         </button>
       </Carousel.Item>
       <Carousel.Item>
@@ -148,21 +128,21 @@ function AddActivities() {
         <div className="container ">
             <button onClick={(event) => handleActivityClick('Football',event)}>
                 <img src={Football} className="img-fluid" alt="football image" id="footballImage"/>
-                <h2>Football</h2>
+                <h2 style={{ pointerEvents: 'none' }}>Football</h2>
             </button>
             <button onClick={(event) => handleActivityClick('Tennis', event)}>
                 <img src={Tennis} className="img-fluid" alt="tennis image" id="tennisImage"/>
-                <h2>Tennis</h2>
+                <h2 style={{ pointerEvents: 'none' }}>Tennis</h2>
             </button>
         
             <br></br>
             <button onClick={(event) => handleActivityClick('Gym', event )}>
                 <img src={Gym} className="img-fluid" alt="gym image" id="gymImage"/>
-                <h2>Gym</h2>
+                <h2 style={{ pointerEvents: 'none' }}>Gym</h2>
             </button>
             <button onClick={(event) => handleActivityClick('Basketball',event)}>
                 <img src={Basketball} className="img-fluid" alt="Basketball image" id="BasketballImage"/>
-                <h2>Basketball</h2>
+                <h2 style={{ pointerEvents: 'none' }}>Basketball</h2>
             </button>
         </div>
     

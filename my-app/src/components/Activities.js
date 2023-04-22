@@ -9,55 +9,39 @@ function Activities() {
 
     // grabbing the activities object
     const [ activities, setActivities] = useState([]);
-    //using a state var to set the currentDay to monday (0)
-    const [currentDayIndex, setCurrentDayIndex] = useState(0);
+    // keeping track of the currently display activity
+    const [currentIndex, setCurrentIndex] = useState(0);
 
 
-        // Create a function to get the date based on the current day index
-        const getCurrentDate = (dayIndex) => {
-        const today = new Date();
-        // this line of code controls the date aligning with the day
-        today.setDate(today.getDate()  + (dayIndex - today.getDay() + 1));
-        //format of day 
-        return `${today.getDate().toString().padStart(2, "0")}/${(today.getMonth() + 1).toString().padStart(2, "0")}/${(today.getFullYear()).toString().padStart(2, "0")}`;
-        };
 
-        const [currentDate, setCurrentDate] = useState(getCurrentDate(2));
-   
+    const handleLeftButtonClick = () => {
+        if (currentIndex > 0) {
+          setCurrentIndex(currentIndex - 1);
+        }
+      };
+      
+      const handleRightButtonClick = () => {
+        if (currentIndex < activities.length - 1) {
+          setCurrentIndex(currentIndex + 1);
+        }
+      };
+      
+
 
     // axios function to get the list of activities from the db
     useEffect(() => {
-        axios.get('http://localhost:3003/activities')
+        axios.get('http://localhost:3003/activitiesmodels')
         .then(response => {
-            const weeksData = response.data.weeks;
-            setActivities(weeksData);
+            const activitiesData = response.data.activities;
+            setActivities(activitiesData);
         })
         .catch(error => {
             console.log(error);
         });
     }, []);
 
-
-
-    /*
-    These two functions will handle the implementation of cycling through
-    each day of the week - showing a list of activities within each day
-    */
-    const handleLeftButtonClick = () => {
-        if(currentDayIndex > 0){
-        setCurrentDayIndex(currentDayIndex - 1);
-        setCurrentDate(getCurrentDate(currentDayIndex - 1));
-        
-        }
-    }
-
-    const handleRightButtonClick = () => {
-        if(currentDayIndex < 6){
-        setCurrentDayIndex(currentDayIndex + 1);
-        setCurrentDate(getCurrentDate(currentDayIndex + 1));
-    
-        }
-    }
+    // Filter the activities by the current date
+    const filteredActivities = activities.filter(activity => activity.date === activities[currentIndex].date);
 
     return (
         <div>
@@ -94,14 +78,14 @@ function Activities() {
                 </button>
                 </div>
                 <div className="flex-fill h2-custom">
-
-                {/* displays the day of the week connected to the db */}
-                {activities.map(week => (
-                    <div key={week._id}>
-                    <h2>{week.days[currentDayIndex].name}</h2>
-                    <h2>{currentDate}</h2>
+              
+    
+                
+                {activities.length > 0 && (
+                    <div>
+                        <p>{activities[currentIndex].date}</p>
                     </div>
-                ))}
+                )}
                 </div>
                 <div className="d-flex align-items-center ml-auto">
                 <button className="btn btn-primary btn-custom mr-5" data-bs-target="#demo" id="rightbutton" onClick={handleRightButtonClick}>
@@ -116,19 +100,15 @@ function Activities() {
         <div>
         {/* Displays the list of activities within each day */}
         <h1>Tasks </h1>
+
         <ul>
-                {activities.map(week => (
-                <li key={week._id}>
-                    <ul>
-                    {week.days[currentDayIndex].activities.map(activity => (
-                        <li key={activity._id}>
-                        {activity.name}
-                        </li>
-                    ))}
-                    </ul>
-                </li>
-                ))}
-            </ul>
+            {filteredActivities.map(activity => (
+            
+              <li key={activity._id}>
+                <p>Activity: {activity.activity}</p>
+              </li>
+            ))}
+          </ul>
     
 
     </div>
