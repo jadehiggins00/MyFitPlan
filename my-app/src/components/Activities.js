@@ -11,8 +11,8 @@ import Tennis from "../images/tennis.png";
 
 import Basketball from "../images/basketball.png";
 import Gym from "../images/gym.png";
-import LeftArrow from "../images/LeftArrow.png";
-import RightArrow from "../images/RightArrow.png";
+import PreviousBtn from "../images/previous.png";
+import NextBtn from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
@@ -94,7 +94,7 @@ function Activities() {
             <div className="col-12 d-flex justify-content-center align-items-center text-center">
                 <div className="d-flex align-items-center mr-auto">
                 <button className="btn btn-primary btn-custom ml-5" data-bs-target="#demo" id="leftbutton" onClick={handleLeftButtonClick}>
-                    <img src={LeftArrow} alt="Button 1" className="mr-2" />
+                    <img src={PreviousBtn} alt="Button 1" className="mr-2" />
                 </button>
                 </div>
                 <div className="flex-fill h2-custom">
@@ -110,7 +110,7 @@ function Activities() {
                 </div>
                 <div className="d-flex align-items-center ml-auto">
                 <button className="btn btn-primary btn-custom mr-5" data-bs-target="#demo" id="rightbutton" onClick={handleRightButtonClick}>
-                    <img src={RightArrow} alt="Button 2" className="mr-2" />
+                    <img src={NextBtn} alt="Button 2" className="mr-2" />
                 </button>
                 </div>
             </div>
@@ -122,34 +122,42 @@ function Activities() {
         {/* Displays the list of activities within each day */}
         <h1>Tasks </h1>
 
-        <ul>
+        <div>
             {filteredActivities.map(activity => (
-                 
-                <button key={activity._id}>
-              <li >
-                <p>{activity.activity}</p>
-                <br></br>
-                <div>
-                    {activity.activity.includes("Run") && <img src={Run} alt="Running  image" />}
-                    {activity.activity.includes("Football") && <img src={Football} alt="Football image" />}
-                    {activity.activity.includes("Swim") && <img src={Swim} alt="Swimming image" />}
-                    {activity.activity.includes("Yoga") && <img src={Yoga} alt="Yoga image" />}
-                    {activity.activity.includes("Gym") && <img src={Gym} alt="Gym image" />}
-                    {activity.activity.includes("Walk") && <img src={Walk} alt="Walking image" />}
-                    {activity.activity.includes("Tennis") && <img src={Tennis} alt="Tennis image" />}
-                    {activity.activity.includes("Basketball") && <img src={Basketball} alt="Basketball image" />}
+            <div  key={activity._id}>
 
-                </div>
+            
+                <button className="container my-container p-4 my-4 h-25">
+                    <div >
+                        <div className="row">
+                            <div className="col-md-6 p-4">
+                                {activity.activity.includes("Run") && <img src={Run} alt="Running  image" />}
+                                {activity.activity.includes("Football") && <img src={Football} alt="Football image" />}
+                                {activity.activity.includes("Swim") && <img src={Swim} alt="Swimming image" />}
+                                {activity.activity.includes("Yoga") && <img src={Yoga} alt="Yoga image" />}
+                                {activity.activity.includes("Gym") && <img src={Gym} alt="Gym image" />}
+                                {activity.activity.includes("Walk") && <img src={Walk} alt="Walking image" />}
+                                {activity.activity.includes("Tennis") && <img src={Tennis} alt="Tennis image" />}
+                                {activity.activity.includes("Basketball") && <img src={Basketball} alt="Basketball image" />}
+                            </div>
+                        <div className="col-md-6 text-center">
+                            <h1 className="p-5">{activity.activity}</h1>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <i class="far fa-circle"></i> To Be Complete 
+                </button>
              
-              </li>
-              </button>
+              </div>
+           
               
             ))}
-          </ul>
+          </div>
     
 
     </div>
-        </section>
+</section>
 
 <div>
   
