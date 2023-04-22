@@ -25,17 +25,35 @@ function AddActivities() {
     // Define a new state variable to keep track of the selected button
     const [selectedButton, setSelectedButton] = useState(null);
 
-    // Update the handleActivityClick function to remove the "selected" class from the previously selected button
+    const [selectedTextInput, setSelectedTextInput] = useState('');
+
+    // // Update the handleActivityClick function to remove the "selected" class from the previously selected button
+    // const handleActivityClick = (activity, event) => {
+    //   setSelectedActivity(activity);
+    //   const newSelectedButton = event.target;
+    //   if (selectedButton) {
+    //     selectedButton.classList.remove("selected");
+    //   }
+    //   newSelectedButton.classList.add("selected");
+    //   setSelectedButton(newSelectedButton);
+    // };
+
     const handleActivityClick = (activity, event) => {
       setSelectedActivity(activity);
+      setSelectedTextInput(`Play ${activity}`); // Update the text input with the selected activity
       const newSelectedButton = event.target;
       if (selectedButton) {
         selectedButton.classList.remove("selected");
       }
       newSelectedButton.classList.add("selected");
       setSelectedButton(newSelectedButton);
-    };
 
+       // Get a reference to the activity input element
+  const activityInput = document.getElementById("activityInput");
+
+  // Set the value of the activity input element to the selected activity
+  activityInput.value = `${activity} for 30 Minutes`;
+    };
     // gave the carousel a reference id - to add prev and next buttons
     const carouselRef = useRef(null);
 
@@ -113,11 +131,11 @@ function AddActivities() {
 
     <Carousel slide={false} interval={null} ref={carouselRef} indicators={false} className="" >
       <Carousel.Item>
-        <button onClick={(event) => handleActivityClick('Running', event)}>
+        <button onClick={(event) => handleActivityClick('Run', event)}>
             <img src={Run} className="img-fluid" alt="running image" id="runImage"/>
             <h2 style={{ pointerEvents: 'none' }}>Run</h2>
         </button>
-        <button onClick={(event) => handleActivityClick('Swimming', event)}>
+        <button onClick={(event) => handleActivityClick('Swim', event)}>
             <img src={Swim} className="img-fluid" alt="swimming image" id="swimImage"/>
             <h2 style={{ pointerEvents: 'none' }}>Swim</h2>
         </button>
@@ -126,7 +144,7 @@ function AddActivities() {
             <img src={Yoga} className="img-fluid" alt="yoga image" id="yogaImage"/>
             <h2 style={{ pointerEvents: 'none' }}>Yoga</h2>
         </button>
-        <button onClick={(event) => handleActivityClick('Walking',event)}>
+        <button onClick={(event) => handleActivityClick('Walk',event)}>
             <img src={Walk} className="img-fluid" alt="walking image" id="walkImage"/>
             <h2 style={{ pointerEvents: 'none' }}>Walk</h2>
         </button>
@@ -176,9 +194,9 @@ function AddActivities() {
     
     {/* text input  */}
     <div>
-        <label>Name your Activity</label>
+        <label>Set a Time</label>
         <br></br>
-        <input type="text" placeholder="Enter activity name" onChange={(event) => setSelectedActivity(event.target.value)} />
+        <input type="text" placeholder="Enter activity name" id="activityInput" onChange={(event) => setSelectedActivity(event.target.value)} />
     </div>
 
     {/* Confirm and Back buttons */}

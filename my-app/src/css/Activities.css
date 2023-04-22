@@ -39,6 +39,7 @@
     padding:10px;
     border: 10px solid #000000;
     margin-left: 9em;
+
 }
 
 .btn-remove{
@@ -77,7 +78,7 @@
 .h1-add{
     font-family: 'Jost';
     font-style: normal;
-    font-size: 90px;
+    font-size: 40px;
     /* font-weight: 400; */
     color:#212121;
     margin-left: 175px;
@@ -95,7 +96,7 @@
 .h2-custom{
     font-family: 'Nunito';
     font-style: normal;
-    font-size: 5em;
+    font-size: 2em;
     /* font-weight: 400; */
     color: #5B616B;
 }
@@ -107,6 +108,11 @@
     color: #5B616B;
 }
 
+#link{
+    color: transparent;
+    text-decoration: none;
+    border: none;
+}
 
 
 .BottomButton{

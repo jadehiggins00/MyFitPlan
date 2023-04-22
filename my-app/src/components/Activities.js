@@ -17,6 +17,9 @@ import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
 import BackBtn from "../images/arrowBack.png";
+import Add from "../images/plus-v2.png";
+import "../css/Activities.css";
+import "../css/General.css";
 
 
 function Activities() {
@@ -66,13 +69,13 @@ function Activities() {
         <div className="Header">
             <button className="btn btn-home bg-none">
             <a href="Home.html">
-                <img src="images/Home.png" className="img-fluid" alt="" />
+                <img src={Home} className="img-fluid" alt="" />
             </a>
             </button>
             <p className="HeaderText p-5">MyFitPlan</p>
             <button className="btn btn-profile bg-none">
             <a href="Profile.html">
-                {/* <img src={logo} className="img-fluid p-4" alt="" /> */}
+                <img src={Profile} className="img-fluid p-4" alt="" />
             </a>
             </button>
         </div>
@@ -91,7 +94,7 @@ function Activities() {
             <div className="col-12 d-flex justify-content-center align-items-center text-center">
                 <div className="d-flex align-items-center mr-auto">
                 <button className="btn btn-primary btn-custom ml-5" data-bs-target="#demo" id="leftbutton" onClick={handleLeftButtonClick}>
-                    <img src="images/LeftArrow.png" alt="Button 1" className="mr-2" />
+                    <img src={LeftArrow} alt="Button 1" className="mr-2" />
                 </button>
                 </div>
                 <div className="flex-fill h2-custom">
@@ -107,7 +110,7 @@ function Activities() {
                 </div>
                 <div className="d-flex align-items-center ml-auto">
                 <button className="btn btn-primary btn-custom mr-5" data-bs-target="#demo" id="rightbutton" onClick={handleRightButtonClick}>
-                    <img src="images/RightArrow.png" alt="Button 2" className="mr-2" />
+                    <img src={RightArrow} alt="Button 2" className="mr-2" />
                 </button>
                 </div>
             </div>
@@ -127,14 +130,14 @@ function Activities() {
                 <p>{activity.activity}</p>
                 <br></br>
                 <div>
-                    {activity.activity === "Running" && <img src={Run} alt="Running  image" />}
-                    {activity.activity === "Football" && <img src={Football} alt="Football image" />}
-                    {activity.activity === "Swimming" && <img src={Swim} alt="Swimming image" />}
-                    {activity.activity === "Yoga" && <img src={Yoga} alt="Yoga image" />}
-                    {activity.activity === "Gym" && <img src={Gym} alt="Gym image" />}
-                    {activity.activity === "Walking" && <img src={Walk} alt="Walking image" />}
-                    {activity.activity === "Tennis" && <img src={Tennis} alt="Tennis image" />}
-                    {activity.activity === "Basketball" && <img src={Basketball} alt="Basketball image" />}
+                    {activity.activity.includes("Run") && <img src={Run} alt="Running  image" />}
+                    {activity.activity.includes("Football") && <img src={Football} alt="Football image" />}
+                    {activity.activity.includes("Swim") && <img src={Swim} alt="Swimming image" />}
+                    {activity.activity.includes("Yoga") && <img src={Yoga} alt="Yoga image" />}
+                    {activity.activity.includes("Gym") && <img src={Gym} alt="Gym image" />}
+                    {activity.activity.includes("Walk") && <img src={Walk} alt="Walking image" />}
+                    {activity.activity.includes("Tennis") && <img src={Tennis} alt="Tennis image" />}
+                    {activity.activity.includes("Basketball") && <img src={Basketball} alt="Basketball image" />}
 
                 </div>
              
@@ -149,7 +152,12 @@ function Activities() {
         </section>
 
 <div>
-    <Link to="addActivities">Add Activity</Link>
+  
+    <Link to="addActivities">
+    <img src={Add} alt="Button 2" className="btn btn-primary btn-add rounded-circle" />
+    </Link>
+   
+   
 </div>
 
 
