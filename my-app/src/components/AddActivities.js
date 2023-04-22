@@ -52,11 +52,19 @@ function AddActivities() {
     // function to send POST request to server with current date
     const addActivity = () => {
 
-        const currentDate = new Date();
-        const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+        const currentDate= new Date();
+        const currentDay= new Date();
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        const formattedDate = `${currentDate.getDate().toString().padStart(2, '0')} ${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        const formattedDay = currentDay.toLocaleDateString('en-US', { weekday: 'long' });
+        console.log(`Today is ${formattedDay}`);
+
         axios.post('http://localhost:3003/activitiesmodel', {
         //   date: getCurrentDate(currentDayIndex)
         date: formattedDate,
+        dayOfWeek: formattedDay,
         activity: selectedActivity
         })
         .then(response => {

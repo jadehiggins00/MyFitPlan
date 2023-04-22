@@ -176,10 +176,10 @@ app.get('/activitiesmodels', (req, res) =>{
 // });
 
 app.post('/activitiesmodel', (req, res) => {
-  const { date, activity } = req.body;
+  const {dayOfWeek, date, activity } = req.body;
 
   // create a new activity record
-  const newActivity = new Activities({date, activity});
+  const newActivity = new Activities({dayOfWeek, date, activity});
 
   // save the new activity to the database
   newActivity.save()

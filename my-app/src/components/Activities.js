@@ -1,7 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import Run from "../images/run.png";
+import Football from "../images/football.png";
+import Swim from "../images/swim.png";
+import Walk from "../images/walk.png";
 
+import Yoga from "../images/yoga.png";
+import Tennis from "../images/tennis.png";
+
+import Basketball from "../images/basketball.png";
+import Gym from "../images/gym.png";
+import LeftArrow from "../images/LeftArrow.png";
+import RightArrow from "../images/RightArrow.png";
+import CheckMark from "../images/check.png";
+import Home from "../images/Home.png";
+import Profile from "../images/user.png";
+import BackBtn from "../images/arrowBack.png";
 
 
 function Activities() {
@@ -42,6 +57,8 @@ function Activities() {
 
     // Filter the activities by the current date
     const filteredActivities = activities.filter(activity => activity.date === activities[currentIndex].date);
+    // Filter the activities by the current date
+    const displayDay = activities.filter(activity => activity.dayOfWeek === activities[currentIndex].dayOfWeek);
 
     return (
         <div>
@@ -83,6 +100,7 @@ function Activities() {
                 
                 {activities.length > 0 && (
                     <div>
+                          <p>{activities[currentIndex].dayOfWeek}</p>
                         <p>{activities[currentIndex].date}</p>
                     </div>
                 )}
@@ -103,10 +121,26 @@ function Activities() {
 
         <ul>
             {filteredActivities.map(activity => (
-            
-              <li key={activity._id}>
-                <p>Activity: {activity.activity}</p>
+                 
+                <button key={activity._id}>
+              <li >
+                <p>{activity.activity}</p>
+                <br></br>
+                <div>
+                    {activity.activity === "Running" && <img src={Run} alt="Running  image" />}
+                    {activity.activity === "Football" && <img src={Football} alt="Football image" />}
+                    {activity.activity === "Swimming" && <img src={Swim} alt="Swimming image" />}
+                    {activity.activity === "Yoga" && <img src={Yoga} alt="Yoga image" />}
+                    {activity.activity === "Gym" && <img src={Gym} alt="Gym image" />}
+                    {activity.activity === "Walking" && <img src={Walk} alt="Walking image" />}
+                    {activity.activity === "Tennis" && <img src={Tennis} alt="Tennis image" />}
+                    {activity.activity === "Basketball" && <img src={Basketball} alt="Basketball image" />}
+
+                </div>
+             
               </li>
+              </button>
+              
             ))}
           </ul>
     
