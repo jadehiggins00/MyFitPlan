@@ -15,6 +15,7 @@ function Goals() {
   const [goals, setGoals] = useState([]);
   const user1 = localStorage.getItem('username');
 
+  
   //console.log(user1)
   useEffect(() => {
     axios.get(`http://localhost:3003/goalsmodel?userName=${user1}`)
@@ -28,38 +29,16 @@ function Goals() {
       });
   }, [user1]);
 
-  useEffect(() => {
-    const checkstatus = document.querySelectorAll(".goals");
-    const find = /\bCompleted\b/i;
-    for (let i = 0; i < checkstatus.length; i++) {
-      const checkEach = checkstatus[i];
-      if (find.test(checkEach.innerHTML)) {
-        checkEach.style.backgroundColor = '#94BFA2';
-      } else {
-        checkEach.style.backgroundColor = '#D6D7D9';
-      }
-    }
-  }, []);
-
+  const updateGoalStatus = (taskId, goalStatus) => {
+    axios.put(`http://localhost:3003/goalsmodel/${user1}/${taskId}`, { goalStatus })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   
-
-  // const handleGoalButtonClick = (event) => {
-  //   const button = event.target;
-  //   const goalStatus = button.getAttribute("data-GoalStatus");
-  //   console.log(goalStatus)
-  //   if (goalStatus === "0") {
-  //     button.setAttribute("data-GoalStatus", "1");
-  //     button.innerHTML =
-  //       "<i class='fas fa-check-circle'></i> Completed: " + button.innerHTML.split(": ")[1];
-  //     button.style.backgroundColor = "#94BFA2";
-  //   } else {
-  //     button.setAttribute("data-GoalStatus", "0");
-  //     button.innerHTML =
-  //       "<i class='far fa-circle'></i> To Be Complete: " + button.innerHTML.split(": ")[1];
-  //     button.style.backgroundColor = "#D6D7D9";
-  //   }
-    
-  // };
 
   function generateGoalsList() {
     let current_date = "";
@@ -70,7 +49,7 @@ function Goals() {
       let goal_date = goal.goal_date;
       let goal_text = goal.goal_text;
       let goal_status = goal.goal_status;
-      let taskID = goal.taskID;
+      let taskID = goal._id;
   
       // If the date changes, create a new GoalsList div
       if (current_date !== goal_date) {
@@ -93,25 +72,47 @@ function Goals() {
       goals_list.push(button_element);
     }
   
+    
     // Add click event listeners to buttons
     setTimeout(function() {
       let buttons = document.querySelectorAll('.goals');
+  
       buttons.forEach((button) => {
-        let goal_text = button.innerText.split(':')[1].trim();
+
+        let goalS = button.getAttribute("data-GoalStatus");
+        let goalT = button.getAttribute("data-GoalId");
+        console.log("task: " + goalT + "stat: " + goalS);
+        if (goalS === "1") {
+          console.log("this is true block" + "task: " + goalT + "stat: " + goalS);
+          button.style.backgroundColor = "#94BFA2";
+        } else {
+          console.log("this is false block" + "task: " + goalT + "stat: " + goalS);
+          button.style.backgroundColor = "#D6D7D9";
+          
+        }
+
+        //add listeners
         button.addEventListener('click', () => {
           // console.log(`Your task is ${goal_text}`);
           const goalStatus = button.getAttribute("data-GoalStatus");
-          // console.log(goalStatus)
+          const taskId = button.getAttribute("data-GoalId");
+          console.log("before update" + goalStatus)
+          const newGoalStatus = goalStatus === "0" ? "1" : "0";
+          updateGoalStatus(taskId, newGoalStatus);
+          console.log("after update" + goalStatus)
           if (goalStatus === "0") {
             button.setAttribute("data-GoalStatus", "1");
-            button.innerHTML = "<i class='fas fa-check-circle'></i> Completed: " + button.innerHTML.split(": ")[1];
+            button.innerHTML = "<i class='fas fa-check-circle'></i>Completed: " + button.innerHTML.split(": ")[1];
             button.style.backgroundColor = "#94BFA2";
           } else {
             button.setAttribute("data-GoalStatus", "0");
-            button.innerHTML = "<i class='far fa-circle'></i> To Be Complete: " + button.innerHTML.split(": ")[1];
+            button.innerHTML = "<i class='far fa-circle'></i>To be complete: " + button.innerHTML.split(": ")[1];
             button.style.backgroundColor = "#D6D7D9";
           }
         });
+        
+  
+          
       });
     }, 0);
   
@@ -121,20 +122,10 @@ function Goals() {
     } else {
       goals_list.push("No goals found for this user.");
     }
-  
+    
+
     return <div dangerouslySetInnerHTML={{ __html: goals_list.join("") }} />;
   }
-  
-  
-
-  // axios.get('http://localhost:3003/goalsmodel')
-  // .then(response => {
-  //     console.log(response.data);
-  //     // Handle the response data here
-  // })
-  // .catch(error => {
-  //     console.log(error);
-  // });
 
   return (
     <body className="" data-lang="en">
@@ -161,7 +152,105 @@ function Goals() {
       <main>
         <section className="container">
         {generateGoalsList()}
-            {/* <div className="GoalsList">
+        </section>
+        <section className="AddDelete">
+          <Link to="addgoals">
+            <img src={addtext} className="AddButton" />
+          </Link>
+          <a href="Profile.hxtml">
+            <img src={deletetext} className="DeleteButton" />
+          </a>
+        </section>
+        <section className="BackHome">
+          <a href="Activities.js" className="BackHome">
+            &larr; Back
+          </a>
+        </section>
+      </main>
+    </body>
+  );
+}
+
+export default Goals;
+
+
+  // function addButtonListeners() {
+  //   const buttons = document.querySelectorAll('.goals');
+  
+  //   buttons.forEach((button) => {
+  //     let goalS = button.getAttribute("data-GoalStatus");
+  //     let goalT = button.getAttribute("data-GoalId");
+  //     console.log("task: " + goalT + "stat: " + goalS);
+  
+  //     if (goalS === "1") {
+  //       console.log("this is true block" + "task: " + goalT + "stat: " + goalS);
+  //       button.style.backgroundColor = "#94BFA2";
+  //     } else {
+  //       console.log("this is false block" + "task: " + goalT + "stat: " + goalS);
+  //       button.style.backgroundColor = "#D6D7D9";
+  //     }
+  
+  //     //add listeners
+  //     button.addEventListener('click', () => 
+  //     {
+  //       // console.log(`Your task is ${goal_text}`);
+  //       const goalStatus = button.getAttribute("data-GoalStatus");
+  //       const taskId = button.getAttribute("data-GoalId");
+  //       console.log("before update" + goalStatus)
+  //       const newGoalStatus = goalStatus === "0" ? "1" : "0";
+  //       updateGoalStatus(taskId, newGoalStatus);
+  //       console.log("after update" + goalStatus)
+  //       if (goalStatus === "0") 
+  //       {
+  //         button.setAttribute("data-GoalStatus", "1");
+  //         button.innerHTML = "<i class='fas fa-check-circle'></i>Completed: " + button.innerHTML.split(": ")[1];
+  //         button.style.backgroundColor = "#94BFA2";
+  //       } else 
+  //       {
+  //         button.setAttribute("data-GoalStatus", "0");
+  //         button.innerHTML = "<i class='far fa-circle'></i>To be complete: " + button.innerHTML.split(": ")[1];
+  //         button.style.backgroundColor = "#D6D7D9";
+  //       }
+  //     });
+  //   });
+  // }
+  
+  
+  
+  
+  
+   
+  
+    
+  
+   // const handleGoalButtonClick = (event) => {
+  //   const button = event.target;
+  //   const goalStatus = button.getAttribute("data-GoalStatus");
+  //   console.log(goalStatus)
+  //   if (goalStatus === "0") {
+  //     button.setAttribute("data-GoalStatus", "1");
+  //     button.innerHTML =
+  //       "<i class='fas fa-check-circle'></i> Completed: " + button.innerHTML.split(": ")[1];
+  //     button.style.backgroundColor = "#94BFA2";
+  //   } else {
+  //     button.setAttribute("data-GoalStatus", "0");
+  //     button.innerHTML =
+  //       "<i class='far fa-circle'></i> To Be Complete: " + button.innerHTML.split(": ")[1];
+  //     button.style.backgroundColor = "#D6D7D9";
+  //   }
+    
+  // };
+
+  // axios.get('http://localhost:3003/goalsmodel')
+  // .then(response => {
+  //     console.log(response.data);
+  //     // Handle the response data here
+  // })
+  // .catch(error => {
+  //     console.log(error);
+  // });
+
+  {/* <div className="GoalsList">
             <h2 className="CenterText">For Sunday, 19 March 2023</h2>
             <button className="goals" data-GoalStatus="1" onClick={handleGoalButtonClick}>
               <i className="fas fa-check-circle"></i> Completed: task1
@@ -186,23 +275,3 @@ function Goals() {
               <i className="far fa-circle"></i> To Be Complete: task6
             </button>
           </div> */}
-        </section>
-        <section className="AddDelete">
-          <Link to="addgoals">
-            <img src={addtext} className="AddButton" />
-          </Link>
-          <a href="Profile.hxtml">
-            <img src={deletetext} className="DeleteButton" />
-          </a>
-        </section>
-        <section className="BackHome">
-          <a href="Activities.js" className="BackHome">
-            &larr; Back
-          </a>
-        </section>
-      </main>
-    </body>
-  );
-}
-
-export default Goals;

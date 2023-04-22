@@ -129,6 +129,22 @@ app.post('/goalsmodel', (req, res) => {
   // ...
 });
 
+app.put('/goalsmodel/:userName/:taskId', (req, res) => {
+  const { userName, taskId } = req.params;
+  const { goalStatus } = req.body;
+
+  Goals.findOneAndUpdate({ userName, _id: taskId }, { goal_status: goalStatus }, { new: true })
+    .then(result => {
+      console.log(result);
+      res.status(200).json({ message: "Goal updated successfully" });
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+
 app.get('/goalsmodel', (req, res) => {
   const { userName } = req.query;
 
