@@ -157,9 +157,9 @@ function Goals() {
           <Link to="addgoals">
             <img src={addtext} className="AddButton" />
           </Link>
-          <a href="Profile.hxtml">
+          <Link to="deletegoals">
             <img src={deletetext} className="DeleteButton" />
-          </a>
+            </Link>
         </section>
         <section className="BackHome">
           <a href="Activities.js" className="BackHome">

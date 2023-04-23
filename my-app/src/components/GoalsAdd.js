@@ -203,7 +203,7 @@ function GoalsAdd() {
           
           <div className="BottomGoalsAddButtons">
             <Link to="/goals" className="back">&larr; Back</Link>
-            <button type="submit" className="confirm">&check; Confirm</button>
+            <button type="submit" className="confirm">&#10003; Confirm</button>
           </div>
         </form>
       </main>

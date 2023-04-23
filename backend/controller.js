@@ -1,4 +1,5 @@
 const mongoose = require('../db/mongoose');
+//to use object id when passing the id from a function in model class and to its type from string to objectId
 
 const express = require('express');
 const {Activity, Day, Week} = require('./models/activities');
@@ -129,6 +130,7 @@ app.post('/goalsmodel', (req, res) => {
   // ...
 });
 
+//insert a record for goal
 app.put('/goalsmodel/:userName/:taskId', (req, res) => {
   const { userName, taskId } = req.params;
   const { goalStatus } = req.body;
@@ -145,6 +147,7 @@ app.put('/goalsmodel/:userName/:taskId', (req, res) => {
 });
 
 
+//get all records of goals
 app.get('/goalsmodel', (req, res) => {
   const { userName } = req.query;
 
@@ -157,6 +160,45 @@ app.get('/goalsmodel', (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     });
 });
+
+//delete using id
+app.delete('/goalsmodel/:goalId', (req, res) => {
+  const { goalId } = req.params;
+
+  Goals.findByIdAndDelete(goalId)
+    .then(result => {
+      if (result) {
+        console.log(`Goal with ID ${goalId} has been deleted.`);
+        res.status(200).json({ message: "Goal deleted successfully" });
+      } else {
+        console.log(`No goal found with ID ${goalId}.`);
+        res.status(404).json({ error: "Goal not found" });
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+
+//delete using text and username
+// app.delete('/goalsmodel/:userName/:goalText', async (req, res) => {
+//   const userName = req.params.userName;
+//   const goalText = req.params.goalText;
+
+//   try {
+//     await Goals.deleteOne({ userName: userName, goal_text: goalText });
+//     console.log(`Goal with userName ${userName} and goal_text ${goalText} has been deleted.`);
+//     res.send(`Goal with userName ${userName} and goal_text ${goalText} has been deleted.`);
+//   } catch (err) {
+//     console.log("Error deleting goal: ", err);
+//     res.status(500).send("An error occurred while deleting the goal.");
+//   }
+// });
+
+
+
 
 
 
