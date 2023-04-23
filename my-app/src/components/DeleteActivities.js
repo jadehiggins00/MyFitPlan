@@ -11,15 +11,17 @@ import Tennis from "../images/tennis.png";
 
 import Basketball from "../images/basketball.png";
 import Gym from "../images/gym.png";
-import PreviousBtn from "../images/previous.png";
+import PreviousBtn from "../images/prev.png";
 import NextBtn from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
+import Remove from "../images/remove.png";
 import BackBtn from "../images/arrowBack.png";
-import Add from "../images/plus-v2.png";
-import "../css/Activities.css";
-import "../css/General.css";
+import Add from "../images/plus.png";
+import "../css/DeleteActivity.css";
+
+
 
 
 function DeleteActivities() {
@@ -30,6 +32,8 @@ function DeleteActivities() {
     // keeping track of the currently display activity
     const [currentIndex, setCurrentIndex] = useState(0);
     const [completedActivities, setCompletedActivities] = useState([]);
+    const [selectedActivities, setSelectedActivities] = useState([]);
+
 
 
     const handleLeftButtonClick = () => {
@@ -38,31 +42,44 @@ function DeleteActivities() {
         }
       };
       
-      const handleRightButtonClick = () => {
-        if (currentIndex < activities.length - 1) {
-          setCurrentIndex(currentIndex + 1);
-        }
-      };
+    const handleRightButtonClick = () => {
+    if (currentIndex < activities.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+    }
+    };
 
 
-      function deleteActivity(activityId) {
+     
+    function deleteActivity(activityId) {
         console.log(activityId);
-        axios.delete(`http://localhost:3003/activitiesmodel/${activityId}`)
-          .then(response => {
-            console.log('Activity deleted successfully');
-            // Remove the deleted activity from the activities state
-            setActivities(prevActivities => prevActivities.filter(activity => activity._id !== activityId));
-          })
-          .catch(error => {
-            console.error('Error deleting activity:', error);
-            // You can display an error message or handle the error in another way here
-          });
+        setSelectedActivities(prevSelectedActivities =>
+          prevSelectedActivities.includes(activityId)
+            ? prevSelectedActivities.filter(id => id !== activityId)
+            : [...prevSelectedActivities, activityId]
+        );
+    }
+
+    function deleteSelectedActivities() {
+        selectedActivities.forEach(activityId => {
+          axios.delete(`http://localhost:3003/activitiesmodel/${activityId}`)
+            .then(response => {
+              console.log(`Activity ${activityId} deleted successfully`);
+              // Remove the deleted activity from the activities state
+              setActivities(prevActivities =>
+                prevActivities.filter(activity => activity._id !== activityId)
+              );
+            })
+            .catch(error => {
+              console.error(`Error deleting activity ${activityId}:`, error);
+              // You can display an error message or handle the error in another way here
+            });
+        });
+        setSelectedActivities([]);
       }
       
-   
+
       
-
-
+   
     // axios function to get the list of activities from the db
     useEffect(() => {
         axios.get('http://localhost:3003/activitiesmodels')
@@ -86,28 +103,33 @@ function DeleteActivities() {
 
     return (
         <div>
-        <header>
+              <header>
         <div className="Header">
-            <button className="btn btn-home bg-none">
-            <a href="Home.html">
-                <img src={Home} className="img-fluid" alt="" />
+
+          <button className="btn headerBtn">
+            <a href="#">
+              <img src={Home} className="img-fluid" alt="Home Button" />
             </a>
-            </button>
-            <p className="HeaderText p-5">MyFitPlan</p>
-            <button className="btn btn-profile bg-none">
-            <a href="Profile.html">
-                <img src={Profile} className="img-fluid p-4" alt="" />
+          </button>
+
+          <p className="HeaderText">MyFitPlan</p>
+
+          <button className="btn headerBtn">
+            <a href="#">
+              <img src={Profile} className="img-fluid" alt="Profile Button" />
             </a>
-            </button>
+          </button>
+
         </div>
-        <div className="container p-4">
-            <div className="row">
-            <div className="col-md-12 offset-md-0.2">
-                <hr id="line" />
-            </div>
-            </div>
+
+        <div className="pt-3">
+          <div className="row">
+
+            <hr id="line" />
+
+          </div>
         </div>
-        </header>
+      </header>
 
         <section className="Date" id="">
         <div className="container-fluid p-4">
@@ -148,9 +170,16 @@ function DeleteActivities() {
             {filteredActivities.map(activity => (
             <div  key={activity._id}>
 
-            
-                <button onClick={() => deleteActivity(activity._id)} className="container my-container p-1 my-1 h-25"
-                >
+                {/* change button colour when selected */}
+                <button onClick={() => deleteActivity(activity._id)} 
+                className={`container my-container p-1 my-1 h-25 
+                ${selectedActivities.includes(activity._id) ? 'selectedColour' : ''}`}>
+
+                    {/* add remove image when selected */}
+                      {selectedActivities.includes(activity._id) ? 
+                        <img src={Remove} alt="Selected"/> :
+                        ''}
+
                     <div >
                         <div className="row">
                             <div className="col-md-1 p-1">
@@ -169,13 +198,6 @@ function DeleteActivities() {
                     </div>
                     </div>
                 
-                    {/* {completedActivities.includes(activity)
-                        ? (
-                        <i className="far fa-check-circle"></i>
-                        ) : (
-                        <i className="far fa-circle"></i>
-                        )} */}
-                     
                 </button>
              
               </div>
@@ -194,11 +216,11 @@ function DeleteActivities() {
     <img src={Add}  className="btn btn-primary btn-add rounded-circle" />
     </Link>
 
-      {/* Confirm */}
-      <button className="btn btn-success" >
-            <img src={CheckMark} className="img-fluid" alt="check mark image" id="checkMarkImage"/>
-            <h2>Confirm</h2>
-        </button>
+    {/* Confirm */}
+    <button className="btn btn-success" onClick={deleteSelectedActivities}>
+        <img src={CheckMark} className="img-fluid" alt="check mark image" id="checkMarkImage"/>
+        <h2>Confirm</h2>
+    </button>
    
    
 </div>

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import "../css/Activities.css";
+
+
 import Run from "../images/run.png";
 import Football from "../images/football.png";
 import Swim from "../images/swim.png";
@@ -11,16 +14,16 @@ import Tennis from "../images/tennis.png";
 
 import Basketball from "../images/basketball.png";
 import Gym from "../images/gym.png";
-import PreviousBtn from "../images/previous.png";
+import PreviousBtn from "../images/prev.png";
 import NextBtn from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
-import Delete from "../images/delete.png";
+import Delete from "../images/delete (1).png";
 import BackBtn from "../images/arrowBack.png";
-import Add from "../images/plus-v2.png";
-import "../css/Activities.css";
-import "../css/General.css";
+import Add from "../images/plus.png";
+
+
 
 
 function Activities() {
@@ -102,28 +105,33 @@ function Activities() {
 
     return (
         <div>
-        <header>
+           <header>
         <div className="Header">
-            <button className="btn btn-home bg-none">
-            <a href="Home.html">
-                <img src={Home} className="img-fluid" alt="" />
+
+          <button className="btn headerBtn">
+            <a href="#">
+              <img src={Home} className="img-fluid" alt="Home Button" />
             </a>
-            </button>
-            <p className="HeaderText p-5">MyFitPlan</p>
-            <button className="btn btn-profile bg-none">
-            <a href="Profile.html">
-                <img src={Profile} className="img-fluid p-4" alt="" />
+          </button>
+
+          <p className="HeaderText">MyFitPlan</p>
+
+          <button className="btn headerBtn">
+            <a href="#">
+              <img src={Profile} className="img-fluid" alt="Profile Button" />
             </a>
-            </button>
+          </button>
+
         </div>
-        <div className="container p-4">
-            <div className="row">
-            <div className="col-md-12 offset-md-0.2">
-                <hr id="line" />
-            </div>
-            </div>
+
+        <div className="pt-3">
+          <div className="row">
+
+            <hr id="line" />
+
+          </div>
         </div>
-        </header>
+      </header>
 
         <section className="Date" id="">
         <div className="container-fluid p-4">
@@ -145,7 +153,7 @@ function Activities() {
                     </div>
                 )}
                 </div>
-                <div className="d-flex align-items-center ml-auto">
+                <div className="d-flex align-items-center ml-auto" >
                 <button className="btn btn-primary btn-custom mr-5" onClick={handleRightButtonClick}>
                     <img src={NextBtn} alt="Button 2" className="mr-2" />
                
@@ -157,64 +165,54 @@ function Activities() {
         </section>
         <section>
         <div>
-        {/* Displays the list of activities within each day */}
-        <h1>Tasks </h1>
+   
 
         <div>
-            {filteredActivities.map(activity => (
-            <div  key={activity._id}>
-
-            
-                <button  className="container my-container p-1 my-1 h-25"
-                    onClick={() => handleActivityClick(activity)}>
-                    <div >
-                        <div className="row">
-                            <div className="col-md-1 p-1">
-                                {activity.activity.includes("Run") && <img src={Run} alt="Running  image" />}
-                                {activity.activity.includes("Football") && <img src={Football} alt="Football image" />}
-                                {activity.activity.includes("Swim") && <img src={Swim} alt="Swimming image" />}
-                                {activity.activity.includes("Yoga") && <img src={Yoga} alt="Yoga image" />}
-                                {activity.activity.includes("Gym") && <img src={Gym} alt="Gym image" />}
-                                {activity.activity.includes("Walk") && <img src={Walk} alt="Walking image" />}
-                                {activity.activity.includes("Tennis") && <img src={Tennis} alt="Tennis image" />}
-                                {activity.activity.includes("Basketball") && <img src={Basketball} alt="Basketball image" />}
-                            </div>
-                        <div className="col-md-6 text-center">
-                            <h4 className="p-5">{activity.activity}</h4>
-                        </div>
-                    </div>
-                    </div>
-                
-                    {completedActivities.includes(activity)
-                        ? (
-                        <i className="far fa-check-circle"></i>
-                        ) : (
-                        <i className="far fa-circle"></i>
-                        )}
-                     
-                </button>
-             
+  {filteredActivities.map(activity => (
+    <div key={activity._id}>
+      <button className={completedActivities.includes(activity) ? 'activity-button completed' : 'activity-button'} onClick={() => handleActivityClick(activity)}>
+        <div className="d-flex align-items-center p-5">
+          {completedActivities.includes(activity) && <i className="far fa-check-circle"></i>}
+          <div className="flex-grow-1">
+            <div className="row align-items-center">
+              <div className="col-md-1 p-1">
+                {activity.activity.includes("Run") && <img className="img-activity" src={Run}  alt="Running  image" />}
+                {activity.activity.includes("Football") && <img  className="img-activity" src={Football} alt="Football image" />}
+                {activity.activity.includes("Swim") && <img className="img-activity" src={Swim} alt="Swimming image" />}
+                {activity.activity.includes("Yoga") && <img className="img-activity" src={Yoga}  alt="Yoga image" />}
+                {activity.activity.includes("Gym") && <img className="img-activity" src={Gym} alt="Gym image" />}
+                {activity.activity.includes("Walk") && <img className="img-activity" src={Walk} alt="Walking image" />}
+                {activity.activity.includes("Tennis") && <img className="img-activity" src={Tennis} alt="Tennis image" />}
+                {activity.activity.includes("Basketball") && <img className="img-activity" src={Basketball} alt="Basketball image" />}
               </div>
-           
-              
-            ))}
+              <div className="col-md-6 text-right">
+                <h4 className="h4-activity ">{activity.activity}</h4>
+              </div>
+            </div>
           </div>
+        </div>
+      </button>
+    </div>
+  ))}
+</div>
+
     
 
     </div>
 </section>
 
-<div>
+<div className="d-flex justify-content-center">
+  <div className="d-flex justify-content-between align-items-center">
+    <Link to="addActivities" className='add-link'>
+      <img src={Add} className="btn btn-primary btn-add rounded-circle" />
+    </Link>
+    <Link to="deleteActivities" className='add-link'>
+      <img src={Delete} className="btn btn-primary btn-remove rounded-circle" />
+    </Link>
   
-    <Link to="addActivities">
-    <img src={Add}  className="btn btn-primary btn-add rounded-circle" />
-    </Link>
-    <Link to="deleteActivities">
-    <img src={Delete}  className="btn btn-primary btn-add rounded-circle" />
-    </Link>
-   
-   
+  </div>
 </div>
+
 
 
     
