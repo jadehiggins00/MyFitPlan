@@ -27,16 +27,6 @@ function AddActivities() {
 
     const [selectedTextInput, setSelectedTextInput] = useState('');
 
-    // // Update the handleActivityClick function to remove the "selected" class from the previously selected button
-    // const handleActivityClick = (activity, event) => {
-    //   setSelectedActivity(activity);
-    //   const newSelectedButton = event.target;
-    //   if (selectedButton) {
-    //     selectedButton.classList.remove("selected");
-    //   }
-    //   newSelectedButton.classList.add("selected");
-    //   setSelectedButton(newSelectedButton);
-    // };
 
     const handleActivityClick = (activity, event) => {
       setSelectedActivity(activity);
@@ -49,11 +39,14 @@ function AddActivities() {
       setSelectedButton(newSelectedButton);
 
        // Get a reference to the activity input element
-  const activityInput = document.getElementById("activityInput");
+      const activityInput = document.getElementById("activityInput");
 
-  // Set the value of the activity input element to the selected activity
-  activityInput.value = `${activity} for 30 Minutes`;
+      // Set the value of the activity input element to the selected activity
+      activityInput.value = `${activity} for 30 Minutes`;
     };
+
+
+    
     // gave the carousel a reference id - to add prev and next buttons
     const carouselRef = useRef(null);
 
@@ -83,7 +76,8 @@ function AddActivities() {
         //   date: getCurrentDate(currentDayIndex)
         date: formattedDate,
         dayOfWeek: formattedDay,
-        activity: selectedActivity
+        activity: selectedActivity,
+        activityStatus: 0
         })
         .then(response => {
             console.log(response);

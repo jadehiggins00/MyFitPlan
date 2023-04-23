@@ -175,11 +175,73 @@ app.get('/activitiesmodels', (req, res) =>{
 //     });
 // });
 
+// import the Activities model
+// const { Activities } = require('./models/activitiesModel');
+
+// // define the route to update the activity status
+// app.put('/activitiesmodel/:id', async (req, res) => {
+//   try {
+//     const activityId = req.params.id;
+//     const activity = await Activities.findById(activityId);
+
+//     if (!activity) {
+//       return res.status(404).send({ message: 'Activity not found' });
+//     }
+
+//     const newStatus = req.body.status;
+
+//     activity.activityStatus = newStatus;
+
+//     const updatedActivity = await activity.save();
+
+//     res.send(updatedActivity);
+//   } catch (error) {
+//     res.status(500).send({ message: error.message });
+//   }
+// });
+
+// function to update the actitivity status
+app.put('/activitiesmodel/:id', (req, res) => {
+  const id = req.params.id;
+  const { activityStatus } = req.body;
+
+  Activities.findById(id)
+    .then(activity => {
+      activity.activityStatus = activityStatus;
+      return activity.save();
+    })
+    .then(() => {
+      res.send('Activity updated successfully');
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+
+
+app.delete('/activitiesmodel/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedActivity = await Activities.deleteOne({ _id: id });
+    res.status(200).json({ message: 'Activity deleted successfully', deletedActivity });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to delete activity from the database.' });
+  }
+});
+
+
+
+
+
+
 app.post('/activitiesmodel', (req, res) => {
-  const {dayOfWeek, date, activity } = req.body;
+  const {dayOfWeek, date, activity, activityStatus } = req.body;
 
   // create a new activity record
-  const newActivity = new Activities({dayOfWeek, date, activity});
+  const newActivity = new Activities({dayOfWeek, date,
+     activity, activityStatus});
 
   // save the new activity to the database
   newActivity.save()

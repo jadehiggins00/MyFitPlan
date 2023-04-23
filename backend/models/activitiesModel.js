@@ -11,10 +11,6 @@ const activitiesSchema =  new mongoose.Schema({
 
 });
 
-
-
-
-
 //creating the model
 const Activities = mongoose.model('Activities', activitiesSchema);
 

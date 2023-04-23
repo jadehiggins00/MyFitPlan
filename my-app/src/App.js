@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
 import Activities from "./components/Activities"
+import DeleteActivities from "./components/DeleteActivities"
 import Goals from "./components/Goals"
 
 import AddActivities from "./components/AddActivities"
@@ -25,6 +26,7 @@ function App() {
       <Route path="activities" element={ <Activities/> } />
       <Route path="goals" element={ <Goals/> } />
       <Route path="activities/addactivities" element={ <AddActivities/> } />
+      <Route path="activities/deleteactivities" element={ <DeleteActivities/> } />
 
     </Routes>
   </div>

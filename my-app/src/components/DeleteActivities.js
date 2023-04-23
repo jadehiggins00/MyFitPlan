@@ -16,14 +16,13 @@ import NextBtn from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
-import Delete from "../images/delete.png";
 import BackBtn from "../images/arrowBack.png";
 import Add from "../images/plus-v2.png";
 import "../css/Activities.css";
 import "../css/General.css";
 
 
-function Activities() {
+function DeleteActivities() {
 
 
     // grabbing the activities object
@@ -45,37 +44,22 @@ function Activities() {
         }
       };
 
-      const handleActivityClick = (activity) => {
-        if (completedActivities.includes(activity)) {
-          setCompletedActivities((prev) =>
-            prev.filter((completedActivity) => completedActivity !== activity) 
-        );
 
-        // Make axios post request to update the activity's completion status in the database
-        axios.put(`http://localhost:3003/activitiesmodel/${activity._id}`, {
-            activityStatus: 0
-        })
-            .then(response => {
-            console.log(response);
-            })
-            .catch(error => {
-            console.log(error);
-            });
-        } else {
-          setCompletedActivities((prev) => [...prev, activity]);
-
-            // Make axios post request to update the activity's completion status in the database
-            axios.put(`http://localhost:3003/activitiesmodel/${activity._id}`, {
-                activityStatus: 1
-            })
-                .then(response => {
-                console.log(response);
-                })
-                .catch(error => {
-                console.log(error);
-                });
-        }
-      };
+      function deleteActivity(activityId) {
+        console.log(activityId);
+        axios.delete(`http://localhost:3003/activitiesmodel/${activityId}`)
+          .then(response => {
+            console.log('Activity deleted successfully');
+            // Remove the deleted activity from the activities state
+            setActivities(prevActivities => prevActivities.filter(activity => activity._id !== activityId));
+          })
+          .catch(error => {
+            console.error('Error deleting activity:', error);
+            // You can display an error message or handle the error in another way here
+          });
+      }
+      
+   
       
 
 
@@ -158,15 +142,15 @@ function Activities() {
         <section>
         <div>
         {/* Displays the list of activities within each day */}
-        <h1>Tasks </h1>
+        <h1>Select Activities to Delete </h1>
 
         <div>
             {filteredActivities.map(activity => (
             <div  key={activity._id}>
 
             
-                <button  className="container my-container p-1 my-1 h-25"
-                    onClick={() => handleActivityClick(activity)}>
+                <button onClick={() => deleteActivity(activity._id)} className="container my-container p-1 my-1 h-25"
+                >
                     <div >
                         <div className="row">
                             <div className="col-md-1 p-1">
@@ -185,12 +169,12 @@ function Activities() {
                     </div>
                     </div>
                 
-                    {completedActivities.includes(activity)
+                    {/* {completedActivities.includes(activity)
                         ? (
                         <i className="far fa-check-circle"></i>
                         ) : (
                         <i className="far fa-circle"></i>
-                        )}
+                        )} */}
                      
                 </button>
              
@@ -209,9 +193,12 @@ function Activities() {
     <Link to="addActivities">
     <img src={Add}  className="btn btn-primary btn-add rounded-circle" />
     </Link>
-    <Link to="deleteActivities">
-    <img src={Delete}  className="btn btn-primary btn-add rounded-circle" />
-    </Link>
+
+      {/* Confirm */}
+      <button className="btn btn-success" >
+            <img src={CheckMark} className="img-fluid" alt="check mark image" id="checkMarkImage"/>
+            <h2>Confirm</h2>
+        </button>
    
    
 </div>
@@ -223,4 +210,4 @@ function Activities() {
     );
 }
 
-export default Activities
+export default DeleteActivities
