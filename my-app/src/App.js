@@ -5,9 +5,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
-import Activities from "./components/Activities"
+
 import Goals from "./components/Goals"
-import AddActivities from "./components/AddActivities"
+
 import GoalsAdd from "./components/GoalsAdd"
 import GoalsDelete from "./components/GoalsDelete"
 
@@ -23,9 +23,9 @@ function App() {
   {/* routes from for the home page */}
     <Routes>
       <Route path="/" element={ <Home/> } />
-      <Route path="activities" element={ <Activities/> } />
+
       <Route path="goals" element={ <Goals/> } />
-      <Route path="activities/addactivities" element={ <AddActivities/> } />
+
       <Route path="goals/addgoals" element={ <GoalsAdd/> } />
       <Route path="goals/deletegoals" element={ <GoalsDelete/> } />
     </Routes>
