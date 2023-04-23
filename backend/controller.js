@@ -18,15 +18,32 @@ app.use(cors());
 
 
 
+// ***************** GOALS **************************
 
 
+//   get all records of goals 
+app.get('/goalsmodel', (req, res) => {
+  const { userName } = req.query;
+
+  Goals.find({ userName }).sort({ goal_date: 1 })
+    .then(goals => {
+      res.status(200).json(goals);
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+
+//  Post to database to create a new goal 
 app.post('/goalsmodel', (req, res) => {
   const { userName, goal_text, goal_date, goal_status  } = req.body;
 
-  // create a new activity record
+  // create a new goal record
   const newGoal = new Goals({userName, goal_text, goal_date, goal_status});
 
-  // save the new activity to the database
+  // save the new goal to the database
   newGoal.save()
     .then(result => {
       console.log(result);
@@ -39,26 +56,13 @@ app.post('/goalsmodel', (req, res) => {
   // ...
 });
 
-//insert a record for goal
+//Update the goal status - if its completed or not
 app.put('/goalsmodel/:userName/:taskId', (req, res) => {
   const { userName, taskId } = req.params;
   const { goalStatus } = req.body;
 
-// });
-// app.get('/activitiesmodel', (req, res) =>{
 
-//   // get the date parameter from the query string
-//   const date = req.query.date;
-
-//   // filter the activities by date
-//   Activities.find({ date: date })
-//       .then((activities) => {
-//           res.send({ activities });
-//       })
-//       .catch((error) => {
-//           res.status(500).send(error);
-//       });
-//   Goals.findOneAndUpdate({ userName, _id: taskId }, { goal_status: goalStatus }, { new: true })
+Goals.findOneAndUpdate({ userName, _id: taskId }, { goal_status: goalStatus }, { new: true })
     .then(result => {
       console.log(result);
       res.status(200).json({ message: "Goal updated successfully" });
@@ -69,41 +73,7 @@ app.put('/goalsmodel/:userName/:taskId', (req, res) => {
     });
 });
 
-// // get all activities corresponding to a date
-// app.get('/activitiesmodel', (req, res) =>{
-//   const currentDate = new Date().toISOString().slice(0, 10);
-//   Activities.find({ date: currentDate })
-//     .then((activities) => {
-//       res.send({ activities });
-//     })
-//     .catch((error) => {
-//       res.status(500).send(error);
-//     });
-// });
-
-// //get all records of goals
-app.get('/goalsmodelmodels', (req, res) => {
-  const { userName } = req.query;
-
-    // an array of promises to grab all the data.
-    const promises = [];
-    promises.push(Activity.find({}));
-
-
-    // we use promise all to wait for all promises to resolve before sending the response
-    Promise.all(promises)
-    .then(([activities]) =>{
-        res.send({activities});
-    }).catch((error) => {
-        res.status(500).send(error);
-    })
-    .catch(error => {
-      console.error(error);
-      res.status(500).json({ error: "Internal server error" });
-    });
-});
-
-//delete using id
+//delete goal using id
 app.delete('/goalsmodel/:goalId', (req, res) => {
   const { goalId } = req.params;
 
@@ -123,49 +93,24 @@ app.delete('/goalsmodel/:goalId', (req, res) => {
     });
 });
 
-// app.post('/activitiesmodel', (req, res) => {
-//   const { userName, activity, activityStatus } = req.body;
+
+// *********************** ACTIVITIES **********************************
 
 
-//   // create a new activity record
-//   const newActivity = new Activities({ userName, dayOfWeek, date, activity, activityStatus });
 
-//   // save the new activity to the database
-//   newActivity.save()
-//     .then(result => {
-//       console.log(result);
-//       res.status(200).json({ message: "Activity added successfully" });
-//     })
-//     .catch(error => {
-//       console.error(error);
-//       res.status(500).json({ error: "Internal server error" });
-//     });
-// });
+// get all activities corresponding to a date
+app.get('/activitiesmodel', (req, res) =>{
+  const currentDate = new Date().toISOString().slice(0, 10);
+  Activities.find({ date: currentDate })
+    .then((activities) => {
+      res.send({ activities });
+    })
+    .catch((error) => {
+      res.status(500).send(error);
+    });
+});
 
-// import the Activities model
-// const { Activities } = require('./models/activitiesModel');
 
-// // define the route to update the activity status
-// app.put('/activitiesmodel/:id', async (req, res) => {
-//   try {
-//     const activityId = req.params.id;
-//     const activity = await Activities.findById(activityId);
-
-//     if (!activity) {
-//       return res.status(404).send({ message: 'Activity not found' });
-//     }
-
-//     const newStatus = req.body.status;
-
-//     activity.activityStatus = newStatus;
-
-//     const updatedActivity = await activity.save();
-
-//     res.send(updatedActivity);
-//   } catch (error) {
-//     res.status(500).send({ message: error.message });
-//   }
-// });
 
 // function to update the actitivity status
 app.put('/activitiesmodel/:id', (req, res) => {
@@ -187,6 +132,26 @@ app.put('/activitiesmodel/:id', (req, res) => {
 });
 
 
+// get all activities
+app.get('/activitiesmodels', (req, res) =>{
+
+  // an array of promises to grab all the data.
+  const promises = [];
+  promises.push(Activity.find({}));
+
+
+  // we use promise all to wait for all promises to resolve before sending the response
+  Promise.all(promises)
+  .then(([activities]) =>{
+      res.send({activities});
+  }).catch((error) => {
+      res.status(500).send(error);
+  })
+
+ 
+});
+
+// delete activity by id when the button is clicked
 app.delete('/activitiesmodel/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -198,11 +163,7 @@ app.delete('/activitiesmodel/:id', async (req, res) => {
   }
 });
 
-
-
-
-
-
+// add a new activity 
 app.post('/activitiesmodel', (req, res) => {
   const {dayOfWeek, date, activity, activityStatus } = req.body;
 
@@ -222,8 +183,6 @@ app.post('/activitiesmodel', (req, res) => {
     });
   // ...
 });
-
-
 
 
 

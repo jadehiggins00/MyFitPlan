@@ -8,14 +8,15 @@ import Home from "./components/Home"
 
 import DeleteActivities from "./components/DeleteActivities"
 import Goals from "./components/Goals"
-
-
 import GoalsAdd from "./components/GoalsAdd"
 import GoalsDelete from "./components/GoalsDelete"
+import Activities from "./components/Activities"
+import AddActivities from "./components/AddActivities"
 
 import LeftArrow from './images/LeftArrow.png';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+//import { Activities } from './backend/models/activitiesModel';
 
 
 function App() {
@@ -27,11 +28,11 @@ function App() {
       <Route path="/" element={ <Home/> } />
 
       <Route path="goals" element={ <Goals/> } />
-
+      <Route path="activities" element={ <Activities/> } />
+      <Route path="activities/addactivities" element={ <AddActivities/> } />
+      <Route path="activities/deleteactivities" element={ <DeleteActivities/> } />
       <Route path="goals/addgoals" element={ <GoalsAdd/> } />
       <Route path="goals/deletegoals" element={ <GoalsDelete/> } />
-      <Route path="activities/deleteactivities" element={ <DeleteActivities/> } />
-
     </Routes>
   </div>
   );
