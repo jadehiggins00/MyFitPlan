@@ -5,7 +5,7 @@ const goalsSchema =  new mongoose.Schema({
     userName: String,
     goal_text: String,
     goal_date: String,
-    goal_status: Boolean,
+    goal_status: String,
 });
 
 
