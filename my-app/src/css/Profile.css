@@ -1,0 +1,154 @@
+.user
+{
+    margin-top: 7vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 5em;
+}
+
+.user p
+{
+text-align: center;
+color: #212121;
+
+}
+
+#profile_picture
+{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.edit_photo
+{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+
+.edit_photo img
+{
+    margin: auto;
+}
+
+.edit_photo p
+{
+    font-size: 0.8em;
+    float: left;
+    color: #0071BC;
+}
+
+.buttons
+{
+    height: 30vh;
+}
+
+.remind_button
+{
+    position: relative;
+    left: 5%;
+    margin-top: 20vh;
+    background-color: #FAD980;
+    border: 5px solid black;
+    border-radius: 15px;
+    height: 10vh;
+    width: 90%;
+    box-shadow: 4px 4px 4px #aaaaaa;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2em;
+    color: #212121;
+}
+.remind_button:active
+{
+    background-color: #f9e2a3;
+}
+
+.remind_button img 
+{
+    float: left;
+    margin: 1vh;
+    height: 5vh;
+}
+
+.remind_button p 
+{
+    float: left;
+    padding-top: 1vh;
+    font-size: 1.5em;
+}
+
+.log_out
+{
+    position: relative;
+    left: 5%;
+    margin-top: 4vh;
+    background-color: #4AA564;
+    border: 5px solid black;
+    border-radius: 15px;
+    height: 8vh;
+    width: 90%;
+    box-shadow: 4px 4px 4px #aaaaaa;
+    font-size: 1.5em;
+    /* Log Out */
+
+    color: #212121;
+
+}
+.log_out:active
+{
+    background-color: #63c37e;
+}
+
+.log_out img 
+{
+    float: left;
+    margin: 1vh;
+    height: 5vh;
+}
+
+.log_out p 
+{
+    float: left;
+    padding-top: 1vh;
+    padding-left: 0.4em;
+    font-size: 2em;
+}
+
+.button_back
+{
+    position: relative;
+    left: 5%;
+    margin-top: 1vh;
+    background-color: #AEB0B5;
+    border: 5px solid black;
+    border-radius: 15px;
+    height: 8vh;
+    width: 90%;
+    box-shadow: 4px 4px 4px #aaaaaa;
+    font-size: 1.5em;
+    /* Log Out */
+
+    color: #212121;
+
+}
+.button_back:active
+{
+    background-color: #63c37e;
+}
+
+.button_back img 
+{
+    float: left;
+    margin: 1vh;
+    height: 5vh;
+}
+
+.button_back p 
+{
+    float: left;
+    padding-top: 1vh;
+    padding-left: 0.4em;
+    font-size: 2em;
+}

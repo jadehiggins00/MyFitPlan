@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
 
 import DeleteActivities from "./components/DeleteActivities"
+import Profile from "./components/Profile"
 import Goals from "./components/Goals"
 import GoalsAdd from "./components/GoalsAdd"
 import GoalsDelete from "./components/GoalsDelete"
@@ -26,13 +27,15 @@ function App() {
   {/* routes from for the home page */}
     <Routes>
       <Route path="/" element={ <Home/> } />
-
+      
+      <Route path="profile" element={ <Profile/> } />
       <Route path="goals" element={ <Goals/> } />
       <Route path="activities" element={ <Activities/> } />
       <Route path="activities/addactivities" element={ <AddActivities/> } />
       <Route path="activities/deleteactivities" element={ <DeleteActivities/> } />
       <Route path="goals/addgoals" element={ <GoalsAdd/> } />
       <Route path="goals/deletegoals" element={ <GoalsDelete/> } />
+
     </Routes>
   </div>
   );
