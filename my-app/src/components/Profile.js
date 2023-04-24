@@ -21,7 +21,7 @@ function Profile() {
     <img id="profile_picture" src={User}/>
     <Link class="edit_photo"><img src={Edit} alt="Edit Photo Icon" /><p>Edit Photo</p></Link>
   </section>
-  <div class="buttons">
+
     <button class="remind_button">
       <img id="reminder_btn" src={reminderBtn} />
       <p>Reminder Settings</p>
@@ -35,7 +35,7 @@ function Profile() {
         <p>Back</p>
     </button>
   </div>
-  </div>
+
   );
 }
 
