@@ -15,7 +15,7 @@ import RightArrow from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
-import BackBtn from "../images/arrowBack.png";
+import BackBtn from "../images/back.png";
 import "../css/AddActivity.css";
 import "../css/General.css";
 
@@ -121,41 +121,60 @@ function AddActivities() {
         </div>
       </header>
 
-      <h1>Add Activities</h1>
+      <h1 className='title'>Add a New Activity</h1>
 
-    <Carousel slide={false} interval={null} ref={carouselRef} indicators={false} className="" >
+    <Carousel slide={false} interval={null} ref={carouselRef} indicators={false}  controls={false}>
       <Carousel.Item>
-        <button onClick={(event) => handleActivityClick('Run', event)}>
-            <img src={Run} className="img-fluid" alt="running image" id="runImage"/>
-            <h2 style={{ pointerEvents: 'none' }}>Run</h2>
-        </button>
-        <button onClick={(event) => handleActivityClick('Swim', event)}>
-            <img src={Swim} className="img-fluid" alt="swimming image" id="swimImage"/>
-            <h2 style={{ pointerEvents: 'none' }}>Swim</h2>
-        </button>
-        <br></br>
-        <button onClick={(event) => handleActivityClick('Yoga',event)}>
-            <img src={Yoga} className="img-fluid" alt="yoga image" id="yogaImage"/>
-            <h2 style={{ pointerEvents: 'none' }}>Yoga</h2>
-        </button>
-        <button onClick={(event) => handleActivityClick('Walk',event)}>
-            <img src={Walk} className="img-fluid" alt="walking image" id="walkImage"/>
-            <h2 style={{ pointerEvents: 'none' }}>Walk</h2>
-        </button>
+        <div style={{ backgroundColor: '#D6D7D9',
+            display: 'inline-block', padding: '10px',
+            borderRadius: '20px', border:' 2px solid #000000', boxShadow: ' 0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
+            <div className="vertical-line"></div>
+              <button onClick={(event) => handleActivityClick('Run', event)}>
+                <img src={Run} className="img-fluid" alt="running image" id="runImage"/>
+                <h2 style={{ pointerEvents: 'none' }}>Run</h2>
+              </button>
+              
+              <button onClick={(event) => handleActivityClick('Swim', event)}>
+                <img src={Swim} className="img-fluid" alt="swimming image" id="swimImage"/>
+                <h2 style={{ pointerEvents: 'none' }}>Swim</h2>
+              </button>
+              <br></br>
+              <div className="vertical-line"></div>
+            
+              <hr style={{ border: '1px solid #8D8C8C', backgroundColor: '#8D8C8C' }} />
+              <button onClick={(event) => handleActivityClick('Yoga',event)}>
+                <img src={Yoga} className="img-fluid" alt="yoga image" id="yogaImage"/>
+                <h2 style={{ pointerEvents: 'none' }}>Yoga</h2>
+              </button>
+              <button onClick={(event) => handleActivityClick('Walk',event)}>
+                <img src={Walk} className="img-fluid" alt="walking image" id="walkImage"/>
+                <h2 style={{ pointerEvents: 'none' }}>Walk</h2>
+            </button>
+  </div>
+
+
+
       </Carousel.Item>
       <Carousel.Item>
 
-        <div className="container ">
+      <div style={{ backgroundColor: '#D6D7D9',
+       display: 'inline-block', padding: '10px',
+        borderRadius: '20px', border:' 2px solid #000000', boxShadow: ' 0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
+             <div className="vertical-line"></div>
             <button onClick={(event) => handleActivityClick('Football',event)}>
                 <img src={Football} className="img-fluid" alt="football image" id="footballImage"/>
-                <h2 style={{ pointerEvents: 'none' }}>Football</h2>
+                <h2 style={{ pointerEvents: 'none' }} >Football</h2>
             </button>
+            
             <button onClick={(event) => handleActivityClick('Tennis', event)}>
                 <img src={Tennis} className="img-fluid" alt="tennis image" id="tennisImage"/>
                 <h2 style={{ pointerEvents: 'none' }}>Tennis</h2>
             </button>
         
             <br></br>
+            <div className="vertical-line"></div>
+            
+            <hr style={{ border: '1px solid #8D8C8C', backgroundColor: '#8D8C8C' }} />
             <button onClick={(event) => handleActivityClick('Gym', event )}>
                 <img src={Gym} className="img-fluid" alt="gym image" id="gymImage"/>
                 <h2 style={{ pointerEvents: 'none' }}>Gym</h2>
@@ -172,41 +191,53 @@ function AddActivities() {
  
     </Carousel>
 
-    {/* Left and Right arrows */}
-    <div>
 
-        {/* Left arrow */}
-        <button className="btn btn-primary" onClick={onPrevClick}>
+    <div className="row justify-content-between pt-5">
+        <div className="col-auto">
+             {/* Left arrow */}
+        <button className="btn btn-primary btn-left" onClick={onPrevClick}>
             <img src={LeftArrow} className="img-fluid" alt="left arrow image" id="leftArrowImage"/>
         </button>
-       
-        {/* Right arrow */}
-        <button className="btn btn-warning" onClick={onNextClick}>
-            <img src={RightArrow} className="img-fluid" alt="right arrow image" id="rightArrowImage"/>
-        </button>
+      
+        </div>
+        <div className="col-auto">
+          {/* Right arrow */}
+          <button className="btn btn-warning btn-right" onClick={onNextClick}>
+              <img src={RightArrow} className="img-fluid" alt="right arrow image" id="rightArrowImage"/>
+          </button>
+        </div>
     </div>
     
     {/* text input  */}
     <div>
-        <label>Set a Time</label>
+        <label className='text-box-label'>Set a Time</label>
         <br></br>
         <input type="text" placeholder="Enter activity name" id="activityInput" onChange={(event) => setSelectedActivity(event.target.value)} />
     </div>
 
     {/* Confirm and Back buttons */}
-    <div>
-
-        <button className="btn btn-secondary">
-            <img id="icon_back" src={BackBtn}  className="img-fluid"/>
-            <p>Back</p>
-        </button>
-        {/* Confirm */}
-        <button onClick={addActivity} disabled={!selectedActivity} className="btn btn-success" >
-            <img src={CheckMark} className="img-fluid" alt="check mark image" id="checkMarkImage"/>
-            <h2>Confirm</h2>
-        </button>
-       
+    
+    <div className="row justify-content-between pt-5">
+        <div className="col-auto">
+          <button class="btn-back">
+            <div className="d-flex align-items-center">
+              <img src={BackBtn} class="img-fluid mr-2" alt="Back" />
+              <h1 className='h1-back'>Back</h1>
+            </div>
+          </button>
+        </div>
+        <div className="col-auto">
+          <button onClick={addActivity} disabled={!selectedActivity} className="btn-confirm">
+            <div class="d-flex align-items-center">
+              <img src={CheckMark} className="img-fluid mr-2" alt="check mark image" id="checkMarkImage"/>
+              <h1 className="h1-confirm">Confirm</h1>
+            </div>
+          </button>
+        </div>
     </div>
+
+
+
     </div>
  
      
