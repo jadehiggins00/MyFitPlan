@@ -165,36 +165,38 @@ function Activities() {
         </section>
         <section>
         <div>
-   
-
-        <div>
-  {filteredActivities.map(activity => (
-    <div key={activity._id}>
-      <button className={completedActivities.includes(activity) ? 'activity-button completed' : 'activity-button'} onClick={() => handleActivityClick(activity)}>
-        <div className="d-flex align-items-center p-5">
-          {completedActivities.includes(activity) && <i className="far fa-check-circle"></i>}
-          <div className="flex-grow-1">
-            <div className="row align-items-center">
-              <div className="col-md-1 p-1">
-                {activity.activity.includes("Run") && <img className="img-activity" src={Run}  alt="Running  image" />}
-                {activity.activity.includes("Football") && <img  className="img-activity" src={Football} alt="Football image" />}
-                {activity.activity.includes("Swim") && <img className="img-activity" src={Swim} alt="Swimming image" />}
-                {activity.activity.includes("Yoga") && <img className="img-activity" src={Yoga}  alt="Yoga image" />}
-                {activity.activity.includes("Gym") && <img className="img-activity" src={Gym} alt="Gym image" />}
-                {activity.activity.includes("Walk") && <img className="img-activity" src={Walk} alt="Walking image" />}
-                {activity.activity.includes("Tennis") && <img className="img-activity" src={Tennis} alt="Tennis image" />}
-                {activity.activity.includes("Basketball") && <img className="img-activity" src={Basketball} alt="Basketball image" />}
-              </div>
-              <div className="col-md-6 text-right">
-                <h4 className="h4-activity ">{activity.activity}</h4>
+<div className="container activities-container justify-content-center">
+  <div className="row">
+    {filteredActivities.map(activity => (
+      <div className="col-sm-4 col-md-4 col-lg-6 mb-1" key={activity._id}>
+        <button className={completedActivities.includes(activity) ? 'activity-button completed' : 'activity-button'} onClick={() => handleActivityClick(activity)}>
+          <div className="d-flex align-items-center p-3">
+            {completedActivities.includes(activity) && <i className="far fa-check-circle"></i>}
+            <div className="flex-grow-1">
+              <div className="row align-items-center">
+                <div className="col-md-4 ">
+                  {activity.activity.includes("Run") && <img className="img-activity" src={Run} alt="Running  image" />}
+                  {activity.activity.includes("Football") && <img className="img-activity" src={Football} alt="Football image" />}
+                  {activity.activity.includes("Swim") && <img className="img-activity" src={Swim} alt="Swimming image" />}
+                  {activity.activity.includes("Yoga") && <img className="img-activity" src={Yoga} alt="Yoga image" />}
+                  {activity.activity.includes("Gym") && <img className="img-activity" src={Gym} alt="Gym image" />}
+                  {activity.activity.includes("Walk") && <img className="img-activity" src={Walk} alt="Walking image" />}
+                  {activity.activity.includes("Tennis") && <img className="img-activity" src={Tennis} alt="Tennis image" />}
+                  {activity.activity.includes("Basketball") && <img className="img-activity" src={Basketball} alt="Basketball image" />}
+                </div>
+                <div className="col-md-8 text-center ">
+                  <h4 className="h4-activity  ">{activity.activity}</h4>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </button>
-    </div>
-  ))}
+        </button>
+      </div>
+    ))}
+  </div>
 </div>
+
+
 
     
 

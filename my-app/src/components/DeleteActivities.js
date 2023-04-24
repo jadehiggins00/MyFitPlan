@@ -166,46 +166,46 @@ function DeleteActivities() {
         {/* Displays the list of activities within each day */}
         <h1>Select Activities to Delete </h1>
 
-        <div>
-            {filteredActivities.map(activity => (
-            <div  key={activity._id}>
-
-                {/* change button colour when selected */}
-                <button onClick={() => deleteActivity(activity._id)} 
-                className={`container my-container p-1 my-1 h-25 
+        
+    
+    <div className="container activities-container justify-content-center">
+  <div className="row">
+    {filteredActivities.map(activity => (
+      <div className="col-sm-4 col-md-4 col-lg-6 mb-1" key={activity._id}>
+         {/* change button colour when selected */}
+         <button id="activity-button" onClick={() => deleteActivity(activity._id)} 
+                className={` 
                 ${selectedActivities.includes(activity._id) ? 'selectedColour' : ''}`}>
 
-                    {/* add remove image when selected */}
-                      {selectedActivities.includes(activity._id) ? 
-                        <img src={Remove} alt="Selected"/> :
-                        ''}
-
-                    <div >
-                        <div className="row">
-                            <div className="col-md-1 p-1">
-                                {activity.activity.includes("Run") && <img src={Run} alt="Running  image" />}
-                                {activity.activity.includes("Football") && <img src={Football} alt="Football image" />}
-                                {activity.activity.includes("Swim") && <img src={Swim} alt="Swimming image" />}
-                                {activity.activity.includes("Yoga") && <img src={Yoga} alt="Yoga image" />}
-                                {activity.activity.includes("Gym") && <img src={Gym} alt="Gym image" />}
-                                {activity.activity.includes("Walk") && <img src={Walk} alt="Walking image" />}
-                                {activity.activity.includes("Tennis") && <img src={Tennis} alt="Tennis image" />}
-                                {activity.activity.includes("Basketball") && <img src={Basketball} alt="Basketball image" />}
-                            </div>
-                        <div className="col-md-6 text-center">
-                            <h4 className="p-5">{activity.activity}</h4>
-                        </div>
-                    </div>
-                    </div>
-                
-                </button>
-             
+                 
+          <div className="d-flex align-items-center p-3">
+                {/* add remove image when selected */}
+                {selectedActivities.includes(activity._id) ? 
+                                <img src={Remove} alt="Selected"/> :
+                                ''}
+            <div className="flex-grow-1">
+              <div className="row align-items-center">
+                <div className="col-md-4 ">
+                  {activity.activity.includes("Run") && <img className="img-activity" src={Run} alt="Running  image" />}
+                  {activity.activity.includes("Football") && <img className="img-activity" src={Football} alt="Football image" />}
+                  {activity.activity.includes("Swim") && <img className="img-activity" src={Swim} alt="Swimming image" />}
+                  {activity.activity.includes("Yoga") && <img className="img-activity" src={Yoga} alt="Yoga image" />}
+                  {activity.activity.includes("Gym") && <img className="img-activity" src={Gym} alt="Gym image" />}
+                  {activity.activity.includes("Walk") && <img className="img-activity" src={Walk} alt="Walking image" />}
+                  {activity.activity.includes("Tennis") && <img className="img-activity" src={Tennis} alt="Tennis image" />}
+                  {activity.activity.includes("Basketball") && <img className="img-activity" src={Basketball} alt="Basketball image" />}
+                </div>
+                <div className="col-md-8 text-center ">
+                  <h4 className="h4-activity  ">{activity.activity}</h4>
+                </div>
               </div>
-           
-              
-            ))}
+            </div>
           </div>
-    
+        </button>
+      </div>
+    ))}
+  </div>
+</div>
 
     </div>
 </section>

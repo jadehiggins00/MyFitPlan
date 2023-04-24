@@ -75,12 +75,11 @@
 
 i.far.fa-check-circle {
     font-size: 50px;
+    margin-right: 10px;
   
   }
   
-  i.far.fa-circle {
-    font-size: 30px;
-  }
+
   
 .h4-activity{
     font-family: 'Jost';
@@ -88,7 +87,10 @@ i.far.fa-check-circle {
     font-size: 25px;
     /* font-weight: 400; */
     color:#212121;
-    margin-left: 200px;
+    margin-left:20px;
+    
+    
+    
 }
 
 .h1-add{
@@ -101,7 +103,7 @@ i.far.fa-check-circle {
 }
 
 .img-activity{
-    margin-left: 30px;
+    padding-right: 5px;
 }
 
 .list{
@@ -162,6 +164,10 @@ i.far.fa-check-circle {
     text-align: center;
 }
 
+
+.activities-container{
+    height: 60em;
+}
 
 
 
