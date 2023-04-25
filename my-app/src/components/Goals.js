@@ -4,7 +4,7 @@ import '../css/GeneralGoals.css';
 import '../css/Goals.css';
 import { Link } from "react-router-dom";
 import Home from '../images/Home.png';
-import Profile from '../images/Profile.png';
+import Profile from '../images/account.png';
 import addtext from '../images/addtext.png';
 import deletetext from '../images/deletetext.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -132,21 +132,28 @@ function Goals() {
     <body className="" data-lang="en">
       <header>
         <div className="Header">
+
           <button className="btn headerBtn">
             <a href="#">
               <img src={Home} className="img-fluid" alt="Home Button" />
             </a>
           </button>
+
           <p className="HeaderText">Goals</p>
+
           <button className="btn headerBtn">
             <a href="#">
               <img src={Profile} className="img-fluid" alt="Profile Button" />
             </a>
           </button>
+
         </div>
+
         <div className="pt-3">
           <div className="row">
+
             <hr id="line" />
+
           </div>
         </div>
       </header>

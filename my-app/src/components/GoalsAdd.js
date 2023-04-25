@@ -5,7 +5,7 @@ import '../css/GoalsAdd.css';
 import { Link } from "react-router-dom";
 
 import Home from '../images/Home.png';
-import Profile from '../images/user.png';
+import Profile from '../images/account.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -150,6 +150,7 @@ function GoalsAdd() {
       <div>
       <header>
         <div className="Header">
+
           <button className="btn headerBtn">
             <a href="#">
               <img src={Home} className="img-fluid" alt="Home Button" />
@@ -163,15 +164,17 @@ function GoalsAdd() {
               <img src={Profile} className="img-fluid" alt="Profile Button" />
             </a>
           </button>
+
         </div>
 
         <div className="pt-3">
           <div className="row">
+
             <hr id="line" />
+
           </div>
         </div>
       </header>
-
       <main>
         <form method="post" onSubmit={handleSubmit} autocomplete="off">
           <p className="instructions1">.</p>
