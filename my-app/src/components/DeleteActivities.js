@@ -15,7 +15,7 @@ import PreviousBtn from "../images/prev.png";
 import NextBtn from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
-import Profile from "../images/user.png";
+import Profile from "../images/account.png";
 import Remove from "../images/remove.png";
 import BackBtn from "../images/back.png";
 import Add from "../images/plus.png";

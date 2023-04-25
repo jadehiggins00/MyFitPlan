@@ -14,7 +14,7 @@ import LeftArrow from "../images/prev.png";
 import RightArrow from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
-import Profile from "../images/user.png";
+import Profile from "../images/account.png";
 import BackBtn from "../images/back.png";
 import "../css/AddActivity.css";
 import "../css/General.css";
