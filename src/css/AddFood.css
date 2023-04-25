@@ -1,0 +1,282 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(120vh - 100px);
+    margin-top: 10px;
+    }
+    
+    .text1 {
+    border-radius: 25px;
+    width: 70%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    }
+    
+    .text1 h1 {
+    width: 314px;
+    height: 42px;
+    font-weight: 400;
+    font-size: 32px;
+    padding-left: 30px;
+    margin-bottom: 3px;
+    margin-top: 10px;
+    }
+    
+    .text1 textarea {
+    width: 400px;
+    height: 60px;
+    background: #E7E7E7;
+    border: 2px solid #000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 25px;
+    overflow: hidden;
+    }
+    
+    .text2 {
+    border-radius: 25px;
+    width: 70%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    }
+    
+    .text2 img {
+    width: 70px;
+    height: 42px;
+    font-weight: 400;
+    font-size: 32px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    margin-top: 10px;
+    float: left;
+    }
+    
+    .text2 h1 {
+    font-weight: 400;
+    font-size: 32px;
+    margin-bottom: 3px;
+    margin-top: 10px;
+    padding-left: 40px;
+    float: left;
+    }
+    
+    .text2 textarea {
+    height: 150px;
+    width: 400px;
+    background: #E7E7E7;
+    border: 2px solid #000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-size: 25px;
+    padding: 10px;
+    overflow: hidden;
+    }
+    
+    .text3 {
+    border-radius: 25px;
+    margin: auto;
+    padding: 10px;
+    }
+    
+    .text3 input {
+    background: #E7E7E7;
+    border: 2px solid #646464;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    }
+    
+    .text3 img {
+    flex-wrap: wrap;
+    margin-top: 50px;
+    height: 70px;
+    width: 70px;
+    margin-top: 1px;
+    }
+    
+    .text3 label {
+    font-weight: 400;
+    font-size: 32px;
+    }
+    
+    .checkbox-round {
+    width: 2em;
+    height: 2em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    }
+    
+    .checkbox-round:checked {
+    background-color: black;
+    }
+
+.Photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    padding: 10px;
+    border: 5px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .Photo label {
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 32px;
+    }
+    
+    .Photo img {
+    height: 60px;
+    width: 60px;
+    margin-top: 50px;
+    margin-top: 1px;
+    vertical-align: middle;
+    }
+    
+    .Photo h1 {
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 32px;
+    }
+    
+    .inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 0 20px;
+    margin-top: 1em;
+    }
+    
+    .photobox1 {
+    width: 8em;
+    height: 4em;
+    margin-left: 0em;
+    margin-top: 0em;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+    
+    .photobox1 h1 {
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 32px;
+    }
+    
+    .photobox2 {
+    width: 20em;
+    height: 3.5em;
+    margin-left: 1em;
+    margin-top: 0em;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightblue;
+    }
+    
+    .save {
+    width: 25em;
+    height: 3.5em;
+    margin-left: 1em;
+    margin-top: 0em;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(190, 180, 246);
+    border-radius: 25px;
+    padding: 10px;
+    border: 5px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .save label {
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 32px;
+    color: #000000;
+    }
+    
+    .save img {
+    height: 40px;
+    width: 50px;
+    margin-top: 50px;
+    margin-top: 1px;
+    vertical-align: middle;
+    }
+    
+    
+
+.back-button {
+  width: 45em;
+  height: 3.5em;
+  margin: 0;
+  margin-left: 1em;
+  display: flex;
+  justify-content: flex-start;
+  background-color: lightgrey;
+  border-radius: 25px;
+  padding: 10px;
+  border: 5px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.back-button-content {
+  display: flex;
+  align-items: center;
+}
+
+.back-button span {
+  font-size: 16px;
+  font-weight: bold;
+  font-weight: 400;
+  font-size: 32px;
+  color: #000000;
+  margin-left: 10px;
+}
+
+.back-button img {
+  width: 50px;
+  height: 50px;
+  margin: 1px;
+}
+
+.back-link {
+  text-decoration: none;
+}
+
+.back-button:hover {
+  cursor: pointer;
+}
+
+
+
+
+.textbox {
+  width: 30em;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
