@@ -7,6 +7,7 @@ import Home from '../images/Home.png';
 import Profile from '../images/Profile.png';
 import addtext from '../images/addtext.png';
 import deletetext from '../images/deletetext.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Goals() {
 

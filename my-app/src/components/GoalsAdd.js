@@ -5,7 +5,8 @@ import '../css/GoalsAdd.css';
 import { Link } from "react-router-dom";
 
 import Home from '../images/Home.png';
-import Profile from '../images/Profile.png';
+import Profile from '../images/user.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function GoalsAdd() {

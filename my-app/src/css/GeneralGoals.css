@@ -51,7 +51,7 @@
     display: block;
     margin: auto;
     width: 50vw;
-    height: 25px;
+    height: px;
     background: #AEB0B5;
     padding: 10px;
     text-align: left;
@@ -61,5 +61,4 @@
     color: black;
     font-weight: bold;
     
-      
 }
