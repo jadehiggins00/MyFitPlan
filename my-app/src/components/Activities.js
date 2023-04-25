@@ -23,7 +23,7 @@ import Delete from "../images/delete (1).png";
 import BackBtn from "../images/arrowBack.png";
 import Add from "../images/plus.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -36,6 +36,15 @@ function Activities() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [completedActivities, setCompletedActivities] = useState([]);
 
+
+    // to go back to the previous page
+    const navigate = useNavigate();
+    const goBack = () => {
+
+
+      navigate('/');
+
+    }
 
     const handleLeftButtonClick = () => {
         if (currentIndex > 0) {
@@ -204,8 +213,8 @@ function Activities() {
     </div>
 </section>
 
-<div className="d-flex justify-content-center">
-  <div className="d-flex justify-content-between align-items-center">
+<div className="d-flex justify-content-center flex-column align-items-center">
+  <div className="d-flex justify-content-between align-items-center mb-3" id="add-remove-buttons">
     <Link to="addActivities" className='add-link'>
       <img src={Add} className="btn btn-primary btn-add rounded-circle" />
     </Link>
@@ -213,7 +222,17 @@ function Activities() {
       <img src={Delete} className="btn btn-primary btn-remove rounded-circle" />
     </Link>
   </div>
+  <div>
+    {/* back button - goes to homepage */}
+    <button className="btn btn-back btn-lg" onClick={goBack}>
+      <div className="d-flex align-items-center">
+        <img src={BackBtn} className="img-fluid mr-2" alt="Back" />
+        <h1 className='h1-back'>Back</h1>
+      </div>
+    </button>
+  </div>
 </div>
+
 
 
 

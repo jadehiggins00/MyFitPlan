@@ -19,6 +19,8 @@ import BackBtn from "../images/back.png";
 import "../css/AddActivity.css";
 import "../css/General.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function AddActivities() {
 
@@ -28,6 +30,16 @@ function AddActivities() {
 
     const [selectedTextInput, setSelectedTextInput] = useState('');
 
+
+    
+    // to go back to the previous page
+    const navigate = useNavigate();
+    const goBack = () => {
+
+
+      navigate('/activities');
+
+    }
 
     const handleActivityClick = (activity, event) => {
       setSelectedActivity(activity);
@@ -222,7 +234,7 @@ function AddActivities() {
         <div className="col-auto">
           <button className="btn-back">
             <div className="d-flex align-items-center">
-              <img src={BackBtn} class="img-fluid mr-2" alt="Back" />
+              <img src={BackBtn} onClick={goBack} className="img-fluid mr-2" alt="Back" />
               <h1 className='h1-back'>Back</h1>
             </div>
           </button>
@@ -236,7 +248,7 @@ function AddActivities() {
           </button>
         </div>
     </div>
-
+      
 
 
     </div>

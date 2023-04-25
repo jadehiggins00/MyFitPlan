@@ -21,7 +21,7 @@ import BackBtn from "../images/back.png";
 import Add from "../images/plus.png";
 import "../css/DeleteActivity.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function DeleteActivities() {
@@ -34,6 +34,14 @@ function DeleteActivities() {
     const [completedActivities, setCompletedActivities] = useState([]);
     const [selectedActivities, setSelectedActivities] = useState([]);
 
+    // to go back to the previous page
+    const navigate = useNavigate();
+    const goBack = () => {
+
+
+      navigate('/activities');
+
+    }
 
 
     const handleLeftButtonClick = () => {
@@ -218,9 +226,9 @@ function DeleteActivities() {
     
     <div className="row justify-content-between pt-5">
   <div className="col-auto">
-    <button class="btn btn-back btn-lg p-2">
+    <button className="btn btn-back btn-lg p-2" onClick={goBack}>
       <div className="d-flex align-items-center">
-        <img src={BackBtn} class="img-fluid mr-2" alt="Back" />
+        <img src={BackBtn} className="img-fluid mr-2" alt="Back" />
         <h1 className='h1-back'>Back</h1>
       </div>
     </button>

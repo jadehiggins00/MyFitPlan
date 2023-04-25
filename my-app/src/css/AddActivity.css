@@ -16,6 +16,14 @@
    
 }
 
+.btn-confirm:hover{
+    background-color: #8ba6ca;
+    color: #212121;
+    border: 3px solid #212121;
+    
+    cursor: pointer;
+}
+
 .btn-right {
     background-color: #2E8540;
     border:0;
@@ -23,12 +31,24 @@
     padding:10px;
 }
 
+.btn-left:hover{
+    background-color: #494440;
+
+    cursor: pointer;
+}
+
 .btn-left{
-    background-color: #818181;
+    background-color: #5b616b;
     border:0;
     border-radius: 20px;
     padding:10px;
 
+}
+
+.btn-right:hover{
+    background-color: #4aa564;
+   
+    cursor: pointer;
 }
 
 .btn-back{
@@ -38,6 +58,13 @@
     border-radius: 15px;
     padding: 10px;
 }
+
+.btn-back:hover{
+    background-color: #D6D7D9;
+    border: 3px solid #212121;
+    cursor: pointer;
+}
+
 
 #activityInput{
     background: #E7E7E7;
@@ -129,6 +156,8 @@
     /* font-weight: 400; */
     color:white;
 }
+
+
 
 .h1-back{
     font-family: 'Jost';
