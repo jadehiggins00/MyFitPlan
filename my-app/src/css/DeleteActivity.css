@@ -17,6 +17,26 @@
    
 }
 
+.btn-confirm{
+    background-color:#0071BC;
+    border: 10px solid #000000;
+    border: 3px solid #000000;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    padding:10px;
+    padding-right: 5px;
+    margin-right: 1em;
+   
+}
+
+.h1-confirm{
+    font-family: 'Jost';
+    font-style: normal;
+    font-size: 30px;
+    /* font-weight: 400; */
+    color:white;
+}
+
 #activity-button {
  
     color: #212121 ;
@@ -33,24 +53,7 @@
     padding-right: 8px;
 }
 
-.btn-add{
-    background-color: #2E8540;
-    /* border-color: black;
-    border-width: 10px; */
-    padding:10px;
-    border: 5px solid #000000;
-    margin-left: 1em;
 
-}
-.btn-remove{
-    background-color:#981B1E;
-    border: 5px solid #000000;
-    border-color: black;
-    /* border-width: 10px; */
-    padding:10px;
-    margin-right: 9em;
-   
-}
 
 .btn-custom {
     background-color: #2E8540;
@@ -71,16 +74,50 @@
     color:#212121;
 }
 
+
 .h1-back{
     font-family: 'Jost';
     font-style: normal;
-    font-size: 50px;
+    font-size: 30px;
     /* font-weight: 400; */
     color:#212121;
+    margin-right: 14px;
     
+}
+
+.btn-back{
+    background: #AEB0B5;
+    border: 3px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 10px;
 }
 
 input.form-control-lg {
     font-size: 1.25rem; /* or any other value */
+  }
+
+  .dayOfWeek{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: #5B616B;
+  }
+  
+  .date{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    color: #5B616B;
+  }
+
+  .h1-delete{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    color: #212121;
   }
   

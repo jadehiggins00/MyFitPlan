@@ -18,6 +18,7 @@ import Profile from "../images/user.png";
 import BackBtn from "../images/back.png";
 import "../css/AddActivity.css";
 import "../css/General.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AddActivities() {
 
@@ -219,7 +220,7 @@ function AddActivities() {
     
     <div className="row justify-content-between pt-5">
         <div className="col-auto">
-          <button class="btn-back">
+          <button className="btn-back">
             <div className="d-flex align-items-center">
               <img src={BackBtn} class="img-fluid mr-2" alt="Back" />
               <h1 className='h1-back'>Back</h1>
@@ -228,7 +229,7 @@ function AddActivities() {
         </div>
         <div className="col-auto">
           <button onClick={addActivity} disabled={!selectedActivity} className="btn-confirm">
-            <div class="d-flex align-items-center">
+            <div className="d-flex align-items-center">
               <img src={CheckMark} className="img-fluid mr-2" alt="check mark image" id="checkMarkImage"/>
               <h1 className="h1-confirm">Confirm</h1>
             </div>

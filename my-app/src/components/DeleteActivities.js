@@ -17,10 +17,10 @@ import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
 import Remove from "../images/remove.png";
-import BackBtn from "../images/arrowBack.png";
+import BackBtn from "../images/back.png";
 import Add from "../images/plus.png";
 import "../css/DeleteActivity.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -146,8 +146,8 @@ function DeleteActivities() {
                 
                 {activities.length > 0 && (
                     <div>
-                          <p>{activities[currentIndex].dayOfWeek}</p>
-                        <p>{activities[currentIndex].date}</p>
+                          <h1 className="dayOfWeek">{activities[currentIndex].dayOfWeek}</h1>
+                        <h1 className='date'>{activities[currentIndex].date}</h1>
                     </div>
                 )}
                 </div>
@@ -163,8 +163,9 @@ function DeleteActivities() {
         </section>
         <section>
         <div>
+
         {/* Displays the list of activities within each day */}
-        <h1>Select Activities to Delete </h1>
+        <h1 className='h1-delete p-5'>Select Activities to Delete </h1>
 
         
     
@@ -210,19 +211,28 @@ function DeleteActivities() {
     </div>
 </section>
 
-<div>
-  
-    <Link to="addActivities">
-    <img src={Add}  className="btn btn-primary btn-add rounded-circle" />
-    </Link>
 
-    {/* Confirm */}
-    <button className="btn btn-success" onClick={deleteSelectedActivities}>
-        <img src={CheckMark} className="img-fluid" alt="check mark image" id="checkMarkImage"/>
-        <h2>Confirm</h2>
+
+
+    {/* Confirm and Back buttons */}
+    
+    <div className="row justify-content-between pt-5">
+  <div className="col-auto">
+    <button class="btn btn-back btn-lg p-2">
+      <div className="d-flex align-items-center">
+        <img src={BackBtn} class="img-fluid mr-2" alt="Back" />
+        <h1 className='h1-back'>Back</h1>
+      </div>
     </button>
-   
-   
+  </div>
+  <div className="col-auto">
+    <button className="btn btn-confirm btn-lg" onClick={deleteSelectedActivities}>
+      <div className="d-flex align-items-center">
+        <img src={CheckMark} className="img-fluid " alt="check mark image" id="checkMarkImage"/>
+        <h1 className="h1-confirm">Confirm</h1>
+      </div>
+    </button>
+  </div>
 </div>
 
 

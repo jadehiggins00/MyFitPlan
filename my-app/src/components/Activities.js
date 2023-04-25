@@ -22,6 +22,7 @@ import Profile from "../images/user.png";
 import Delete from "../images/delete (1).png";
 import BackBtn from "../images/arrowBack.png";
 import Add from "../images/plus.png";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -134,7 +135,7 @@ function Activities() {
       </header>
 
         <section className="Date" id="">
-        <div className="container-fluid p-4">
+        <div className="container-fluid p-5">
             <div className="row">
             <div className="col-12 d-flex justify-content-center align-items-center text-center">
                 <div className="d-flex align-items-center mr-auto">
@@ -148,8 +149,8 @@ function Activities() {
                 
                 {activities.length > 0 && (
                     <div>
-                          <p>{activities[currentIndex].dayOfWeek}</p>
-                        <p>{activities[currentIndex].date}</p>
+                          <h1 className="dayOfWeek">{activities[currentIndex].dayOfWeek}</h1>
+                        <h1 className='date'>{activities[currentIndex].date}</h1>
                     </div>
                 )}
                 </div>
@@ -211,7 +212,6 @@ function Activities() {
     <Link to="deleteActivities" className='add-link'>
       <img src={Delete} className="btn btn-primary btn-remove rounded-circle" />
     </Link>
-  
   </div>
 </div>
 

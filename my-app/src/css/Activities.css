@@ -26,7 +26,7 @@
     border-width: 10px; */
     padding:10px;
     border: 5px solid #000000;
-    margin-left: 9em;
+
 
 }
 
@@ -40,7 +40,7 @@
     border-color: black;
     /* border-width: 10px; */
     padding:10px;
-    margin-right: 9em;
+  
    
 }
 
@@ -82,7 +82,7 @@ i.far.fa-check-circle {
 
   
 .h4-activity{
-    font-family: 'Jost';
+    font-family: 'Nunito';
     font-style: normal;
     font-size: 25px;
     /* font-weight: 400; */
