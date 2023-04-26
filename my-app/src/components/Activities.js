@@ -118,18 +118,18 @@ function Activities() {
            <header>
         <div className="Header">
 
-          <button className="btn headerBtn">
-            <a href="#">
+        <button className="btn headerBtn">
+          <Link to="/" className='add-link'>
               <img src={Home} className="img-fluid" alt="Home Button" />
-            </a>
+            </Link>
           </button>
 
           <p className="HeaderText">MyFitPlan</p>
 
           <button className="btn headerBtn">
-            <a href="#">
+            <Link to="profile" className='add-link'>
               <img src={Profile} className="img-fluid" alt="Profile Button" />
-            </a>
+            </Link>
           </button>
 
         </div>

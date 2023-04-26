@@ -33,6 +33,10 @@ function App() {
       <Route path="activities" element={ <Activities/> } />
       <Route path="activities/addactivities" element={ <AddActivities/> } />
       <Route path="activities/deleteactivities" element={ <DeleteActivities/> } />
+      <Route path="activities/deleteactivities/profile" element={ <Profile/> } />
+      <Route path="activities/profile" element={ <Profile/> } />
+      <Route path="addactivities/profile" element={ <Profile/> } />
+      <Route path="deleteActivities/profile" element={ <Profile/> } />
       <Route path="goals/addgoals" element={ <GoalsAdd/> } />
       <Route path="goals/deletegoals" element={ <GoalsDelete/> } />
 
