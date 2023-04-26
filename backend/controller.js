@@ -3,6 +3,7 @@ const mongoose = require('../db/mongoose');
 
 const express = require('express');
 const {Activities} = require('./models/activitiesModel');
+
 const {Goals} = require('./models/goalsModel');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -136,7 +137,7 @@ app.get('/activitiesmodels', (req, res) =>{
 
   // an array of promises to grab all the data.
   const promises = [];
-  promises.push(Activity.find({}));
+  promises.push(Activities.find({}));
 
 
   // we use promise all to wait for all promises to resolve before sending the response
