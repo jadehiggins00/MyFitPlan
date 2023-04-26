@@ -19,19 +19,6 @@ function GoalsAdd() {
   const [date, setDate] = useState(new Date());
   const [goalText, setGoalText] = useState('');
   const textInputRef = useRef();
-
-  const startSpeechRecognition = () => {
-    const recognition = new window.webkitSpeechRecognition();
-    recognition.start();
-    recognition.onresult = handleSpeechRecognitionResult;
-  };
-
-  const handleSpeechRecognitionResult = (event) => {
-    const text = event.results[0][0].transcript;
-    setGoalText(text);
-    textInputRef.current.value = text;
-  };
-  
   
 
 
@@ -128,7 +115,15 @@ function GoalsAdd() {
     });
   };
 
- 
+  const handlePrevClick = () => {
+    setDate(new Date(date.getFullYear(), date.getMonth() - 1));
+    renderCalendar();
+  };
+
+  const handleNextClick = () => {
+    setDate(new Date(date.getFullYear(), date.getMonth() + 1));
+    renderCalendar();
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
