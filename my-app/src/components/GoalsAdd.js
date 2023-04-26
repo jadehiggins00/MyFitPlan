@@ -128,15 +128,7 @@ function GoalsAdd() {
     });
   };
 
-  const handlePrevClick = () => {
-    setDate(new Date(date.getFullYear(), date.getMonth() - 1));
-    renderCalendar();
-  };
-
-  const handleNextClick = () => {
-    setDate(new Date(date.getFullYear(), date.getMonth() + 1));
-    renderCalendar();
-  };
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -221,7 +213,6 @@ function GoalsAdd() {
 
           <p className="instructions">2. What is your goal</p>
           <input type="text" id="gtext" ref={textInputRef} name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} />
-          <img src={Mic} onClick={startSpeechRecognition} />
           
 
           <div className="BottomGoalsAddButtons">
