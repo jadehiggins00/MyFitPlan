@@ -7,6 +7,9 @@ import Home from '../images/Home.png';
 import Profile from '../images/account.png';
 import addtext from '../images/addtext.png';
 import deletetext from '../images/deletetext.png';
+import Delete from "../images/delete (1).png";
+import BackBtn from "../images/arrowBack.png";
+import Add from "../images/plus.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Goals() {
@@ -161,19 +164,19 @@ function Goals() {
         <section className="container">
         {generateGoalsList()}
         </section>
-        <section className="AddDelete">
-          <Link to="addgoals">
-            <img src={addtext} className="AddButton" />
-          </Link>
-          <Link to="deletegoals">
-            <img src={deletetext} className="DeleteButton" />
-            </Link>
-        </section>
-        <section className="BackHome">
-          <a href="Activities.js" className="BackHome">
-            &larr; Back
-          </a>
-        </section>
+        <div className="d-flex justify-content-center flex-column align-items-center">
+  <div className="d-flex justify-content-between align-items-center mb-3" id="add-remove-buttons">
+    <Link to="addgoals" className='add-link'>
+      <img src={Add} className="btn btn-primary btn-add rounded-circle" />
+    </Link>
+    <Link to="deletegoals" className='add-link'>
+      <img src={Delete} className="btn btn-primary btn-remove rounded-circle" />
+    </Link>
+  </div>
+  <div>
+    
+  </div>
+</div>
       </main>
     </body>
   );
