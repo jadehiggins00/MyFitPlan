@@ -13,6 +13,7 @@ import GoalsAdd from "./components/GoalsAdd"
 import GoalsDelete from "./components/GoalsDelete"
 import Activities from "./components/Activities"
 import AddActivities from "./components/AddActivities"
+import Sleep from "./components/Sleep"
 
 import LeftArrow from './images/LeftArrow.png';
 
@@ -33,6 +34,7 @@ function App() {
       <Route path="activities" element={ <Activities/> } />
       <Route path="activities/addactivities" element={ <AddActivities/> } />
       <Route path="activities/deleteactivities" element={ <DeleteActivities/> } />
+      <Route path="sleep" element={ <Sleep/> } />
       <Route path="goals/addgoals" element={ <GoalsAdd/> } />
       <Route path="goals/deletegoals" element={ <GoalsDelete/> } />
 

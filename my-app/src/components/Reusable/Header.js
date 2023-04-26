@@ -9,12 +9,12 @@ function Header({ title }) {
     <header>
       <div className="Header">
         <button className="btn headerBtn">
-          <Link to="/">
+          <Link to="">
             <img src={HomeBtn} className="img-fluid" alt="Home Button" />
           </Link>
         </button>
 
-        <p className="HeaderText">{ title }</p>
+        <p className="HeaderText">{title}</p>
 
         <button className="btn headerBtn">
           <Link to="profile">

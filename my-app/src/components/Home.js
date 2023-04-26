@@ -67,7 +67,7 @@ function Home() {
           <Link to="activities" className="done" id="status"><p>{doneCount} Done</p><img src={Done} alt="" /></Link>
           <Link to="activities" className="todo" id="status"><p>{notDoneCount} To Do</p><img src={Todo} alt="" /></Link>
           <Link to="activities" className="late" id="status"><p>{lateCount} Late</p><img src={Late} alt="" /></Link>
-        </div>
+        </div>x
         <div className="pt-3">
       <div className="row">
         <hr id="line" />
