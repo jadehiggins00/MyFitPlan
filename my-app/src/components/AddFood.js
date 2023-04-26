@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../css/AddFood.css';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
+import Mic from '../images/mic.png';
+
 
 function AddFood() {
   //createing variables and variables updaters to use to store data
@@ -12,6 +14,8 @@ function AddFood() {
   const [selectedFoods, setSelectedFoods] = useState([]);
   const [photo, setPhoto] = useState("");
   const [date, setDate] = useState("");
+  const foodTextInputRef = useRef();
+  const notesTextInputRef = useRef();
 
 // Function to handle checkbox changes
   const handleCheckbox = (event) => {
@@ -23,6 +27,20 @@ function AddFood() {
       setSelectedFoods(selectedFoods.filter(food => food !== value));
     }
   }
+
+  const startSpeechRecognition = (ref, callback) => {
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.start();
+    recognition.onresult = (event) => handleSpeechRecognitionResult(event, ref, callback);
+    console.log(recognition)
+  };
+  const handleSpeechRecognitionResult = (event, ref, callback) => {
+    console.log("hello")
+    const text = event.results[0][0].transcript;
+    callback(text);
+    ref.current.value = text;
+
+  };
 
   //image handler ********TO BE WORKED ON
   const handleFile = (event) => {
@@ -93,20 +111,24 @@ const formattedDay = currentDay.toLocaleDateString('en-US', { weekday: 'long' })
       </header>
 
     {/* ********* First textarea section*********/}
-    <div className="box form">
-      <section className="text1 textbox">
-        <h1>What Did You Eat?</h1>
-        <label htmlFor="Food"></label>
-        <textarea type="text" id="Food" name="Food" placeholder="Enter text here." onChange={(e) => setFood(e.target.value)}></textarea>
-      </section>
+    {/* ********* First textarea section*********/}
+<div className="box form">
+  <section className="text1 textbox">
+    <h1>What Did You Eat?</h1>
+    <img src={Mic} onClick={() => startSpeechRecognition(foodTextInputRef, setFood)} />
+    <label htmlFor="Food"></label>
+    <textarea type="text" id="Food" name="Food" ref={foodTextInputRef} placeholder="Enter text here." value={food} onChange={(e) => setFood(e.target.value)}></textarea>
+  </section>
 
-    {/* ********* Second textarea section*********/}
-      <section className="text2 textbox">
-        <h1>Notes</h1>
-        <img src="../images/notes.png" alt="" />
-        <label htmlFor="Notes"></label>
-        <textarea type="text" id="Notes" name="Notes" placeholder="Enter text here." onChange={(e) => setNotes(e.target.value)}></textarea>
-      </section>
+{/* ********* Second textarea section*********/}
+  <section className="text2 textbox">
+    <h1>Notes</h1>
+    <img src="../images/notes.png" alt="" />
+    <img src={Mic} onClick={() => startSpeechRecognition(notesTextInputRef, setNotes)} />
+    <label htmlFor="Notes"></label>
+    <textarea type="text" id="Notes" name="Notes" ref={notesTextInputRef} placeholder="Enter text here." value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
+  </section>
+
 
     {/* ********* Third textarea section*********/}
       <section className="text3 textbox img-fluid">
