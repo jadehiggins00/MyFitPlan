@@ -3,7 +3,7 @@ const mongoose = require('../db/mongoose');
 
 const express = require('express');
 const {Activities} = require('./models/activitiesModel');
-
+const {Food} = require('./models/foodModel');
 const {Goals} = require('./models/goalsModel');
 const bodyParser = require('body-parser');
 const cors = require('cors');
