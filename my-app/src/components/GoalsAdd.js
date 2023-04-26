@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import '../css/GeneralGoals.css';
 import '../css/GoalsAdd.css';
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import Home from '../images/Home.png';
 import Profile from '../images/account.png';
+import Mic from '../images/mic.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -17,6 +18,22 @@ function GoalsAdd() {
 
   const [date, setDate] = useState(new Date());
   const [goalText, setGoalText] = useState('');
+  const textInputRef = useRef();
+
+  const startSpeechRecognition = () => {
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.start();
+    recognition.onresult = handleSpeechRecognitionResult;
+  };
+
+  const handleSpeechRecognitionResult = (event) => {
+    const text = event.results[0][0].transcript;
+    setGoalText(text);
+    textInputRef.current.value = text;
+  };
+  
+  
+
 
   useEffect(() => {
     renderCalendar();
@@ -203,8 +220,17 @@ function GoalsAdd() {
           </div>
 
           <p className="instructions">2. What is your goal</p>
-          <input type="text" id="gtext" name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} />
-          
+          {/* <div style={{ position: 'relative' }}>
+            <input type="text" id="gtext" ref={textInputRef} name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} style={{ paddingRight: '30px' }} />
+            <img src={Mic} onClick={startSpeechRecognition} style={{ position: 'absolute', top: '50%', right: '15px', transform: 'translateY(-50%)' }} />
+          </div> */}
+          <input type="text" id="gtext" ref={textInputRef} name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} />
+          <img src={Mic} onClick={startSpeechRecognition} />
+          {/* <div style={{ display: "flex", alignItems: "center" ,}}>
+            <input type="text" id="gtext" ref={textInputRef} name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} style={{ width: "50vw", height: "40px", border: "1px solid black", borderRadius: "20px", borderWidth: "4px", textAlign: "center", fontSize: "2em", backgroundColor: "#E7E7E7", margin: "auto" }} />
+            <img src={Mic} onClick={startSpeechRecognition} style={{ height: "40px", cursor: "pointer" }} />
+          </div> */}
+
           <div className="BottomGoalsAddButtons">
             <Link to="/goals" className="back">&larr; Back</Link>
             <button type="submit" className="confirm">&#10003; Confirm</button>
