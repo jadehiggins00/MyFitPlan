@@ -28,19 +28,19 @@ function AddFood() {
     }
   }
 
-  const startSpeechRecognition = (ref, callback) => {
-    const recognition = new window.webkitSpeechRecognition();
-    recognition.start();
-    recognition.onresult = (event) => handleSpeechRecognitionResult(event, ref, callback);
-    console.log(recognition)
-  };
-  const handleSpeechRecognitionResult = (event, ref, callback) => {
-    console.log("hello")
-    const text = event.results[0][0].transcript;
-    callback(text);
-    ref.current.value = text;
+  // const startSpeechRecognition = (ref, callback) => {
+  //   const recognition = new window.webkitSpeechRecognition();
+  //   recognition.start();
+  //   recognition.onresult = (event) => handleSpeechRecognitionResult(event, ref, callback);
+  //   console.log(recognition)
+  // };
+  // const handleSpeechRecognitionResult = (event, ref, callback) => {
+  //   console.log("hello")
+  //   const text = event.results[0][0].transcript;
+  //   callback(text);
+  //   ref.current.value = text;
 
-  };
+  // };
 
   //image handler ********TO BE WORKED ON
   const handleFile = (event) => {
@@ -91,16 +91,18 @@ const formattedDay = currentDay.toLocaleDateString('en-US', { weekday: 'long' })
         {/* ********* HEADER SECTION*********/}
       <header>
         <div className="Header">
-          <button className="btn headerBtn">
-            <a href="#">
-              <img src={Home} className="img-fluid" alt="Home Button" />
-            </a>
-          </button>
-          <p className="HeaderText">MyFitPlan</p>
-          <button className="btn headerBtn">
-            <a href="#">
-              <img src={Profile} className="img-fluid" alt="Profile Button" />
-            </a>
+        <button className="btn headerBtn">
+            <Link to="/" className='add-link'>
+                <img src={Home} className="img-fluid" alt="Home Button" />
+              </Link>
+            </button>
+
+            <p className="HeaderText">MyFitPlan</p>
+
+            <button className="btn headerBtn">
+              <Link to="profile" className='add-link p-1'>
+                <img src={Profile} className="img-fluid" alt="Profile Button"  />
+              </Link>
           </button>
         </div>
         <div className="pt-3">
@@ -115,7 +117,7 @@ const formattedDay = currentDay.toLocaleDateString('en-US', { weekday: 'long' })
 <div className="box form">
   <section className="text1 textbox">
     <h1>What Did You Eat?</h1>
-    <img src={Mic} onClick={() => startSpeechRecognition(foodTextInputRef, setFood)} />
+    {/* <img src={Mic} onClick={() => startSpeechRecognition(foodTextInputRef, setFood)} /> */}
     <label htmlFor="Food"></label>
     <textarea type="text" id="Food" name="Food" ref={foodTextInputRef} placeholder="Enter text here." value={food} onChange={(e) => setFood(e.target.value)}></textarea>
   </section>
@@ -124,7 +126,7 @@ const formattedDay = currentDay.toLocaleDateString('en-US', { weekday: 'long' })
   <section className="text2 textbox">
     <h1>Notes</h1>
     <img src="../images/notes.png" alt="" />
-    <img src={Mic} onClick={() => startSpeechRecognition(notesTextInputRef, setNotes)} />
+    {/* <img src={Mic} onClick={() => startSpeechRecognition(notesTextInputRef, setNotes)} /> */}
     <label htmlFor="Notes"></label>
     <textarea type="text" id="Notes" name="Notes" ref={notesTextInputRef} placeholder="Enter text here." value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
   </section>

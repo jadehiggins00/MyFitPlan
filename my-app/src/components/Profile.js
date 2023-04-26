@@ -121,10 +121,12 @@ function Profile() {
         <img id="reminder_btn" src={reminderBtn} />
         <p>Reminder Settings</p>
       </button>
+      <Link to="/" className='add-link p-1'>
       <button className="button_back">
           <img id="icon_back" src={backBtn} />
           <p>Back</p>
       </button>
+      </Link>
 
     </div>
   );

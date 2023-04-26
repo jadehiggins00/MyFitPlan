@@ -63,16 +63,18 @@ function Food() {
           {/* ********* HEADER SECTION*********/}
           <header>
         <div className="Header">
-          <button className="btn headerBtn">
-            <a href="#">
-              <img src={Home} className="img-fluid" alt="Home Button" />
-            </a>
-          </button>
-          <p className="HeaderText">MyFitPlan</p>
-          <button className="btn headerBtn">
-            <a href="#">
-              <img src={Profile} className="img-fluid" alt="Profile Button" />
-            </a>
+        <button className="btn headerBtn">
+            <Link to="/" className='add-link'>
+                <img src={Home} className="img-fluid" alt="Home Button" />
+              </Link>
+            </button>
+
+            <p className="HeaderText">MyFitPlan</p>
+
+            <button className="btn headerBtn">
+              <Link to="profile" className='add-link p-1'>
+                <img src={Profile} className="img-fluid" alt="Profile Button"  />
+              </Link>
           </button>
         </div>
         <div className="pt-3">

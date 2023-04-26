@@ -39,9 +39,14 @@ function App() {
       <Route path="activities" element={ <Activities/> } />
         
       <Route path="food" element={ <Food/> } />
+      <Route path="food/profile" element={ <Profile/> } />
+
       <Route path="fooditem" element={<FoodItem/>}/>
       <Route path="DeleteFood" element={ <DeleteFood/> } />
+      <Route path="DeleteFood/profile" element={ <Profile/> } />
       <Route path="addfood" element={ <AddFood/> } />
+      <Route path="addfood/profile" element={ <Profile/> } />
+
       
       <Route path="activities/addactivities" element={ <AddActivities/> } />
       <Route path="activities/deleteactivities" element={ <DeleteActivities/> } />
@@ -49,8 +54,13 @@ function App() {
       <Route path="activities/profile" element={ <Profile/> } />
       <Route path="addactivities/profile" element={ <Profile/> } />
       <Route path="deleteActivities/profile" element={ <Profile/> } />
+
       <Route path="goals/addgoals" element={ <GoalsAdd/> } />
       <Route path="goals/deletegoals" element={ <GoalsDelete/> } />
+      <Route path="goals/profile" element={ <Profile/> } />
+      <Route path="goals/deletegoals/profile" element={ <Profile/> } />
+      <Route path="goals/addgoals/profile" element={ <Profile/> } />
+
 
     </Routes>
   </div>
