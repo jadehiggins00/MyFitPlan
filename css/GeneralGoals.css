@@ -1,0 +1,65 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content: center;
+  }
+
+.HeaderText {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.5em;
+    color: #2E8540;
+}
+
+.headerBtn {
+    width: 20%;
+} 
+
+#line {
+    border: 1px solid #212121;
+    width: 85%;
+    margin: auto;
+}
+
+.Date{
+    display: flex;
+    flex-direction: row;
+    font-size: 180%;
+    text-align: center;
+    
+}
+
+.ArrowButton{
+    border-radius: 25px;
+    width: 5em;
+    height: 5em;
+    padding-top: 0.5em;
+    margin: auto;
+    background: green;
+    background-position: center;
+}
+
+.CenterText{
+    text-align: center;
+    color: #5b616b;
+    font-family: Arial, Helvetica, sans-serif;;
+}
+
+.BackHome a{
+    display: block;
+    margin: auto;
+    width: 50vw;
+    height: 25px;
+    background: #AEB0B5;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 5px;
+    border-style: solid ;
+    color: black;
+    font-weight: bold;
+    
+      
+}

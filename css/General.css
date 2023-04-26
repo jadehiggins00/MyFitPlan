@@ -1,0 +1,73 @@
+.Header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  justify-content: center;
+}
+
+.HeaderText {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 2.5em;
+  color: #2E8540;
+}
+
+.headerBtn {
+  width: 20%;
+} 
+
+#line {
+  border: 1px solid #212121;
+  width: 85%;
+  margin: auto;
+}
+
+.Date{
+    display: flex;
+    flex-direction: row;
+    font-size: 180%;
+    text-align: center;
+    
+}
+
+.ArrowButton{
+    border-radius: 25px;
+    width: 5em;
+    height: 5em;
+    padding-top: 0.5em;
+    margin: auto;
+    background: green;
+    background-position: center;
+}
+
+.btn-custom {
+    background-color: green;
+    border:0;
+    border-radius: 25px;
+    padding:10px;
+}
+
+/* .vertical-line {
+    border-left: 2px solid black;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+  } */
+  
+
+.vertical-line {
+    border-left: 1px solid #8D8C8C;
+    height: 42%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .horizontal-line {
+    border-top: 2px solid black;
+    width: 64%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
