@@ -13,6 +13,7 @@ import GoalsAdd from "./components/GoalsAdd"
 import GoalsDelete from "./components/GoalsDelete"
 import Activities from "./components/Activities"
 import AddActivities from "./components/AddActivities"
+import Food from "./components/Food"
 
 
 import LeftArrow from './images/LeftArrow.png';
@@ -32,6 +33,8 @@ function App() {
       <Route path="profile" element={ <Profile/> } />
       <Route path="goals" element={ <Goals/> } />
       <Route path="activities" element={ <Activities/> } />
+      <Route path="foods" element={ <Food/> } />
+      
       <Route path="activities/addactivities" element={ <AddActivities/> } />
       <Route path="activities/deleteactivities" element={ <DeleteActivities/> } />
       <Route path="activities/deleteactivities/profile" element={ <Profile/> } />

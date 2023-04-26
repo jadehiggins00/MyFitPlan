@@ -75,7 +75,7 @@ function Home() {
     </div>
         <div className="inline">
           <Link to="sleep" className="button flex" id="sleep"><img src={Sleep} alt="" /><p>Sleep</p></Link>
-          <Link to="food" className="button flex" id="food"><img src={Food} alt="" /><p>Food</p></Link>
+          <Link to="foods" className="button flex" id="food"><img src={Food} alt="" /><p>Food</p></Link>
         </div>
         <Link to="goals" className="button flex" id="goals"><img src={Goals} alt="" /><p>Goals</p></Link>
       </div>

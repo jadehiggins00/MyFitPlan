@@ -17,6 +17,61 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+// ***************** FOOD **************************
+
+//  Post to database to create a new food item 
+app.post('/foods', (req, res) => {
+  console.log(req.body);
+  
+  const { food, notes, selectedFoods, dateTime, dayTime  } = req.body;
+  const newFood = new Food({
+    food,
+    notes,
+    meals: selectedFoods,
+    dateTime,
+    dayTime,
+  });
+  console.log(req.body)
+  newFood.save()
+  .then(result => {
+    console.log(result);
+    res.status(200).json({ message: "Food added successfully" });
+  })
+  .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error saving Food');
+  });
+});
+
+// // get all food items
+app.get('/foods', (req, res) =>{
+
+  // an array of promises to grab all the data.
+  const promises = [];
+  promises.push(Food.find({}));
+
+  // we use promise all to wait for all promises to resolve before sending the response
+  Promise.all(promises)
+  .then(([foods]) =>{
+      res.send({foods});
+  }).catch((error) => {
+      res.status(500).send(error);
+  })
+});
+
+app.delete('/foods/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedFood = await Food.deleteOne({ _id: id });
+    res.status(200).json({ message: 'food item deleted successfully', deletedFood });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to delete activity from the database.' });
+  }
+});
+
+
+
 
 // ***************** GOALS **************************
 
