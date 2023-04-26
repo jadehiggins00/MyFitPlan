@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../css/Activities.css";
+import "../css/Food.css";
 import { Link} from "react-router-dom";
 import Home from "../images/Home.png";
 import Profile from "../images/user.png";
