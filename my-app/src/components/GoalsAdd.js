@@ -220,16 +220,9 @@ function GoalsAdd() {
           </div>
 
           <p className="instructions">2. What is your goal</p>
-          {/* <div style={{ position: 'relative' }}>
-            <input type="text" id="gtext" ref={textInputRef} name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} style={{ paddingRight: '30px' }} />
-            <img src={Mic} onClick={startSpeechRecognition} style={{ position: 'absolute', top: '50%', right: '15px', transform: 'translateY(-50%)' }} />
-          </div> */}
           <input type="text" id="gtext" ref={textInputRef} name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} />
           <img src={Mic} onClick={startSpeechRecognition} />
-          {/* <div style={{ display: "flex", alignItems: "center" ,}}>
-            <input type="text" id="gtext" ref={textInputRef} name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} style={{ width: "50vw", height: "40px", border: "1px solid black", borderRadius: "20px", borderWidth: "4px", textAlign: "center", fontSize: "2em", backgroundColor: "#E7E7E7", margin: "auto" }} />
-            <img src={Mic} onClick={startSpeechRecognition} style={{ height: "40px", cursor: "pointer" }} />
-          </div> */}
+          
 
           <div className="BottomGoalsAddButtons">
             <Link to="/goals" className="back">&larr; Back</Link>
