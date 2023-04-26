@@ -14,6 +14,7 @@ import GoalsDelete from "./components/GoalsDelete"
 import Activities from "./components/Activities"
 import AddActivities from "./components/AddActivities"
 
+
 import LeftArrow from './images/LeftArrow.png';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
