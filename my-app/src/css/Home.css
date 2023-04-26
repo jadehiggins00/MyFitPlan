@@ -1,54 +1,52 @@
 a:link { text-decoration: none; }
-
-
 a:visited { text-decoration: none; }
-
-
 a:hover { text-decoration: none; }
-
-
 a:active { text-decoration: none; }
 
+
 .greet{
-  width: auto;
   margin: auto;
-  text-align: center;
+  width: 50%;
 }
 
 .buttons{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: calc(90vh - 60px);
   width: auto;
 }
 
-.button{
-  display: flex;
-  margin: auto;
-  text-align: center;
-
+.button {
   box-sizing: border-box;
   border: 5px solid #000000;
   box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  font-size: 20px;
-  line-height: 36px;
-  color: white;
+  width: 80%;
 }
 
-.activityrel{
+.activityrel {
   display: flex;
   flex-direction: column;
-  margin: auto;
+}
+
+.activity-container {
+  position: relative;
   width: 90%;
+  margin: auto;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:90%;
 }
 
 
-.activity{
-  width: 100%;
-  top: 21vh;
+.activity {
   box-sizing: border-box;
+  border: 5px solid #000000;
+  grid-area: activity;
   height: 35vh;
   background-image: url("../images/Acitivites.jpg");
   background-position: 90%;
@@ -88,86 +86,76 @@ a:active { text-decoration: none; }
   float: left;
 }
 
-.status{
+.status {
   position: absolute;
-  width: 14em;
-  left: 24.5em;
-  top: 29.5vh;
+  top: 17%;
+  right: 2%;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
-#status{
+#status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 0.4vh;
   text-align: center;
-
-  padding: 2.5vh;
+  padding: 1vh 1.5vh;
   box-sizing: border-box;
   border: 5px solid #000000;
   box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
 }
 
-#status img{
-  position: absolute;
-  margin-top: -1.9vh;
-  margin-left:2.5em;
+#status img {
   height: 3.8vh;
+  margin-left: 0.5rem;
 }
 
-#status p{
-  position: absolute;
-  margin-top: -1.5vh;
-  margin-left: -0.7em;
-  font-size: 3vh;
-
-
+#status p {
   font-size: 2.5vh;
   line-height: 29px;
-  
-  
+  margin-right: 0.5rem;
+  margin-bottom: 0;
 }
 
-.done{
+.done {
   background: #2E8540;
   color: white;
 }
 
-.todo{
+.todo {
   background: #FDB81E;
   color: #212121;
 }
 
-.late{
+.late {
   background: #CD2026;
   color: white;
 }
 
-.inline{
+.flex {
   display: flex;
-}
-
-.flex{
-  width: 9em;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
   margin-top: 1em;
   height: 9vh;
   text-align: center;
+  color: white;
 }
 
-.flex p{
-  margin: auto;
+.flex p {
+  margin: 0;
   margin-left: 0.4em;
   font-size: 3.5vh;
 }
 
-.flex img{
+.flex img {
   height: 4.5vh;
   margin-left: 1em;
-  margin-top: 1.5vh;
-}
-
-#sleep {
-  background: #981B1E;
 }
 
 #food {
@@ -176,4 +164,31 @@ a:active { text-decoration: none; }
 
 #goals {
   background: #046B99;
+}
+
+.parent-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Update media query for landscape mode */
+@media (orientation: landscape) {
+  .parent-section {
+    flex-direction: row; /* Change the flex-direction for landscape mode */
+  }
+
+  .activity-container {
+    width: 45%;
+  }
+
+  .button-container {
+    width: 45%;
+  }
+
+  .greet {
+    width: 100%;
+  }
 }

@@ -17,19 +17,19 @@ color: #212121;
 #profile_picture
 {
     text-align: center;
-    width: 50%;
+    height: 20%;
     margin: auto;
 }
 
 .edit_photo
 {
+    margin: auto;
     display: flex;
     flex-direction: row;
 }
 
 .edit_photo img
 {
-    margin-left: 1.5em;
     height: 6vh;
     margin-top: 2vh;
 }
@@ -78,42 +78,6 @@ color: #212121;
     float: left;
     padding-top: 1vh;
     font-size: 1.5em;
-}
-
-.log_out
-{
-    position: relative;
-    margin-top: 4vh;
-    background-color: #4AA564;
-    border: 5px solid black;
-    border-radius: 15px;
-    height: 8vh;
-    width: 90%;
-    box-shadow: 4px 4px 4px #aaaaaa;
-    font-size: 1.5em;
-    /* Log Out */
-
-    color: #212121;
-
-}
-.log_out:active
-{
-    background-color: #63c37e;
-}
-
-.log_out img 
-{
-    float: left;
-    margin: 1vh;
-    height: 5vh;
-}
-
-.log_out p 
-{
-    float: left;
-    padding-top: 1vh;
-    padding-left: 0.4em;
-    font-size: 2em;
 }
 
 .button_back
