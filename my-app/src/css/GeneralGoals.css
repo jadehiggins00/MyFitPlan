@@ -61,5 +61,7 @@
     border-style: solid ;
     color: black;
     font-weight: bold;
+    max-width: 30vw;
+
     
 }
