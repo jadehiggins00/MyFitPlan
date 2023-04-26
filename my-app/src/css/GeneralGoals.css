@@ -5,6 +5,7 @@
     padding-left: 15px;
     padding-right: 15px;
     justify-content: center;
+    margin-bottom: 15px;
   }
 
 .HeaderText {
@@ -51,7 +52,7 @@
     display: block;
     margin: auto;
     width: 50vw;
-    height: 25px;
+    height: px;
     background: #AEB0B5;
     padding: 10px;
     text-align: left;
@@ -60,6 +61,7 @@
     border-style: solid ;
     color: black;
     font-weight: bold;
+    max-width: 30vw;
+
     
-      
 }

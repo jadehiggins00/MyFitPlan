@@ -7,7 +7,7 @@ import Header from './Reusable/Header';
 import backBtn from '../images/arrowBack.png'
 import logoutBtn from '../images/LogOut.png';
 import reminderBtn from '../images/Reminder.png';
-import User from '../images/Profile.png';
+import User from '../images/account.png';
 import Edit from '../images/Edit.png';
 
 

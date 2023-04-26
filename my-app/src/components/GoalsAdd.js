@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import '../css/GeneralGoals.css';
 import '../css/GoalsAdd.css';
 import { Link } from "react-router-dom";
 
 import Home from '../images/Home.png';
-import Profile from '../images/Profile.png';
+import Profile from '../images/account.png';
+import Mic from '../images/mic.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function GoalsAdd() {
@@ -16,6 +18,9 @@ function GoalsAdd() {
 
   const [date, setDate] = useState(new Date());
   const [goalText, setGoalText] = useState('');
+  const textInputRef = useRef();
+  
+
 
   useEffect(() => {
     renderCalendar();
@@ -149,6 +154,7 @@ function GoalsAdd() {
       <div>
       <header>
         <div className="Header">
+
           <button className="btn headerBtn">
             <a href="#">
               <img src={Home} className="img-fluid" alt="Home Button" />
@@ -162,15 +168,17 @@ function GoalsAdd() {
               <img src={Profile} className="img-fluid" alt="Profile Button" />
             </a>
           </button>
+
         </div>
 
         <div className="pt-3">
           <div className="row">
+
             <hr id="line" />
+
           </div>
         </div>
       </header>
-
       <main>
         <form method="post" onSubmit={handleSubmit} autocomplete="off">
           <p className="instructions1">.</p>
@@ -199,8 +207,9 @@ function GoalsAdd() {
           </div>
 
           <p className="instructions">2. What is your goal</p>
-          <input type="text" id="gtext" name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} />
+          <input type="text" id="gtext" ref={textInputRef} name="goaltext" placeholder="" required onChange={(event) => setGoalText(event.target.value)} />
           
+
           <div className="BottomGoalsAddButtons">
             <Link to="/goals" className="back">&larr; Back</Link>
             <button type="submit" className="confirm">&#10003; Confirm</button>
