@@ -118,7 +118,7 @@ function AddActivities() {
           <p className="HeaderText">MyFitPlan</p>
 
           <button className="btn headerBtn">
-            <Link to="profile" className='add-link' >
+            <Link to="profile" className='add-link p-1' >
               <img src={Profile} className="img-fluid " alt="Profile Button" />
             </Link>
           </button>
