@@ -45,11 +45,47 @@ function Reminders() {
       localStorage.setItem('reminderOption', reminderOption);
       setIsOptionSaved(true); 
 
+      setReminder(reminderOption);
+
       setTimeout(() => {
         setIsOptionSaved(false);
       }, 3000);
     }
   };
+
+
+  const setReminder = (option) => {
+    let interval;
+    switch (option) {
+      case '1 hour':
+        interval = 60 * 60 * 1000;
+        break;
+      case '2 hour':
+        interval = 2 * 60 * 60 * 1000;
+        break;
+      case '6 hour':
+        interval = 6 * 60 * 60 * 1000;
+        break;
+      case 'Once everyday':
+        interval = 24 * 60 * 60 * 1000;
+        break;
+      default:
+        console.error('Invalid reminder option');
+        return;
+    }
+  
+    setTimeout(() => {
+      const title = 'Reminder';
+      const options = {
+        body: `This is your reminder, scheduled for every ${option.toLowerCase()}.`,
+      };
+      new Notification(title, options);
+      setReminder(option);
+    }, interval);
+  };
+
+
+
 
   const savedMessage = isOptionSaved ? <p>Option saved!</p> : null;
 
