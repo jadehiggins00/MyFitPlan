@@ -197,3 +197,174 @@ form input[type="radio"] {
 .saved-message {
   font-size: 24px;
 }
+.switch {
+    position: relative;
+    display: inline-block;
+    border-radius: 120px;
+    width: 65px;
+    height: 37px;
+    border: solid #000000;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100px;
+    background-color: orange;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 23px;
+    width: 23px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 25px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #66CC00;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #66CC00;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+form input[type="radio"] {
+    transform: scale(1.8); 
+  }
+  
+  form label {
+    font-size: 30px; 
+    margin-left: 10px; 
+  }
+  
+
+  .reminders-text {
+    font-size: 24px; 
+  }
+  
+
+
+
+
+.containerZ{
+    background-color: #c0c0c0;
+    border: solid #000000;
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    border-radius: 25px;
+    box-shadow: .8em .8em .4em #464141;
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+}
+
+.h2{
+    justify-content: right;
+}
+  
+
+.button_back
+{
+    position: relative;
+    margin-top: 3%;
+    background-color: #ccc;
+    border: 3px solid black;
+    border-radius: 15px;
+    height: 70px;
+    width: 80%;
+    box-shadow: 4px 4px 4px #aaaaaa;
+}
+.button_back:active
+{
+    background-color: #ddd;
+}
+
+.button_back:hover
+{
+    background-color: #1E8EE1;
+}
+
+.button_back img 
+{
+    float: left;
+    margin-top: 7px;
+}
+
+.button_back p 
+{
+    float: left;
+    font-size: 2em;
+    margin-top: 7px;
+    padding-left: 15px;
+}
+
+
+
+
+
+
+
+.button_save
+{
+    position: relative;
+    margin-top: 3%;
+    background-color: #ccc;
+    border: 3px solid black;
+    border-radius: 15px;
+    height: 70px;
+    width: 80%;
+    box-shadow: 4px 4px 4px #aaaaaa;
+}
+.button_save:active
+{
+    background-color: #ddd;
+}
+
+.button_save img 
+{
+    float: left;
+    margin-top: 7px;
+    padding: 5px;
+    width: 60px;
+}
+
+.button_save p 
+{
+    float: left;
+    font-size: 2em;
+    margin-top: 7px;
+    padding-left: 15px;
+}
+
+.button_save:hover
+{
+    background-color: #1E8EE1;
+}
+
+.saved-message {
+  font-size: 24px;
+}
