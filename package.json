@@ -8,7 +8,8 @@
     "mongoose": "^7.0.3",
     "nodemon": "^2.0.22",
     "react": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "react-script": "^2.0.5"
   },
   "name": "myfitplan",
   "version": "1.0.0",
