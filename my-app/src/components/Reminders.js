@@ -9,6 +9,7 @@ function Reminders() {
   const [reminderOption, setReminderOption] = useState(null);
   const [hasNotificationPermission, setHasNotificationPermission] = useState(false);
   const [isOptionSaved, setIsOptionSaved] = useState(false);
+  const [isReminderEnabled, setIsReminderEnabled] = useState(true);
 
   useEffect(() => {
     requestNotificationPermission();
@@ -87,7 +88,8 @@ function Reminders() {
 
 
 
-  const savedMessage = isOptionSaved ? <p>Option saved!</p> : null;
+  const savedMessage = isOptionSaved && isReminderEnabled ? <p>Option saved!</p> : null;
+
 
   return (
     <div>
@@ -125,7 +127,7 @@ function Reminders() {
         
         <div className="containerZ"><br></br>
         <label class="switch">
-            <input type="checkbox"></input>
+            <input type="checkbox" checked={isReminderEnabled} onChange={(e) => setIsReminderEnabled(e.target.checked)}></input>
             <span class="slider"></span>
         </label><h2>&nbsp;&nbsp;Reminders on/off</h2>
         </div>
