@@ -153,23 +153,23 @@ function GoalsAdd() {
 
       <div>
       <header>
-        <div className="Header">
+      <div className="Header">
 
-        <button className="btn headerBtn">
-            <Link to="/" className='add-link'>
-                <img src={Home} className="img-fluid" alt="Home Button" />
-              </Link>
-            </button>
+      <button className="btn headerBtn">
+        <Link to="/" className='add-link'>
+            <img src={Home} className="img-fluid imgAdjustment" alt="Home Button" />
+        </Link>
+      </button>
 
-            <p className="HeaderText">MyFitPlan</p>
+      <p className="headingText">MyFitPlan</p>
 
-            <button className="btn headerBtn">
-              <Link to="profile" className='add-link p-1'>
-                <img src={Profile} className="img-fluid" alt="Profile Button"  />
-              </Link>
-          </button>
+      <button className="btn headerBtn">
+        <Link to="profile" className='add-link'>
+          <img src={Profile} className="img-fluid imgAdjustment" alt="Profile Button"  />
+        </Link>
+      </button>
 
-        </div>
+      </div>
 
         <div className="pt-3">
           <div className="row">

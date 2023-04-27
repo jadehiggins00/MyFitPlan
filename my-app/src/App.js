@@ -19,6 +19,7 @@ import Food from "./components/Food"
 import FoodItem from "./components/FoodItem"
 import AddFood from "./components/AddFood"
 import DeleteFood from "./components/deleteFoods"
+import Reminders from "./components/Reminders"
 
 
 import LeftArrow from './images/LeftArrow.png';
@@ -38,6 +39,9 @@ function App() {
       <Route path="profile" element={ <Profile/> } />
       <Route path="goals" element={ <Goals/> } />
       <Route path="activities" element={ <Activities/> } />
+      <Route path="reminders" element={ <Reminders/> } />
+      <Route path="profile/reminders" element={ <Reminders/> } />
+      
         
       <Route path="food" element={ <Food/> } />
       <Route path="food/profile" element={ <Profile/> } />
