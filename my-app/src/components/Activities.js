@@ -18,7 +18,7 @@ import PreviousBtn from "../images/prev.png";
 import NextBtn from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
-import Profile from "../images/account.png";
+import Profile from "../images/user.png";
 import Delete from "../images/delete (1).png";
 import BackBtn from "../images/arrowBack.png";
 import Add from "../images/plus.png";
@@ -114,21 +114,21 @@ function Activities() {
     const displayDay = activities.filter(activity => activity.dayOfWeek === activities[currentIndex].dayOfWeek);
 
     return (
-        <div>
-           <header>
+      <div>
+        <header>
         <div className="Header">
 
-        <button className="btn headerBtn">
-          <Link to="/" className='add-link'>
-              <img src={Home} className="img-fluid" alt="Home Button" />
+          <button className="btn headerBtn">
+            <Link to="/" className='add-link'>
+                <img src={Home} className="img-fluid imgAdjustment" alt="Home Button" />
             </Link>
           </button>
 
-          <p className="HeaderText">MyFitPlan</p>
+          <p className="headingText">MyFitPlan</p>
 
           <button className="btn headerBtn">
-            <Link to="profile" className='add-link p-1'>
-              <img src={Profile} className="img-fluid" alt="Profile Button"  />
+            <Link to="profile" className='add-link'>
+              <img src={Profile} className="img-fluid imgAdjustment" alt="Profile Button"  />
             </Link>
           </button>
 
@@ -224,12 +224,12 @@ function Activities() {
   </div>
   <div>
     {/* back button - goes to homepage */}
-    <button className="btn btn-back btn-lg" onClick={goBack}>
-      <div className="d-flex align-items-center">
-        <img src={BackBtn} className="img-fluid mr-2" alt="Back" />
-        <h1 className='h1-back'>Back</h1>
-      </div>
-    </button>
+    <Link to="/" className='add-link p-1'>
+      <button className="button_back">
+          <img id="icon_back" src={BackBtn} />
+          <p>Back</p>
+      </button>
+      </Link>
   </div>
 </div>
 

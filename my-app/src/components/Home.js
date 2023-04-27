@@ -14,11 +14,22 @@ import Food from '../images/food.png';
 import Goals from '../images/goals.png';
 
 function Home() {
+
   const [doneCount, setDoneCount] = useState(0);
   const [notDoneCount, setNotDoneCount] = useState(0);
   const [lateCount, setLateCount] = useState(0);
 
+  const reloadCount = Number(sessionStorage.getItem('reloadCount')) || 0;
+
   useEffect(() => {
+
+    if(reloadCount < 2) {
+      sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+      window.location.reload();
+    } else {
+      sessionStorage.removeItem('reloadCount');
+    }
+    
     axios.get('http://localhost:3003/activitiesmodels')
       .then(response => {
         const activitiesData = response.data.activities;
@@ -51,25 +62,26 @@ function Home() {
 
   return (
     <div className="App">
-           <header>
+
+      <header>
         <div className="Header">
 
-        <button className="btn headerBtn">
-          <Link to="/" className='add-link'>
-              <img src={HomeBtn} className="img-fluid" alt="Home Button" />
+          <button className="btn headerBtn">
+            <Link to="/" className='add-link'>
+                <img src={HomeBtn} className="img-fluid imgAdjustment" alt="Home Button" />
             </Link>
           </button>
 
-          <p className="HeaderText">MyFitPlan</p>
+          <p className="headingText">MyFitPlan</p>
 
           <button className="btn headerBtn">
-            <Link to="profile" className='add-link p-1'>
-              <img src={Profile} className="img-fluid" alt="Profile Button"  />
+            <Link to="profile" className='add-link'>
+              <img src={Profile} className="img-fluid imgAdjustment" alt="Profile Button"  />
             </Link>
           </button>
 
         </div>
-
+        
         <div className="pt-3">
           <div className="row">
 
@@ -77,44 +89,56 @@ function Home() {
 
           </div>
         </div>
+
       </header>
 
-  <section className="greet" id="">
-  <WeatherWidget />
-  </section>
-    <section className="parent-section" id="">
+      <section className="greet">
+        <WeatherWidget />
+      </section>
 
-      <div className="activity-container">
-  <div className="activityrel">
-    <Link to="activities" id="activity">
-      <img src={Activity} alt="" />
-      <p>Today's Activities</p>
-    </Link>
-    <Link to="activities" className="activity"></Link>
-  </div>
-  <div className="status">
-    <Link to="activities" className="done" id="status">
-      <p>{doneCount} Done</p>
-      <img src={Done} alt="" />
-    </Link>
-    <Link to="activities" className="todo" id="status">
-      <p>{notDoneCount} To Do</p>
-      <img src={Todo} alt="" />
-    </Link>
-    <Link to="activities" className="late" id="status">
-      <p>{lateCount} Late</p>
-      <img src={Late} alt="" />
-    </Link>
-  </div>
-</div>
-    <div className="button-container">
-      <div className="buttons">
-        <Link to="food" className="button flex" id="food"><img src={Food} alt="" /><p>Food</p></Link>
-        <Link to="goals" className="button flex" id="goals"><img src={Goals} alt="" /><p>Goals</p></Link>
-      </div>
-      </div>
-    </section>
-  </div>
+      <section className="parent-section" id="">
+        <div className="activity-container">
+
+          <div className="activityrel">
+
+            <Link to="activities" id="activity">
+              <img src={Activity} alt="" />
+              <p>Today's Activities</p>
+            </Link>
+
+            <Link to="activities" className="activity"></Link>
+
+          </div>
+
+
+          <div className="status">
+            <Link to="activities" className="done" id="status">
+              <p>{doneCount} Done</p>
+              <img src={Done} alt="" />
+            </Link>
+
+            <Link to="activities" className="todo" id="status">
+              <p>{notDoneCount} To Do</p>
+              <img src={Todo} alt="" />
+            </Link>
+
+            <Link to="activities" className="late" id="status">
+              <p>{lateCount} Late</p>
+              <img src={Late} alt="" />
+            </Link>
+
+          </div>
+        </div>
+
+        <div className="button-container">
+          <div className="buttons">
+            <Link to="food" className="button flex" id="food"><img src={Food} alt="" /><p>Food</p></Link>
+            <Link to="goals" className="button flex" id="goals"><img src={Goals} alt="" /><p>Goals</p></Link>
+          </div>
+        </div>
+
+      </section>
+    </div>
   );
 }
 

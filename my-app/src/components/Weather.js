@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 function WeatherWidget() {
   useEffect(() => {
+
     const scriptId = 'weatherwidget-io-js';
     if (!document.getElementById(scriptId)) {
       const script = document.createElement('script');

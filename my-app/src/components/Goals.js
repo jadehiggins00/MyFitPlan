@@ -4,12 +4,13 @@ import '../css/GeneralGoals.css';
 import '../css/Goals.css';
 import { Link } from "react-router-dom";
 import Home from '../images/Home.png';
-import Profile from '../images/account.png';
+import Profile from '../images/user.png';
 import addtext from '../images/addtext.png';
 import deletetext from '../images/deletetext.png';
 import Delete from "../images/delete (1).png";
 import BackBtn from "../images/arrowBack.png";
 import Add from "../images/plus.png";
+import backBtn from '../images/arrowBack.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Goals() {
@@ -138,18 +139,17 @@ function Goals() {
 
           <button className="btn headerBtn">
             <Link to="/" className='add-link'>
-                <img src={Home} className="img-fluid" alt="Home Button" />
-              </Link>
-            </button>
-
-            <p className="HeaderText">MyFitPlan</p>
-
-            <button className="btn headerBtn">
-              <Link to="profile" className='add-link p-1'>
-                <img src={Profile} className="img-fluid" alt="Profile Button"  />
-              </Link>
+                <img src={Home} className="img-fluid imgAdjustment" alt="Home Button" />
+            </Link>
           </button>
 
+          <p className="headingText">MyFitPlan</p>
+
+          <button className="btn headerBtn">
+            <Link to="profile" className='add-link'>
+              <img src={Profile} className="img-fluid imgAdjustment" alt="Profile Button"  />
+            </Link>
+          </button>
 
         </div>
 
@@ -178,6 +178,13 @@ function Goals() {
     
   </div>
 </div>
+
+  <Link to="/" className='add-link p-1'>
+      <button className="button_back">
+          <img id="icon_back" src={backBtn} />
+          <p>Back</p>
+      </button>
+    </Link>
       </main>
     </body>
   );

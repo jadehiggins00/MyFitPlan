@@ -15,7 +15,7 @@ import PreviousBtn from "../images/prev.png";
 import NextBtn from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
-import Profile from "../images/account.png";
+import Profile from "../images/user.png";
 import Remove from "../images/remove.png";
 import BackBtn from "../images/back.png";
 import Add from "../images/plus.png";
@@ -110,21 +110,21 @@ function DeleteActivities() {
     const displayDay = activities.filter(activity => activity.dayOfWeek === activities[currentIndex].dayOfWeek);
 
     return (
-        <div>
-              <header>
+      <div>
+        <header>
         <div className="Header">
 
           <button className="btn headerBtn">
-          <Link to="/" className='add-link'>
-              <img src={Home} className="img-fluid" alt="Home Button" />
+            <Link to="/" className='add-link'>
+                <img src={Home} className="img-fluid imgAdjustment" alt="Home Button" />
             </Link>
           </button>
 
-          <p className="HeaderText">MyFitPlan</p>
+          <p className="headingText">MyFitPlan</p>
 
           <button className="btn headerBtn">
-            <Link to="profile" className='add-link p-1'>
-              <img src={Profile} className="img-fluid" alt="Profile Button" />
+            <Link to="profile" className='add-link'>
+              <img src={Profile} className="img-fluid imgAdjustment" alt="Profile Button"  />
             </Link>
           </button>
 

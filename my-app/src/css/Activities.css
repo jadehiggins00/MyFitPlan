@@ -64,35 +64,12 @@
 .completed {
     background-color: #94BFA2;
    
-  }
-
-  .btn-container {
-    display: flex;
-    flex-grow: 1;
-  }
-  
- 
-  
-
-.btn-back{
-    font-family: 'Jost';
-    width: 100%;
-    font-size: 90px;
-    padding-left:30px;
-    background: #AEB0B5;
-    border: 3px solid #000000;
-    border-radius: 15px;
-    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
 }
 
-
-.btn-back:hover{
-    background-color: #D6D7D9;
-    border: 3px solid #212121;
-    cursor: pointer;
+.btn-container {
+display: flex;
+flex-grow: 1;
 }
-
-
 
 .h1-back{
     font-family: 'Jost';
@@ -105,15 +82,11 @@
     
 }
 
-
-
 i.far.fa-check-circle {
     font-size: 50px;
     margin-right: 10px;
   
-  }
-  
-
+}
   
 .h4-activity{
     font-family: 'Nunito';

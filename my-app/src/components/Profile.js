@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../css/Profile.css';
 import axios from 'axios';
 
-import HomeBtn from "../images/Home.png";
+import Home from "../images/Home.png";
 import ProfileBtn from "../images/user.png";
 import backBtn from '../images/arrowBack.png'
 import reminderBtn from '../images/Reminder.png';
@@ -64,24 +64,24 @@ function Profile() {
 
   return (
     <div className="App">
-           <header>
+      <header>
         <div className="Header">
 
-        <button className="btn headerBtn">
-          <Link to="/" className='add-link'>
-              <img src={HomeBtn} className="img-fluid" alt="Home Button" />
-            </Link>
-          </button>
+            <button className="btn headerBtn">
+              <Link to="/" className='add-link'>
+                  <img src={Home} className="img-fluid imgAdjustment" alt="Home Button" />
+              </Link>
+            </button>
 
-          <p className="HeaderText">Profile</p>
+            <p className="headingText">MyFitPlan</p>
 
-          <button className="btn headerBtn">
-            <Link to="profile" className='add-link p-1'>
-              <img src={ProfileBtn} className="img-fluid" alt="Profile Button"  />
-            </Link>
-          </button>
+            <button className="btn headerBtn">
+              <Link to="#" className='add-link'>
+                <img src={ProfileBtn} className="img-fluid imgAdjustment" alt="Profile Button"  />
+              </Link>
+            </button>
 
-        </div>
+          </div>
 
         <div className="pt-3">
           <div className="row">

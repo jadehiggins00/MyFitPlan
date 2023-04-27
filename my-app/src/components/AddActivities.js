@@ -14,7 +14,7 @@ import LeftArrow from "../images/prev.png";
 import RightArrow from "../images/next.png";
 import CheckMark from "../images/check.png";
 import Home from "../images/Home.png";
-import Profile from "../images/account.png";
+import Profile from "../images/user.png";
 import BackBtn from "../images/back.png";
 import "../css/AddActivity.css";
 import "../css/General.css";
@@ -104,26 +104,25 @@ function AddActivities() {
 
 
     return (
-        <div>
-            
-            <header>
-        <div className="Header">
+      <div>
+          <header>
+          <div className="Header">
 
-        <button className="btn headerBtn">
-          <Link to="/" className='add-link'>
-              <img src={Home} className="img-fluid" alt="Home Button" />
-            </Link>
-          </button>
+            <button className="btn headerBtn">
+              <Link to="/" className='add-link'>
+                  <img src={Home} className="img-fluid imgAdjustment" alt="Home Button" />
+              </Link>
+            </button>
 
-          <p className="HeaderText">MyFitPlan</p>
+            <p className="headingText">MyFitPlan</p>
 
-          <button className="btn headerBtn">
-            <Link to="profile" className='add-link p-1' >
-              <img src={Profile} className="img-fluid " alt="Profile Button" />
-            </Link>
-          </button>
+            <button className="btn headerBtn">
+              <Link to="profile" className='add-link'>
+                <img src={Profile} className="img-fluid imgAdjustment" alt="Profile Button"  />
+              </Link>
+            </button>
 
-        </div>
+          </div>
 
         <div className="pt-3">
           <div className="row">
@@ -223,7 +222,7 @@ function AddActivities() {
     
     {/* text input  */}
     <div>
-        <label className='text-box-label'>Set a Time</label>
+        <label className='text-box-label'>Name</label>
         <br></br>
         <input type="text" placeholder="Enter activity name" id="activityInput" onChange={(event) => setSelectedActivity(event.target.value)} />
     </div>
@@ -240,7 +239,7 @@ function AddActivities() {
           </button>
         </div>
         <div className="col-auto">
-          <button onClick={addActivity} disabled={!selectedActivity} className="btn-confirm">
+          <button onClick={() => {addActivity(); goBack();}} disabled={!selectedActivity} className="btn-confirm">
             <div className="d-flex align-items-center">
               <img src={CheckMark} className="img-fluid mr-2" alt="check mark image" id="checkMarkImage"/>
               <h1 className="h1-confirm">Confirm</h1>

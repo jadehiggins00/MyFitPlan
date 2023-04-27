@@ -4,12 +4,12 @@ import "../css/Activities.css";
 import "../css/Food.css";
 import { Link} from "react-router-dom";
 import Home from "../images/Home.png";
-import Profile from "../images/user.png";
+import ProfileBtn from "../images/user.png";
 import { useNavigate } from 'react-router-dom';
 import PreviousBtn from "../images/prev.png";
 import NextBtn from "../images/next.png";
+import backBtn from '../images/arrowBack.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function Food() {
   // grabbing the food items
@@ -62,21 +62,23 @@ function Food() {
 
           {/* ********* HEADER SECTION*********/}
           <header>
-        <div className="Header">
-        <button className="btn headerBtn">
-            <Link to="/" className='add-link'>
-                <img src={Home} className="img-fluid" alt="Home Button" />
+          <div className="Header">
+
+            <button className="btn headerBtn">
+              <Link to="/" className='add-link'>
+                  <img src={Home} className="img-fluid imgAdjustment" alt="Home Button" />
               </Link>
             </button>
 
-            <p className="HeaderText">MyFitPlan</p>
+            <p className="headingText">MyFitPlan</p>
 
             <button className="btn headerBtn">
-              <Link to="profile" className='add-link p-1'>
-                <img src={Profile} className="img-fluid" alt="Profile Button"  />
+              <Link to="profile" className='add-link'>
+                <img src={ProfileBtn} className="img-fluid imgAdjustment" alt="Profile Button"  />
               </Link>
-          </button>
-        </div>
+            </button>
+
+          </div>
         <div className="pt-3">
           <div className="row">
             <hr id="line" />
@@ -158,11 +160,11 @@ function Food() {
     </Link>
     </div>
     {/* Back Button*/}
-    <Link to="/" className="back-link">
-        <button className="back-button">
-        <img src="../images/back-arrow.png" /> 
-        <span className="back-label">Back</span>          
-        </button>
+    <Link to="/" className='add-link p-1'>
+      <button className="button_back">
+          <img id="icon_back" src={backBtn} />
+          <p>Back</p>
+      </button>
     </Link>
   </div>
       );}

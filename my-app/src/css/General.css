@@ -7,21 +7,26 @@
   justify-content: center;
 }
 
-.HeaderText {
+.headingText {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 2.5em;
+  font-size: 4em;
   color: #2E8540;
+  margin: auto;
 }
 
 .headerBtn {
   width: 20%;
 } 
 
+.imgAdjustment {
+  margin-left: -30px;
+}
 
 #line {
   border: 1px solid #212121;
   width: 85%;
   margin: auto;
+  
 }
 
 .Date{
