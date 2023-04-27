@@ -217,19 +217,21 @@ function Activities() {
   <div className="d-flex justify-content-between align-items-center mb-3" id="add-remove-buttons">
     <Link to="addActivities" className='add-link'>
       <img src={Add} className="btn btn-primary btn-add rounded-circle" />
+   
     </Link>
     <Link to="deleteActivities" className='add-link'>
       <img src={Delete} className="btn btn-primary btn-remove rounded-circle" />
+     
     </Link>
   </div>
   <div>
     {/* back button - goes to homepage */}
-    <Link to="/" className='add-link p-1'>
-      <button className="button_back">
-          <img id="icon_back" src={BackBtn} />
-          <p>Back</p>
-      </button>
-      </Link>
+    <button className="btn btn-back btn-lg" onClick={goBack}>
+      <div className="d-flex align-items-center">
+        <img src={BackBtn} className="img-fluid mr-2" alt="Back" />
+        <h1 className='h1-back'>Back</h1>
+      </div>
+    </button>
   </div>
 </div>
 
