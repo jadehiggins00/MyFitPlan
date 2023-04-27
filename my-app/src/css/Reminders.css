@@ -51,30 +51,7 @@
     transform: translateX(26px);
   }
 
-  .Header {
-    display: flex;
-    flex-direction: row;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    justify-content: center;
-  }
-
-.HeaderText {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2.5em;
-    color: #2E8540;
-}
-
-.headerBtn {
-    width: 8%;
-} 
-
-#line {
-    border: 1px solid #212121;
-    width: 85%;
-    margin: auto;
-}
+ 
 
 
 
