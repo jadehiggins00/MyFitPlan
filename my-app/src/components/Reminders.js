@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import '../css/Reminders.css';
 import Home from '../images/Home.png';
 import Profile from '../images/user.png';
@@ -6,8 +6,55 @@ import backBtn from '../images/arrowBack.png';
 import saveBtn from '../images/save-icon.png';
 
 function Reminders() {
-    return (
-        <div>
+  const [reminderOption, setReminderOption] = useState(null);
+  const [hasNotificationPermission, setHasNotificationPermission] = useState(false);
+  const [isOptionSaved, setIsOptionSaved] = useState(false);
+
+  useEffect(() => {
+    requestNotificationPermission();
+    const savedReminderOption = localStorage.getItem('reminderOption');
+    if (savedReminderOption) {
+      setReminderOption(savedReminderOption);
+    }
+  }, []);
+  
+
+  const requestNotificationPermission = async () => {
+    if (!('Notification' in window)) {
+      console.log('This browser does not support notifications.');
+      return;
+    }
+
+    const permission = await Notification.requestPermission();
+    setHasNotificationPermission(permission === 'granted');
+  };
+
+  const handleOptionChange = (event) => {
+    setReminderOption(event.target.value);
+  };
+
+  const handleSave = () => {
+    if (hasNotificationPermission) {
+      const title = 'Reminder';
+      const options = {
+        body: `You will be reminded ${reminderOption.toLowerCase()}.`,
+      };
+      new Notification(title, options);
+  
+      // Save the reminder option to localStorage
+      localStorage.setItem('reminderOption', reminderOption);
+      setIsOptionSaved(true); 
+
+      setTimeout(() => {
+        setIsOptionSaved(false);
+      }, 3000);
+    }
+  };
+
+  const savedMessage = isOptionSaved ? <p>Option saved!</p> : null;
+
+  return (
+    <div>
 
         <div>
         <header>
@@ -61,21 +108,22 @@ function Reminders() {
 
         <div>
         <form>
-        <input type="radio" id="1 hour" name="option" value="1 hour"></input>
-        <label for="1 hour">Every 1 hour</label><br></br><br></br>
-        <input type="radio" id="2 hour" name="option" value="2 hour"></input>
-        <label for="2 hour">Every 2 hours</label><br></br><br></br>
-        <input type="radio" id="6 hour" name="option" value="6 hour"></input>
-        <label for="6 hours">Every 6 hours</label><br></br><br></br>
-        <input type="radio" id="Once everyday" name="option" value="Once everyday"></input>
-        <label for="Once Everyday">Once everyday</label><br></br>
+        <input type="radio" id="1 hour" name="option" value="1 hour" onChange={handleOptionChange}checked={reminderOption === '1 hour'} />
+        <label htmlFor="1 hour">Every 1 hour</label><br></br><br></br>
+        <input type="radio" id="2 hour" name="option" value="2 hour" onChange={handleOptionChange}checked={reminderOption === '2 hour'} />
+        <label htmlFor="2 hour">Every 2 hours</label><br></br><br></br>
+        <input type="radio" id="6 hour" name="option" value="6 hour" onChange={handleOptionChange}checked={reminderOption === '6 hour'} />
+        <label htmlFor="6 hours">Every 6 hours</label><br></br><br></br>
+        <input type="radio" id="Once everyday" name="option" value="Once everyday" onChange={handleOptionChange}checked={reminderOption === 'Once everyday'} />
+        <label htmlFor="Once Everyday">Once everyday</label><br></br>
         </form><br></br>
 
         </div>
-        <button class="button_save">
+        <button class="button_save" onClick={handleSave}>
             <img id="icon_save" src={saveBtn} />
             <p>Save</p>
         </button>
+        {savedMessage}
 
         <button class="button_back">
             <img id="icon_back" src={backBtn} />
@@ -85,7 +133,7 @@ function Reminders() {
         </div>
         
 
-    )
+  );
 }
 
-export default Reminders
+export default Reminders;
