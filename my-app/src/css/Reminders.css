@@ -80,18 +80,19 @@
 
 
 form input[type="radio"] {
-    transform: scale(1.8); /* increase size of radio buttons */
+    transform: scale(1.8); 
   }
   
   form label {
-    font-size: 30px; /* increase font size of labels */
-    margin-left: 10px; /* add spacing between radio buttons and labels */
+    font-size: 30px; 
+    margin-left: 10px; 
   }
   
 
-
-
-
+  .reminders-text {
+    font-size: 24px; 
+  }
+  
 
 
 
@@ -155,6 +156,7 @@ form input[type="radio"] {
 
 
 
+
 .button_save
 {
     position: relative;
@@ -192,3 +194,6 @@ form input[type="radio"] {
     background-color: #1E8EE1;
 }
 
+.saved-message {
+  font-size: 24px;
+}

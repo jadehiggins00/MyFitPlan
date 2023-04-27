@@ -40,6 +40,8 @@ function App() {
       <Route path="goals" element={ <Goals/> } />
       <Route path="activities" element={ <Activities/> } />
       <Route path="reminders" element={ <Reminders/> } />
+      <Route path="profile/reminders" element={ <Reminders/> } />
+      
         
       <Route path="food" element={ <Food/> } />
       <Route path="food/profile" element={ <Profile/> } />

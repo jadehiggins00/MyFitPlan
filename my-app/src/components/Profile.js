@@ -116,11 +116,12 @@ function Profile() {
         </label>
       </section>
 
-
+      <Link to="reminders" className='add-link p-1'>
       <button className="remind_button">
         <img id="reminder_btn" src={reminderBtn} />
         <p>Reminder Settings</p>
       </button>
+      </Link>
       <Link to="/" className='add-link p-1'>
       <button className="button_back">
           <img id="icon_back" src={backBtn} />

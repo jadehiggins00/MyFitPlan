@@ -4,6 +4,7 @@ import Home from '../images/Home.png';
 import Profile from '../images/user.png';
 import backBtn from '../images/arrowBack.png';
 import saveBtn from '../images/save-icon.png';
+import { Link } from "react-router-dom";
 
 function Reminders() {
   const [reminderOption, setReminderOption] = useState(null);
@@ -88,7 +89,7 @@ function Reminders() {
 
 
 
-  const savedMessage = isOptionSaved && isReminderEnabled ? <p>Option saved!</p> : null;
+  const savedMessage = isOptionSaved && isReminderEnabled ? <p className="saved-message">Option saved!</p> : null;
 
 
   return (
@@ -98,18 +99,18 @@ function Reminders() {
         <header>
         <div className="Header">
 
-          <button className="btn headerBtn">
-            <a href="#">
-              <img src={Home} className="img-fluid" alt="Home Button" />
-            </a>
+        <button className="btn headerBtn">
+            <Link to="/" className='add-link'>
+                <img src={Home} className="img-fluid imgAdjustment" alt="Home Button" />
+            </Link>
           </button>
 
-          <p className="HeaderText">Reminder Settings</p>
+          <p className="headingText">Reminder Settings</p>
 
           <button className="btn headerBtn">
-            <a href="#">
-              <img src={Profile} className="img-fluid" alt="Profile Button" />
-            </a>
+            <Link to="/profile" className='add-link'>
+              <img src={Profile} className="img-fluid imgAdjustment" alt="Profile Button"  />
+            </Link>
           </button>
 
         </div>
@@ -129,7 +130,7 @@ function Reminders() {
         <label class="switch">
             <input type="checkbox" checked={isReminderEnabled} onChange={(e) => setIsReminderEnabled(e.target.checked)}></input>
             <span class="slider"></span>
-        </label><h2>&nbsp;&nbsp;Reminders on/off</h2>
+        </label><h2><span className="reminders-text">&nbsp;&nbsp;Reminders on/off</span></h2>
         </div>
 
         <div className="pt-4">
@@ -141,7 +142,7 @@ function Reminders() {
         </div>
 
         <br></br>
-        <h4>How ofter do you want to be reminded?</h4><br></br>
+        <h2>How often do you want to be reminded?</h2><br></br>
 
 
         <div>
@@ -163,10 +164,13 @@ function Reminders() {
         </button>
         {savedMessage}
 
+
+        <Link to="/profile" className='add-link'>
         <button class="button_back">
             <img id="icon_back" src={backBtn} />
             <p>Back</p>
         </button>
+        </Link>
 
         </div>
         
