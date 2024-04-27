@@ -4,6 +4,7 @@ const mongoose = require('../db/mongoose');
 const express = require('express');
 const {Activity, Day, Week} = require('./models/activities');
 const {Activities} = require('./models/activitiesModel');
+const Products = require('./models/products');
 const {Goals} = require('./models/goalsModel');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -15,6 +16,25 @@ const app = express();
 //parse the incoming json requests
 app.use(bodyParser.json());
 app.use(cors());
+
+
+app.post('/products', (req, res) => {
+  const { userName, goal_text, goal_date, goal_status } = req.body;
+
+  // Create a new goal record using the Products model
+  const newGoal = new Products({ userName, goal_text, goal_date, goal_status });
+
+  // Save the new goal to the database
+  newGoal.save()
+      .then(result => {
+          console.log(result);
+          res.status(200).json({ message: "Activity added successfully" });
+      })
+      .catch(error => {
+          console.error(error);
+          res.status(500).json({ error: "Internal server error", details: error.message });
+      });
+});
 
 
 

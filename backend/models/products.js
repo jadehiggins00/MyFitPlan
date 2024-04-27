@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // activities table
-const goalsSchema =  new mongoose.Schema({
+const productSchema =  new mongoose.Schema({
     userName: String,   
     goal_text: String,
     goal_date: String,
@@ -10,7 +10,7 @@ const goalsSchema =  new mongoose.Schema({
 
 
 //creating the model
-const Goals = mongoose.model('goals', goalsSchema);
+const Products = mongoose.model('products', productSchema);
 
-
-module.exports = {Goals};
+// Exporting the model directly
+module.exports = Products;
