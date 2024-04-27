@@ -1,16 +1,25 @@
 const mongoose = require('mongoose');
 
-// activities table
-const productSchema =  new mongoose.Schema({
-    userName: String,   
-    goal_text: String,
-    goal_date: String,
-    goal_status: String,
+const categorySchema = new mongoose.Schema({
+    id: String,
+    name: String
 });
 
+const productSchema = new mongoose.Schema({
+    sku: Number,
+    name: String,
+    type: String,
+    price: Number,
+    upc: String,
+    category: [categorySchema],
+    shipping: Number,
+    description: String,
+    manufacturer: String,
+    model: String,
+    url: String,
+    image: String
+});
 
-//creating the model
-const Products = mongoose.model('products', productSchema);
+const Product = mongoose.model('products', productSchema);
 
-// Exporting the model directly
-module.exports = Products;
+module.exports = Product;
