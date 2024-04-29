@@ -133,7 +133,7 @@ function Home() {
                     {products.length > 0 ? (
                     
                             <div className='col-8 container-margin'>
-                                <div className="row section-habitat card">
+                                <div className="card fixed-height-card">
                                     <div className="card-header ">
                                         <h2 className="blue-main-text pt-1">Welcome to Siopadóireacht</h2>
                                     </div>
@@ -179,8 +179,8 @@ function Home() {
                                                     </>
                                                 )}
                                             </div>
-                                            <div className='col-6 d-flex justify-content-center align-items-center'>
-                                                <img src={products[currentIndex].image} alt="Product" className='img-fluid' />
+                                            <div className='col-6 d-flex justify-content-center align-items-center card-image-container'>
+                                                <img src={products[currentIndex].image} alt="Product" className='card-image' />
                                             </div>
 
                                         </div>
@@ -201,7 +201,7 @@ function Home() {
                                                             <span className='white-bold-ubuntu '>Edit</span>
                                                             <img src={Edit} alt="" className="edit-img ms-2"/>
                                                         </button>
-                                                        <button className='btn btn-primary' onClick={toggleAddMode}>Add New Product</button>
+                                                        <button className='btn btn-success ms-2' onClick={toggleAddMode}>Add New Product</button>
                                                     </>
                                                 )}
                                             </div>
@@ -220,12 +220,21 @@ function Home() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='row'>
+                                        <div className='row pt-4'>
                                         {addMode && (
                                             <div className='col-12 mb-3'>
                                                 <div className="card">
                                                     <div className="card-header">Add New Product</div>
                                                     <div className="card-body">
+
+                                                        <input
+                                                            type="text"
+                                                            placeholder="Sku"
+                                                            name="sku"
+                                                            value={newProduct.sku}
+                                                            onChange={(e) => handleChange(e, 'new')}
+                                                            className='form-control mb-2'
+                                                        />
                                                         <input
                                                             type="text"
                                                             placeholder="Name"

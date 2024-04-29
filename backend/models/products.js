@@ -6,7 +6,11 @@ const categorySchema = new mongoose.Schema({
 });
 
 const productSchema = new mongoose.Schema({
-    sku: Number,
+    sku: {
+        type: String,
+        unique: true, 
+        required: true 
+    },
     name: String,
     type: String,
     price: Number,

@@ -41,17 +41,28 @@ app.post('/import-products', exports.importProducts);
 app.post('/products', (req, res) => {
   const productData = req.body;
 
-  const product = new Product(productData);
 
-  product.save()
+  Product.findOne({ sku: productData.sku })
+      .then(existingProduct => {
+          if (existingProduct) {
+
+              return res.status(409).json({ message: "A product with the same SKU already exists." });
+          }
+
+          const product = new Product(productData);
+          return product.save();
+      })
       .then(savedProduct => {
+
           res.status(201).json({ message: "Product added successfully", data: savedProduct });
       })
       .catch(error => {
+
           console.error("Failed to save the product:", error);
           res.status(500).json({ error: "Internal server error", details: error.message });
       });
 });
+
 
 // get all products
 app.get('/products', (req, res) => {
@@ -97,20 +108,24 @@ app.delete('/products/:id', (req, res) => {
 
 // search for products by name or category
 app.get('/products/search', (req, res) => {
-  const { name, category } = req.query;
-  Product.find({ 
-      name: new RegExp(name, 'i'), 
-      category: new RegExp(category, 'i'),
-  
+  const { manufacturer } = req.query;
+  Product.find({
+      manufacturer: new RegExp(manufacturer, 'i'), // Case-insensitive search
   })
   .then(products => {
-      res.status(200).json(products);
+      if (products.length > 0) {
+          res.status(200).json(products);
+      } else {
+          res.status(404).json({ message: "No products found" });
+      }
   })
   .catch(error => {
       console.error("Failed to search products:", error);
       res.status(500).json({ error: "Internal server error", details: error.message });
   });
 });
+
+
 
 // filter products by price range
 app.get('/products/filter', (req, res) => {
