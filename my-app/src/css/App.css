@@ -330,6 +330,11 @@ body {
   color: #676767;
 }
 
+.edit-img{
+  height: 10%;
+  width: 30%;
+}
+
 
 .orange-ubuntu-bold{
   font-family: 'Ubuntu';
@@ -343,6 +348,13 @@ body {
   font-style: normal;
   font-weight: 450;
   color: #676767;
+}
+
+.white-bold-ubuntu{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 450;
+  color: #fff;
 }
 
 .black-bold-ubuntu{
