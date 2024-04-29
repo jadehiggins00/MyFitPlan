@@ -334,6 +334,10 @@ body {
   height: 10%;
   width: 30%;
 }
+.product-img{
+  height: 100%;
+  width: 50%;
+}
 
 
 .orange-ubuntu-bold{
