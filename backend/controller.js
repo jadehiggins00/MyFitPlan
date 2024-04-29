@@ -1,4 +1,5 @@
 const mongoose = require('../db/mongoose');
+const fs = require('fs');
 //to use object id when passing the id from a function in model class and to its type from string to objectId
 
 const express = require('express');
@@ -17,6 +18,25 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+exports.importProducts = async (req, res) => {
+  fs.readFile('products.json', 'utf8', async (err, data) => {
+      if (err) {
+          console.error('Error reading file:', err);
+          return res.status(500).send("Failed to read file");
+      }
+      try {
+          const products = JSON.parse(data);
+          await Product.insertMany(products);
+          res.send('Products imported successfully');
+      } catch (err) {
+          console.error('Error importing products:', err);
+          res.status(500).send("Failed to import products");
+      }
+  });
+};
+
+// Route to handle importing products
+app.post('/import-products', exports.importProducts);
 
 app.post('/products', (req, res) => {
   const productData = req.body;
@@ -33,175 +53,79 @@ app.post('/products', (req, res) => {
       });
 });
 
-
-
-// ***************** GOALS **************************
-
-
-//   get all records of goals 
-app.get('/goalsmodel', (req, res) => {
-  const { userName } = req.query;
-
-  Goals.find({ userName }).sort({ goal_date: 1 })
-    .then(goals => {
-      res.status(200).json(goals);
-    })
-    .catch(error => {
-      console.error(error);
-      res.status(500).json({ error: "Internal server error" });
-    });
+// get all products
+app.get('/products', (req, res) => {
+  Product.find({})
+      .then(products => {
+          res.status(200).json(products);
+      })
+      .catch(error => {
+          console.error("Failed to retrieve products:", error);
+          res.status(500).json({ error: "Internal server error", details: error.message });
+      });
 });
-
-
-//  Post to database to create a new goal 
-app.post('/goalsmodel', (req, res) => {
-  const { userName, goal_text, goal_date, goal_status  } = req.body;
-
-  // create a new goal record
-  const newGoal = new Goals({userName, goal_text, goal_date, goal_status});
-
-  // save the new goal to the database
-  newGoal.save()
-    .then(result => {
-      console.log(result);
-      res.status(200).json({ message: "Activity added successfully" });
-    })
-    .catch(error => {
-      console.error(error);
-      res.status(500).json({ error: "Internal server error" });
-    });
-  // ...
-});
-
-//Update the goal status - if its completed or not
-app.put('/goalsmodel/:userName/:taskId', (req, res) => {
-  const { userName, taskId } = req.params;
-  const { goalStatus } = req.body;
-
-
-Goals.findOneAndUpdate({ userName, _id: taskId }, { goal_status: goalStatus }, { new: true })
-    .then(result => {
-      console.log(result);
-      res.status(200).json({ message: "Goal updated successfully" });
-    })
-    .catch(error => {
-      console.error(error);
-      res.status(500).json({ error: "Internal server error" });
-    });
-});
-
-//delete goal using id
-app.delete('/goalsmodel/:goalId', (req, res) => {
-  const { goalId } = req.params;
-
-  Goals.findByIdAndDelete(goalId)
-    .then(result => {
-      if (result) {
-        console.log(`Goal with ID ${goalId} has been deleted.`);
-        res.status(200).json({ message: "Goal deleted successfully" });
-      } else {
-        console.log(`No goal found with ID ${goalId}.`);
-        res.status(404).json({ error: "Goal not found" });
-      }
-    })
-    .catch(error => {
-      console.error(error);
-      res.status(500).json({ error: "Internal server error" });
-    });
-});
-
-
-// *********************** ACTIVITIES **********************************
-
-
-
-// get all activities corresponding to a date
-app.get('/activitiesmodel', (req, res) =>{
-  const currentDate = new Date().toISOString().slice(0, 10);
-  Activities.find({ date: currentDate })
-    .then((activities) => {
-      res.send({ activities });
-    })
-    .catch((error) => {
-      res.status(500).send(error);
-    });
-});
-
-
-
-// function to update the actitivity status
-app.put('/activitiesmodel/:id', (req, res) => {
-  const id = req.params.id;
-  const { activityStatus } = req.body;
-
-  Activities.findById(id)
-    .then(activity => {
-      activity.activityStatus = activityStatus;
-      return activity.save();
-    })
-    .then(() => {
-      res.send('Activity updated successfully');
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).send('Internal Server Error');
-    });
-});
-
-
-// get all activities
-app.get('/activitiesmodels', (req, res) =>{
-
-  // an array of promises to grab all the data.
-  const promises = [];
-  promises.push(Activity.find({}));
-
-
-  // we use promise all to wait for all promises to resolve before sending the response
-  Promise.all(promises)
-  .then(([activities]) =>{
-      res.send({activities});
-  }).catch((error) => {
-      res.status(500).send(error);
-  })
-
  
-});
-
-// delete activity by id when the button is clicked
-app.delete('/activitiesmodel/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deletedActivity = await Activities.deleteOne({ _id: id });
-    res.status(200).json({ message: 'Activity deleted successfully', deletedActivity });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Failed to delete activity from the database.' });
-  }
-});
-
-// add a new activity 
-app.post('/activitiesmodel', (req, res) => {
-  const {dayOfWeek, date, activity, activityStatus } = req.body;
-
-  // create a new activity record
-  const newActivity = new Activities({dayOfWeek, date,
-     activity, activityStatus});
-
-  // save the new activity to the database
-  newActivity.save()
-    .then(result => {
-      console.log(result);
-      res.status(200).json({ message: "Activity added successfully" });
-    })
-    .catch(error => {
-      console.error(error);
-      res.status(500).json({ error: "Internal server error" });
-    });
-  // ...
+// update product by id
+app.put('/products/:id', (req, res) => {
+  const { id } = req.params;
+  Product.findByIdAndUpdate(id, req.body, { new: true })
+      .then(updatedProduct => {
+          res.status(200).json({ message: "Product updated successfully", data: updatedProduct });
+      })
+      .catch(error => {
+          console.error("Failed to update the product:", error);
+          res.status(500).json({ error: "Internal server error", details: error.message });
+      });
 });
 
 
+app.delete('/products/:id', (req, res) => {
+  const { id } = req.params;
+  Product.findByIdAndDelete(id)
+      .then(result => {
+          if (result) {
+              res.status(200).json({ message: "Product deleted successfully" });
+          } else {
+              res.status(404).json({ error: "Product not found" });
+          }
+      })
+      .catch(error => {
+          console.error("Failed to delete the product:", error);
+          res.status(500).json({ error: "Internal server error", details: error.message });
+      });
+});
+
+// search for products by name or category
+app.get('/products/search', (req, res) => {
+  const { name, category } = req.query;
+  Product.find({ 
+      name: new RegExp(name, 'i'), 
+      category: new RegExp(category, 'i'),
+  
+  })
+  .then(products => {
+      res.status(200).json(products);
+  })
+  .catch(error => {
+      console.error("Failed to search products:", error);
+      res.status(500).json({ error: "Internal server error", details: error.message });
+  });
+});
+
+// filter products by price range
+app.get('/products/filter', (req, res) => {
+  const { minPrice, maxPrice } = req.query;
+  Product.find({
+      price: { $gte: minPrice, $lte: maxPrice }
+  })
+  .then(products => {
+      res.status(200).json(products);
+  })
+  .catch(error => {
+      console.error("Failed to filter products:", error);
+      res.status(500).json({ error: "Internal server error", details: error.message });
+  });
+});
 
 
 app.listen(3003, (req, res) =>
