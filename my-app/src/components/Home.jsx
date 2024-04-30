@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ProductFilter from   './Reusable/FilterProducts';
 import Header from "./Reusable/Header";
 import SideNav from "./Reusable/SideNav";
 import Edit from '../images/edit3.svg';
@@ -11,8 +12,7 @@ function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [editMode, setEditMode] = useState(false);
     const [addMode, setAddMode] = useState(false);
-    const [minPrice, setMinPrice] = useState('');
-    const [maxPrice, setMaxPrice] = useState('');
+
 
 
     const [editableProduct, setEditableProduct] = useState({
@@ -43,18 +43,26 @@ function Home() {
     const handleEdit = () => {
         setEditMode(true);
         setEditableProduct(products[currentIndex]);
+        console.log("Editing:", products[currentIndex]); 
     };
+    
 
     const handleChange = (e, productType) => {
         const { name, value } = e.target;
         if (productType === 'editable') {
-            setEditableProduct(prev => ({ ...prev, [name]: value }));
+            setEditableProduct(prev => {
+                console.log(`Updating field ${name} to ${value}`); // Debugging statement
+                return { ...prev, [name]: value };
+            });
         } else {
             setNewProduct(prev => ({ ...prev, [name]: value }));
         }
     };
+    
+    
 
     const handleUpdate = () => {
+        console.log("Sending Update:", editableProduct); // Check the payload before sending
         fetch(`http://localhost:3003/products/${products[currentIndex]._id}`, {
             method: 'PUT',
             headers: {
@@ -62,17 +70,21 @@ function Home() {
             },
             body: JSON.stringify(editableProduct)
         })
-            .then(response => response.json())
-            .then(updatedProduct => {
-                alert('Product updated successfully');
-                const updatedProducts = products.map((p, index) =>
-                    index === currentIndex ? { ...p, ...editableProduct } : p
-                );
-                setProducts(updatedProducts);
-                setEditMode(false);
-            })
-            .catch(error => console.error('Error updating product:', error));
+        .then(response => response.json())
+        .then(updatedProduct => {
+            console.log("Update Successful:", updatedProduct); // Verify server response
+            const updatedProducts = products.map((p, index) =>
+                index === currentIndex ? { ...p, ...editableProduct } : p
+            );
+            setProducts(updatedProducts);
+            setEditMode(false);
+        })
+        .catch(error => {
+            console.error("Error updating product:", error);
+            alert('Error updating product');
+        });
     };
+    
 
     const handleAddNewProduct = () => {
         fetch('http://localhost:3003/products', {
@@ -149,36 +161,36 @@ function Home() {
                                                             type="text"
                                                             name="name"
                                                             value={editableProduct.name}
-                                                            onChange={handleChange}
+                                                            onChange={(e) => handleChange(e, 'editable')}
                                                             className='form-control mb-2'
                                                         />
                                                         <textarea
                                                             name="description"
                                                             value={editableProduct.description}
-                                                            onChange={handleChange}
+                                                            onChange={(e) => handleChange(e, 'editable')}
                                                             className='form-control mb-2'
                                                         />
                                                         <input
                                                             type="text"
                                                             name="model"
                                                             value={editableProduct.model}
-                                                            onChange={handleChange}
+                                                            onChange={(e) => handleChange(e, 'editable')}
                                                             className='form-control mb-2'
                                                         />
                                                         <input
                                                             type="text"
                                                             name="price"
                                                             value={editableProduct.price}
-                                                            onChange={handleChange}
+                                                            onChange={(e) => handleChange(e, 'editable')}
                                                             className='form-control mb-2'
                                                         />
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <h3 className='grey-bold-ubuntu pt-3'>{editableProduct.name}</h3>
+                                                        <h4 className='grey-bold-ubuntu pt-3'>{editableProduct.name}</h4>
                                                         <p className='light-grey-ubuntu pt-3'>Description: {editableProduct.description}</p>
                                                         <p className='light-grey-ubuntu'>Model: {editableProduct.model}</p>
-                                                        <h3 className='grey-bold-ubuntu pt-3'>Price: {editableProduct.price}</h3>
+                                                        <h3 className='grey-bold-ubuntu pt-3'>Price: ${editableProduct.price}</h3>
                                                     </>
                                                 )}
                                             </div>
@@ -278,10 +290,16 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
+
+                         
                         
                     ) : (
                         <p>No products found</p>
                     )}
+
+                    <div className='col-8 container-margin pt-3'>
+                        <ProductFilter/>
+                    </div>
                 </div>
             </div>
         </div>

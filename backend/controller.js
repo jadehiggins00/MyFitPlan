@@ -3,10 +3,9 @@ const fs = require('fs');
 //to use object id when passing the id from a function in model class and to its type from string to objectId
 
 const express = require('express');
-const {Activity, Day, Week} = require('./models/activities');
-const {Activities} = require('./models/activitiesModel');
+
 const Product = require('./models/products');
-const {Goals} = require('./models/goalsModel');
+
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
