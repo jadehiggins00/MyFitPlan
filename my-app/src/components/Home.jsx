@@ -11,6 +11,9 @@ function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [editMode, setEditMode] = useState(false);
     const [addMode, setAddMode] = useState(false);
+    const [minPrice, setMinPrice] = useState('');
+    const [maxPrice, setMaxPrice] = useState('');
+
 
     const [editableProduct, setEditableProduct] = useState({
         name: '',
