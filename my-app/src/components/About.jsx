@@ -23,9 +23,10 @@ const AboutPage = () => {
         <h3 className='blue-main-text'>Technologies Involved</h3>
         <ul>
             <div className='list-group list-group-flush light-grey-ubuntu'>
-                <li className="list-group-item ">React.js for the front-end user interface.</li>
-            <li className="list-group-item">Node.js and Express for the server-side logic.</li>
-            <li className="list-group-item">MongoDB with Mongoose for the database management.</li>
+                <li className="list-group-item ">React for the front-end user interface.</li>
+                <li className="list-group-item ">AJAX for asynchronous requests</li>
+            <li className="list-group-item">Node and Express for the server-side logic.</li>
+            <li className="list-group-item">MongoDB and MongoDB Atlas with Mongoose for the database management.</li>
             <li className="list-group-item">Bootstrap and custom CSS for styling.</li>
 
             </div>
