@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductFilter from   './Reusable/FilterProducts';
+import Search from   './Reusable/Search';
 import Header from "./Reusable/Header";
 import SideNav from "./Reusable/SideNav";
 import Edit from '../images/edit3.svg';
@@ -113,6 +114,7 @@ function Home() {
                 const updatedProducts = products.filter((_, index) => index !== currentIndex);
                 setProducts(updatedProducts);
                 setCurrentIndex(0);
+             
             })
             .catch(error => console.error('Error deleting product:', error));
     };
@@ -136,7 +138,7 @@ function Home() {
     };
 
     return (
-        <div className="container-fluid page-background">
+        <div className="container-fluid ">
             <Header />
             <div className="row">
                 <div className="sidenav col-sm-auto sticky-top">
@@ -188,9 +190,9 @@ function Home() {
                                                 ) : (
                                                     <>
                                                         <h4 className='grey-bold-ubuntu pt-3'>{editableProduct.name}</h4>
-                                                        <p className='light-grey-ubuntu pt-3'>Description: {editableProduct.description}</p>
-                                                        <p className='light-grey-ubuntu'>Model: {editableProduct.model}</p>
-                                                        <h3 className='grey-bold-ubuntu pt-3'>Price: ${editableProduct.price}</h3>
+                                                        <p className='light-grey-ubuntu pt-3'> <span className='grey-bold-ubuntu'>Description:</span> <br></br> {editableProduct.description}</p>
+                                                        <p className='light-grey-ubuntu'><span className='grey-bold-ubuntu'>Model: <br></br></span> {editableProduct.model}</p>
+                                                        <h3 className='grey-bold-ubuntu pt-3'> ${editableProduct.price}</h3>
                                                     </>
                                                 )}
                                             </div>
@@ -200,7 +202,7 @@ function Home() {
 
                                         </div>
                                         <div className='row pt-3'>
-                                            <div className='col-7'>
+                                            <div className='col-4'>
                                                 {editMode ? (
                                                     <>
                                                         <button className='btn btn-outline-secondary' onClick={() => setEditMode(false)}>Cancel</button>
@@ -222,16 +224,19 @@ function Home() {
                                             </div>
                                             <div className='col-3'>
                                                 <div className='row'>
-                                                    <div className='col-6'>
-                                                        <button className='btn btn-primary px-4' onClick={handlePrevious}>
+                                                    <div className='col-12'>
+                                                        <button className='btn btn-primary px-3' onClick={handlePrevious}>
                                                             <span className='white-bold-ubuntu'>Previous</span>
                                                         </button>
-                                                    </div>
-                                                    <div className='col-6'>
-                                                        <button className='btn btn-primary px-4' onClick={handleNext}>
+                                                        <button className='btn btn-primary px-4 ms-3' onClick={handleNext}>
                                                             <span className='white-bold-ubuntu'>Next</span>
                                                         </button>
                                                     </div>
+                                                    {/* <div className='col-6'>
+                                                        <button className='btn btn-primary px-4' onClick={handleNext}>
+                                                            <span className='white-bold-ubuntu'>Next</span>
+                                                        </button>
+                                                    </div> */}
                                                 </div>
                                             </div>
                                         </div>
@@ -239,7 +244,8 @@ function Home() {
                                         {addMode && (
                                             <div className='col-12 mb-3'>
                                                 <div className="card">
-                                                    <div className="card-header">Add New Product</div>
+                                                    <div className="card-header ">
+                                                        <h5 className='blue-main-text'> Add New Product</h5></div>
                                                     <div className="card-body">
 
                                                         <input
@@ -298,7 +304,14 @@ function Home() {
                     )}
 
                     <div className='col-8 container-margin pt-3'>
-                        <ProductFilter/>
+
+                        <div className='row'>
+                            <div className='col-6'>  <ProductFilter/></div>
+                            <div className='col-6'>    <Search/></div>
+                        </div>
+                      
+                    
+                    
                     </div>
                 </div>
             </div>

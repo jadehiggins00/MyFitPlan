@@ -25,5 +25,7 @@ const productSchema = new mongoose.Schema({
 });
 
 const Product = mongoose.model('products', productSchema);
+productSchema.index({ price: 1 }); // Adds an index on the price field
+
 
 module.exports = Product;

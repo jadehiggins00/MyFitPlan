@@ -30,7 +30,7 @@ function ProductFilter() {
 
                 <div className='card-body'>
                     <div className='row'>
-                        <div className='col-6'>
+                        <div className='col-12'>
                         <input
                             type="number"
                             placeholder="Min Price"
@@ -47,7 +47,7 @@ function ProductFilter() {
                         />
                       <button className='btn btn-primary' onClick={handleSearch}>Search</button>
                         </div>
-                        <div className='col-6'></div>
+                       
 
                     </div>
                     <div className='row pt-3'>

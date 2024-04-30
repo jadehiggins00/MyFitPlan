@@ -126,6 +126,45 @@ app.get('/products/search', (req, res) => {
 
 
 
+// Get all products sorted by price
+app.get('/products/sorted-by-price', (req, res) => {
+    const sortDirection = req.query.sort || 'asc'; 
+    const sortOrder = sortDirection === 'desc' ? -1 : 1; 
+
+    Product.find({})
+        .sort({ price: sortOrder }) 
+        .then(products => {
+            res.status(200).json(products);
+        })
+        .catch(error => {
+            console.error("Failed to retrieve products sorted by price:", error);
+            res.status(500).json({ error: "Internal server error", details: error.message });
+        });
+});
+
+
+// search for products by name
+app.get('/products/search-by-name', (req, res) => {
+    const { name } = req.query;
+    Product.find({
+        name: new RegExp(name, 'i'), // Case-insensitive search
+    })
+    .then(products => {
+        if (products.length > 0) {
+            res.status(200).json(products);
+        } else {
+            res.status(404).json({ message: "No products found" });
+        }
+    })
+    .catch(error => {
+        console.error("Failed to search products by name:", error);
+        res.status(500).json({ error: "Internal server error", details: error.message });
+    });
+  });
+  
+
+
+
 // filter products by price range
 app.get('/products/filter', (req, res) => {
   const { minPrice, maxPrice } = req.query;

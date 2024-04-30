@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../css/App.css';
-
+import Home from '../../images/home.svg';
+import About from '../../images/about.svg';
 import { Link } from 'react-router-dom';
 
 const SideNavComponent = () => {
@@ -43,8 +44,8 @@ const SideNavComponent = () => {
                                 <div className='btn-group'>
                                 <Link to="/" className='text-decoration-none'>
                                   <button  className=" btn tab-button d-flex align-items-center justify-content-center  "  id="fossil-tab" >
-                                        {/* <img src={home} alt="Species tab" className="leaf-icon " /> */}
-                                        <span className=" text-container nav-text me-4" id="nav-text-species3" >Home</span>
+                                        <img src={Home} alt="Species tab" className="leaf-icon " />
+                                        <span className=" text-container nav-text me-4" id="nav-text-fossil" >Home</span>
                                     </button>
                                   </Link>
                                
@@ -57,10 +58,10 @@ const SideNavComponent = () => {
                         <div className="nav-item d-flex justify-content-start">
                             <div className="button-container" style={{ position: 'relative' }} >
                                 <div className='btn-group'>
-                                <Link to="/" className='text-decoration-none'>
+                                <Link to="/about" className='text-decoration-none'>
                                   <button  className=" btn tab-button d-flex align-items-center justify-content-center  "  id="fossil-tab" >
-                                        {/* <img src={home} alt="Species tab" className="leaf-icon " /> */}
-                                        <span className=" text-container nav-text me-4" id="nav-text-species3" >Home</span>
+                                        <img src={About} alt="Species tab" className="leaf-icon " />
+                                        <span className=" text-container nav-text me-4" id="nav-text-fossil" >About</span>
                                     </button>
                                   </Link>
                             
@@ -68,38 +69,8 @@ const SideNavComponent = () => {
                             </div>
                         </div>
                     </li>
-                    <li className='pt-5'>
-                        <div className="nav-item d-flex justify-content-start">
-                            <div className="button-container"  style={{ position: 'relative' }}>
-                                <div className='btn-group'>
-                                <Link to="/" className='text-decoration-none'>
-                                  <button  className=" btn tab-button d-flex align-items-center justify-content-center  "  id="fossil-tab" >
-                                        {/* <img src={home} alt="Species tab" className="leaf-icon " /> */}
-                                        <span className=" text-container nav-text me-4" id="nav-text-species3" >Home</span>
-                                    </button>
-                                  </Link>
-                           
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+              
 
-                    <li className='pt-5'>
-                        <div className="nav-item d-flex justify-content-center">
-                            <div className="button-container"  style={{ position: 'relative' }}>
-                                <div className='btn-group'>
-                                  <Link to="/" className='text-decoration-none'>
-                                  <button  className=" btn tab-button d-flex align-items-center justify-content-center  "  id="fossil-tab" >
-                                        {/* <img src={home} alt="Species tab" className="leaf-icon " /> */}
-                                        <span className=" text-container nav-text me-4" id="nav-text-species3" >Home</span>
-                                    </button>
-                                  </Link>
-                               
-
-                                </div>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
